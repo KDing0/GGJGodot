@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ukc04gvtb3x4"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_sqcps"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j2d2x"]
+
+[node name="Bullet" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 7
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+scale = Vector2(12, 12)
+mesh = SubResource("QuadMesh_sqcps")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_j2d2x")
