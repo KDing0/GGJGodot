@@ -1,0 +1,15 @@
+{
+	"name": "SemiGrappler",
+	"friendly_name": "SemiGrappler",
+	"description": "A close range fighter with bad mobility\\nand low range, but strong grabs and okizeme.\\n\\nOnly has a single air option and has bad mobility normally but can set up rocks to bounce opponents or teleport to and from. Additionally can end most combos with a knockdown into a restand, which provides frame advantage for strong RPS.",
+	"author": "KDing",
+	"version": "1.0.7",
+	"link": "",
+	"id": 12345,
+	"requires": [
+		"char_loader"
+	],
+	"overwrites": false,
+	"client_side": false,
+	"priority": 0
+}

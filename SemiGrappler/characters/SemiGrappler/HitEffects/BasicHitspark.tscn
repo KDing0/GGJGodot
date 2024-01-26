@@ -1,0 +1,77 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/effects/FRPur2.png" type="Texture2D" id=2]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/effects/anime hit 1small.png" type="Texture2D" id=3]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=4]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/effects/anime hit 5small.png" type="Texture2D" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0.503409 ), 0.0, 1.68333, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=4]
+offsets = PackedFloat32Array( 0, 0.289286, 0.607143, 0.707143, 0.972067, 1 )
+colors = PackedColorArray( 1, 1, 1, 1, 0.447754, 0.246134, 0.043726, 1, 0.0350342, 0.320312, 0.0528641, 1, 0.15465, 0.280503, 0.00547857, 1, 1, 0, 0.372549, 0, 1, 0, 0.376471, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=7]
+blend_mode = 1
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 1 ), 0.0, -1.22424, 0, 0, Vector2( 1, 0 ), -0.918182, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=9]
+offsets = PackedFloat32Array( 0, 0.513967, 0.726257, 1 )
+colors = PackedColorArray( 0.429688, 1, 0, 1, 0, 1, 0.671875, 1, 0, 0.29921, 0.563218, 0.563218, 0, 0, 0, 0 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0 ), 0.0, 2.98409, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=6]
+colors = PackedColorArray( 1, 1, 1, 1, 0, 0, 0, 0 )
+
+[node name="ParticleEffect" instance=ExtResource( 1 )]
+material = SubResource( 1 )
+
+[node name="mainhit" type="CPUParticles2D" parent="." index="1"]
+amount = 1
+lifetime = 0.15
+texture = ExtResource( 3 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 0.2
+scale_amount_curve = SubResource( 3 )
+color_ramp = SubResource( 4 )
+
+[node name="glow" type="CPUParticles2D" parent="." index="2"]
+material = SubResource( 7 )
+amount = 1
+lifetime = 0.2
+texture = ExtResource( 2 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 0.06
+scale_amount_curve = SubResource( 8 )
+color_ramp = SubResource( 9 )
+
+[node name="wind" type="CPUParticles2D" parent="." index="3"]
+amount = 1
+lifetime = 0.15
+texture = ExtResource( 5 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 0.1
+scale_amount_curve = SubResource( 5 )
+color = Color( 0.839216, 0.976471, 0.360784, 1 )
+color_ramp = SubResource( 6 )

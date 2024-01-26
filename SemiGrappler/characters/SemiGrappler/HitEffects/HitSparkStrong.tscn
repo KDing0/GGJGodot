@@ -1,0 +1,124 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/effects/FRPur2.png" type="Texture2D" id=2]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/effects/anime hit 1small.png" type="Texture2D" id=3]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=4]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/effects/anime hit 5small.png" type="Texture2D" id=5]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/effects/anime hit 42.png" type="Texture2D" id=6]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/projectiles/Stones11.png" type="Texture2D" id=7]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0.503409 ), 0.0, 1.68333, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=4]
+offsets = PackedFloat32Array( 0, 0.289286, 0.607143, 0.707143, 0.972067, 1 )
+colors = PackedColorArray( 1, 1, 1, 1, 0.447754, 0.246134, 0.043726, 1, 0.0350342, 0.320312, 0.0528641, 1, 0.15465, 0.280503, 0.00547857, 1, 1, 0, 0.372549, 0, 1, 0, 0.376471, 0 )
+
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 0 ), 0.0, 3.45316, 0, 0, Vector2( 0.5, 0.929545 ), 0.386603, 0.386603, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=11]
+offsets = PackedFloat32Array( 0, 0.446927, 0.698324, 1 )
+colors = PackedColorArray( 1, 1, 1, 1, 0.511719, 0.243397, 0.0279846, 0.698039, 0.359717, 0.980469, 0.0114899, 0.345098, 0, 0.671875, 1, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=7]
+blend_mode = 1
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 1 ), 0.0, -1.22424, 0, 0, Vector2( 1, 0 ), -0.918182, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=9]
+offsets = PackedFloat32Array( 0, 0.513967, 0.726257, 1 )
+colors = PackedColorArray( 0.429688, 1, 0, 1, 0, 1, 0.671875, 1, 0, 0.29921, 0.563218, 0.563218, 0, 0, 0, 0 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0 ), 0.0, 2.98409, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=6]
+colors = PackedColorArray( 1, 1, 1, 1, 0, 0, 0, 0 )
+
+[sub_resource type="Curve" id=18]
+_data = [ Vector2( 0, 0.322727 ), 0.0, -0.419567, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=19]
+offsets = PackedFloat32Array( 0, 0.290503, 0.547486, 1 )
+colors = PackedColorArray( 1, 1, 1, 1, 1, 0.871674, 0.433594, 1, 1, 0, 0.632812, 1, 0.0784314, 0, 1, 0 )
+
+[node name="ParticleEffect" instance=ExtResource( 1 )]
+material = SubResource( 1 )
+
+[node name="mainhit" type="CPUParticles2D" parent="." index="1"]
+amount = 1
+lifetime = 0.15
+texture = ExtResource( 3 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 0.35
+scale_amount_curve = SubResource( 3 )
+color_ramp = SubResource( 4 )
+
+[node name="ringhit" type="CPUParticles2D" parent="." index="2"]
+position = Vector2( -13, -21 )
+amount = 1
+lifetime = 0.15
+texture = ExtResource( 6 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+angle = -407.0
+scale_amount = 0.5
+scale_amount_curve = SubResource( 10 )
+color_ramp = SubResource( 11 )
+
+[node name="glow" type="CPUParticles2D" parent="." index="3"]
+material = SubResource( 7 )
+amount = 1
+lifetime = 0.2
+texture = ExtResource( 2 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 0.16
+scale_amount_curve = SubResource( 8 )
+color_ramp = SubResource( 9 )
+
+[node name="wind" type="CPUParticles2D" parent="." index="4"]
+amount = 1
+lifetime = 0.15
+texture = ExtResource( 5 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 0.3
+scale_amount_curve = SubResource( 5 )
+color = Color( 0.839216, 0.976471, 0.360784, 1 )
+color_ramp = SubResource( 6 )
+
+[node name="dots" type="CPUParticles2D" parent="." index="5"]
+position = Vector2( 1, -2 )
+amount = 250
+lifetime = 0.5
+explosiveness = 0.97
+lifetime_randomness = 0.25
+texture = ExtResource( 7 )
+spread = 180.0
+gravity = Vector2( 0, 1500 )
+initial_velocity = 900.0
+linear_accel = -3000.0
+angle = 360.0
+angle_random = 1.0
+scale_amount = 0.5
+scale_amount_random = 0.31
+scale_amount_curve = SubResource( 18 )
+color_ramp = SubResource( 19 )

@@ -1,0 +1,245 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/effects/Burnmark_2.png" type="Texture2D" id=3]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/effects/FRPur.png" type="Texture2D" id=4]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/effects/anime hit 5small.png" type="Texture2D" id=5]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/effects/RingThing_000223.png" type="Texture2D" id=6]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/projectiles/Stones11.png" type="Texture2D" id=7]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=8]
+[ext_resource path="res://fx/diamond.png" type="Texture2D" id=9]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/projectiles/Stones4.png" type="Texture2D" id=10]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/projectiles/Stones6.png" type="Texture2D" id=11]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/projectiles/Stones2.png" type="Texture2D" id=12]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/projectiles/Stones7.png" type="Texture2D" id=13]
+
+[sub_resource type="ShaderMaterial" id=5]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=7]
+blend_mode = 1
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 1 ), 0.0, -0.968682, 0, 0, Vector2( 1, 0 ), -1.0127, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=11]
+_data = [ Vector2( 0, 0 ), 0.0, 3.45316, 0, 0, Vector2( 0.5, 0.929545 ), 0.386603, 0.386603, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=12]
+offsets = PackedFloat32Array( 0, 0.446927, 0.698324, 1 )
+colors = PackedColorArray( 1, 1, 1, 1, 0, 1, 0.0862745, 0.596078, 0.597656, 0.96228, 1, 0.345098, 0, 0.671875, 1, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=13]
+blend_mode = 1
+
+[sub_resource type="Curve" id=14]
+_data = [ Vector2( 0, 1 ), 0.0, -1.22424, 0, 0, Vector2( 1, 0 ), -0.918182, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=15]
+offsets = PackedFloat32Array( 0, 0.513967, 0.726257, 1 )
+colors = PackedColorArray( 0.495692, 0.270784, 0.0290445, 1, 0.78021, 0.89413, 0, 1, 0, 1, 0.721159, 0.563218, 0, 0, 0, 0 )
+
+[sub_resource type="Curve" id=16]
+_data = [ Vector2( 0, 0 ), 0.0, 2.98409, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=17]
+colors = PackedColorArray( 1, 1, 1, 1, 0, 0, 0, 0 )
+
+[sub_resource type="Curve" id=18]
+_data = [ Vector2( 0, 0.322727 ), 0.0, -0.419567, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=19]
+offsets = PackedFloat32Array( 0, 0.290503, 0.547486, 1 )
+colors = PackedColorArray( 1, 1, 1, 1, 1, 0.871674, 0.433594, 1, 1, 0, 0.632812, 1, 0.0784314, 0, 1, 0 )
+
+[node name="ParticleEffect" instance=ExtResource( 1 )]
+material = SubResource( 5 )
+
+[node name="circle" type="CPUParticles2D" parent="." index="1"]
+material = SubResource( 7 )
+z_index = 2
+amount = 1
+lifetime = 0.1
+texture = ExtResource( 3 )
+gravity = Vector2( 0, 0 )
+scale_amount = 0.25
+scale_amount_curve = SubResource( 8 )
+color = Color( 0.458824, 0.215686, 0.0823529, 1 )
+
+[node name="ringhit" type="CPUParticles2D" parent="." index="2"]
+amount = 1
+lifetime = 0.1
+texture = ExtResource( 6 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+angle = -90.0
+scale_amount = 0.2
+scale_amount_curve = SubResource( 11 )
+color_ramp = SubResource( 12 )
+
+[node name="glow" type="CPUParticles2D" parent="." index="3"]
+material = SubResource( 13 )
+amount = 1
+lifetime = 0.2
+texture = ExtResource( 4 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 0.1
+scale_amount_curve = SubResource( 14 )
+color_ramp = SubResource( 15 )
+
+[node name="wind" type="CPUParticles2D" parent="." index="4"]
+amount = 1
+lifetime = 0.15
+texture = ExtResource( 5 )
+gravity = Vector2( 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale_amount = 0.2
+scale_amount_curve = SubResource( 16 )
+color = Color( 0.839216, 0.976471, 0.360784, 1 )
+color_ramp = SubResource( 17 )
+
+[node name="dots" type="CPUParticles2D" parent="." index="5"]
+position = Vector2( 1, -2 )
+amount = 100
+lifetime = 0.5
+explosiveness = 0.99
+lifetime_randomness = 0.25
+texture = ExtResource( 7 )
+spread = 180.0
+gravity = Vector2( 0, 1500 )
+initial_velocity = 900.0
+linear_accel = -3000.0
+angle = 360.0
+angle_random = 1.0
+scale_amount = 0.5
+scale_amount_random = 0.31
+scale_amount_curve = SubResource( 18 )
+color_ramp = SubResource( 19 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Rocks1" type="CPUParticles2D" parent="." index="6"]
+amount = 6
+lifetime = 1.3
+speed_scale = 2.37
+explosiveness = 1.0
+lifetime_randomness = 0.46
+texture = ExtResource( 13 )
+emission_shape = 1
+emission_sphere_radius = 24.5
+direction = Vector2( 0, -1 )
+spread = 93.96
+gravity = Vector2( 0, 100 )
+initial_velocity = 80.0
+initial_velocity_random = 0.42
+damping = 24.62
+damping_random = 0.26
+angle = 280.8
+angle_random = 1.0
+scale_amount = 0.1
+scale_amount_random = 0.2
+color = Color( 0.678431, 0.678431, 0.678431, 1 )
+hue_variation = 0.01
+hue_variation_random = 0.5
+
+[node name="Rocks2" type="CPUParticles2D" parent="." index="7"]
+amount = 6
+lifetime = 1.3
+speed_scale = 2.37
+explosiveness = 1.0
+lifetime_randomness = 0.46
+texture = ExtResource( 12 )
+emission_shape = 1
+emission_sphere_radius = 24.5
+direction = Vector2( 0, -1 )
+spread = 93.96
+gravity = Vector2( 0, 100 )
+initial_velocity = 80.0
+initial_velocity_random = 0.42
+damping = 24.62
+damping_random = 0.26
+angle = 280.8
+angle_random = 1.0
+scale_amount = 0.05
+scale_amount_random = 0.2
+color = Color( 0.678431, 0.678431, 0.678431, 1 )
+hue_variation = 0.01
+hue_variation_random = 0.5
+
+[node name="Rocks3" type="CPUParticles2D" parent="." index="8"]
+amount = 6
+lifetime = 1.3
+speed_scale = 2.37
+explosiveness = 1.0
+lifetime_randomness = 0.46
+texture = ExtResource( 10 )
+emission_shape = 1
+emission_sphere_radius = 24.5
+direction = Vector2( 0, -1 )
+spread = 93.96
+gravity = Vector2( 0, 100 )
+initial_velocity = 80.0
+initial_velocity_random = 0.42
+damping = 24.62
+damping_random = 0.26
+angle = 280.8
+angle_random = 1.0
+scale_amount = 0.05
+scale_amount_random = 0.2
+color = Color( 0.678431, 0.678431, 0.678431, 1 )
+hue_variation = 0.01
+hue_variation_random = 0.5
+
+[node name="Rocks4" type="CPUParticles2D" parent="." index="9"]
+amount = 6
+lifetime = 1.3
+speed_scale = 2.37
+explosiveness = 1.0
+lifetime_randomness = 0.46
+texture = ExtResource( 11 )
+emission_shape = 1
+emission_sphere_radius = 24.5
+direction = Vector2( 0, -1 )
+spread = 93.96
+gravity = Vector2( 0, 100 )
+initial_velocity = 80.0
+initial_velocity_random = 0.42
+damping = 24.62
+damping_random = 0.26
+angle = 280.8
+angle_random = 1.0
+scale_amount = 0.05
+scale_amount_random = 0.1
+color = Color( 0.678431, 0.678431, 0.678431, 1 )
+hue_variation = 0.01
+hue_variation_random = 0.5
+
+[node name="CPUParticles2D7" type="CPUParticles2D" parent="." index="10"]
+visible = false
+amount = 200
+lifetime = 1.3
+speed_scale = 3.98
+explosiveness = 1.0
+lifetime_randomness = 0.46
+texture = ExtResource( 9 )
+emission_shape = 1
+emission_sphere_radius = 24.5
+direction = Vector2( 0, -1 )
+spread = 35.48
+gravity = Vector2( 0, 100 )
+initial_velocity = 105.16
+damping = 24.62
+angle = 280.8
+scale_amount = 0.1
+scale_amount_random = 0.2
+color = Color( 0.588235, 0.392157, 0.00784314, 1 )

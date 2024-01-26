@@ -1,0 +1,123 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/Particle/Tonrado Hold8-1.png" type="Texture2D" id=2]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=3]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/projectiles/Default.gd" type="Script" id=4]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=5]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/projectiles/TornadoHoldWind.gd" type="Script" id=6]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/Particle/Tonrado Hold7-2.png" type="Texture2D" id=7]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/Particle/Tonrado Hold5-1.png" type="Texture2D" id=8]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/Particle/Tonrado Hold6-1.png" type="Texture2D" id=9]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/Particle/Tonrado Hold1.png" type="Texture2D" id=10]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/Particle/Tonrado Hold3.png" type="Texture2D" id=11]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/Particle/Tonrado Hold2.png" type="Texture2D" id=12]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/Particle/Tonrado Hold2-2.png" type="Texture2D" id=13]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/Particle/Tonrado Hold5-2.png" type="Texture2D" id=14]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/Particle/Tonrado Hold6-2.png" type="Texture2D" id=15]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/Particle/Tonrado Hold7-1.png" type="Texture2D" id=16]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/Particle/Empty.png" type="Texture2D" id=17]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/Particle/Tonrado Hold3-2.png" type="Texture2D" id=18]
+[ext_resource path="res://SemiGrappler/characters/SemiGrappler/Particle/Tonrado Hold4-1.png" type="Texture2D" id=19]
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = ExtResource( 5 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 18 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 19 ), ExtResource( 14 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Wind" instance=ExtResource( 1 )]
+material = SubResource( 2 )
+z_index = 2
+script = ExtResource( 6 )
+dummy = true
+gravity = "0"
+air_friction = "0"
+max_ground_speed = "0"
+max_air_speed = "0"
+max_fall_speed = "0"
+has_projectile_parry_window = false
+immunity_susceptible = false
+deletes_other_projectiles = false
+fizzle_on_ceiling = false
+free = true
+one_shot = true
+lifetime = 20.0
+start_enabled = true
+
+[node name="Sprite2D" parent="Flip" index="0"]
+visible = false
+z_index = -2
+frames = SubResource( 1 )
+offset = Vector2( 0, -4 )
+
+[node name="Particles" parent="Flip" index="1"]
+visible = false
+
+[node name="CollisionBox" parent="." index="2"]
+width = 0
+height = 0
+
+[node name="Hurtbox" parent="." index="3"]
+width = 0
+height = 0
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": ""
+}
+sprite_animation = "default"
+endless = false
+move_x = 0
+lifetime = 21
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Default" index="0"]
+z_index = 1000
+script = ExtResource( 3 )
+width = 50
+height = 40
+damage = 200
+hitstun_ticks = 40
+victim_hitlag = 4
+screenshake_amount = 8
+screenshake_frames = 6
+dir_x = "0.5"
+knockback = "7"
+launch_reversible = true
+grounded_hit_state = "HurtAerial"
+start_tick = -1
+active_ticks = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="6"]
+z_index = 1000
+frames = SubResource( 3 )
+
+[node name="AnimatedSprite2" type="AnimatedSprite2D" parent="." index="7"]
+z_index = -1000
+frames = SubResource( 3 )
+animation = "New Anim"
