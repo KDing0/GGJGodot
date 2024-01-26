@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4ajf2330ej2i"]
+[gd_scene load_steps=14 format=3 uid="uid://d4ajf2330ej2i"]
 
 [ext_resource type="Texture2D" uid="uid://cc8w88qsi6m2k" path="res://Background/Green.png" id="1_33hsd"]
 [ext_resource type="Texture2D" uid="uid://cjhd0n8elt3kh" path="res://Terrain/Terrain (16x16).png" id="2_4a13g"]
 [ext_resource type="PackedScene" uid="uid://dchl8kjmokmmi" path="res://Scenes/character_body_2d.tscn" id="3_xu4yr"]
+[ext_resource type="Script" path="res://AIThingy/TalkTrigger.gd" id="4_lm8gq"]
 [ext_resource type="Script" path="res://GameManager.gd" id="4_lq1kx"]
 [ext_resource type="PackedScene" uid="uid://drn404jiab14s" path="res://Scenes/cherry.tscn" id="4_xcaf6"]
+[ext_resource type="Script" path="res://AIThingy/DialogueBox.gd" id="6_flepn"]
+[ext_resource type="Script" path="res://AIThingy/ChatGptInterface.gd" id="7_xkg0m"]
+[ext_resource type="PackedScene" uid="uid://bevii5hx4xr6d" path="res://Scenes/textNPC.tscn" id="8_71akn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_baoux"]
 texture = ExtResource("2_4a13g")
@@ -472,6 +476,11 @@ texture = ExtResource("2_4a13g")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_baoux")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qa0ro"]
+radius = 16.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wk5yy"]
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -494,6 +503,12 @@ position = Vector2(160, 290)
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
+
+[node name="TalkTrigger" type="Area2D" parent="CharacterBody2D"]
+script = ExtResource("4_lm8gq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/TalkTrigger"]
+shape = SubResource("CircleShape2D_qa0ro")
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -531,3 +546,77 @@ offset_bottom = 92.0
 text = "Points: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="DialogueBox" type="Panel" parent="CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.494
+anchor_right = 0.5
+anchor_bottom = 0.494
+offset_left = -320.0
+offset_top = -128.112
+offset_right = 320.0
+offset_bottom = 127.888
+script = ExtResource("6_flepn")
+
+[node name="DialogueText" type="RichTextLabel" parent="CanvasLayer/DialogueBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.75
+offset_left = 184.0
+offset_top = 32.0
+offset_right = -24.0
+offset_bottom = -32.0
+text = "Here is where the NPC's dialogue will go when they are talking to the player. Here is where the NPC's dialogue will go when they are talking to the player."
+
+[node name="NPCIcon" type="TextureRect" parent="CanvasLayer/DialogueBox"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 152.0
+offset_bottom = 152.0
+texture = SubResource("PlaceholderTexture2D_wk5yy")
+
+[node name="PlayerTalkInput" type="TextEdit" parent="CanvasLayer/DialogueBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -56.0
+offset_right = -152.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Talk to the NPC..."
+
+[node name="TalkButton" type="Button" parent="CanvasLayer/DialogueBox"]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 200.0
+offset_right = 552.0
+offset_bottom = 239.0
+text = "Talk"
+
+[node name="LeaveButton" type="Button" parent="CanvasLayer/DialogueBox"]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 200.0
+offset_right = 616.0
+offset_bottom = 239.0
+text = "Leave"
+
+[node name="ChatGptInterface" type="Node" parent="."]
+script = ExtResource("7_xkg0m")
+
+[node name="NPC_Wizard" parent="." instance=ExtResource("8_71akn")]
+position = Vector2(232, 543)
+scale = Vector2(4, 4)
+
+[connection signal="body_entered" from="CharacterBody2D/TalkTrigger" to="CharacterBody2D/TalkTrigger" method="_on_body_entered"]
+[connection signal="body_exited" from="CharacterBody2D/TalkTrigger" to="CharacterBody2D/TalkTrigger" method="_on_body_exited"]
+[connection signal="pressed" from="CanvasLayer/DialogueBox/TalkButton" to="CanvasLayer/DialogueBox" method="_on_talk_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DialogueBox/LeaveButton" to="CanvasLayer/DialogueBox" method="_on_leave_button_pressed"]

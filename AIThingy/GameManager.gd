@@ -1,9 +1,6 @@
 extends Node
 
-@onready var label = %Label
-var points = 0
-
-@onready var dialogue_box = $"../CanvasLayer/DialogueBox"
+@onready var dialogue_box = get_node("/root/Main/CanvasLayer/DialogueBox")
 @onready var chat_gpt_interface = $"../ChatGptInterface"
 
 var current_npc
@@ -16,13 +13,6 @@ signal on_npc_talk (npc_dialogue)
 func _ready():
 	chat_gpt_interface.appendMessage.connect(_appendMessage)
 	
-
-func add_point():
-	points += 1
-	print(points)
-	label.text = "Points: " + str(points)
-
-
 
 func _appendMessage(message):
 	messages.append(message)

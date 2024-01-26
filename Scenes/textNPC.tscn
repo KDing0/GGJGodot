@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bevii5hx4xr6d"]
+
+[ext_resource type="Script" path="res://AIThingy/NPC.gd" id="1_hu8ek"]
+[ext_resource type="Texture2D" uid="uid://btcaq7m2x6qkf" path="res://AIThingy/Sprites/Characters/tile_0084.png" id="2_khk3d"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3wydm"]
+radius = 7.0
+height = 16.0
+
+[node name="NPC_Wizard" type="CharacterBody2D" groups=["NPC"]]
+position = Vector2(44, 14)
+motion_mode = 1
+script = ExtResource("1_hu8ek")
+icon = ExtResource("2_khk3d")
+physical_description = "A cute girl called Lisette,"
+location_description = "In the forest"
+personality = "Really flirty, likes you a lot"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+texture = ExtResource("2_khk3d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3wydm")
