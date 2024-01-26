@@ -18,6 +18,15 @@ func _ready():
 func actor_setup():
 	await get_tree().physics_frame
 	movement_target_position = Vector2(0.0, 0.0)
+	
+	var timer = Timer.new()
+	timer.timeout.connect(_on_timer_timeout)
+	self.add_child(timer)
+	timer.start(2.0)
+
+func _on_timer_timeout():
+	movement_target_position = Vector2(1000.0, 1000.0)
+	
 
 func _physics_process(delta):
 	
