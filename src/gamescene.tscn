@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=3 uid="uid://d4ajf2330ej2i"]
+
+[ext_resource type="PackedScene" uid="uid://cf6o2n1w1lpv0" path="res://Enemy/enemy.tscn" id="1_80436"]
+[ext_resource type="PackedScene" uid="uid://ipk1i003beqy" path="res://Player/player.tscn" id="2_uygfl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cd6u2"]
+size = Vector2(72, 710)
+
+[sub_resource type="QuadMesh" id="QuadMesh_y34g5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_an7d4"]
+size = Vector2(1178.5, 75)
+
+[sub_resource type="QuadMesh" id="QuadMesh_y7bif"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7cff"]
+size = Vector2(65, 705)
+
+[sub_resource type="QuadMesh" id="QuadMesh_lipyb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4cv2"]
+size = Vector2(1178.5, 75)
+
+[sub_resource type="QuadMesh" id="QuadMesh_q2dtn"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="enemy" parent="." instance=ExtResource("1_80436")]
+position = Vector2(685, 154)
+
+[node name="player" parent="." instance=ExtResource("2_uygfl")]
+position = Vector2(597, 505)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(574, 328)
+
+[node name="obstacle" type="Node2D" parent="."]
+
+[node name="LeftWall" type="StaticBody2D" parent="obstacle"]
+collision_mask = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle/LeftWall"]
+position = Vector2(-1, 327)
+shape = SubResource("RectangleShape2D_cd6u2")
+one_way_collision_margin = 100.1
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="obstacle/LeftWall"]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(0.5, 329.5)
+scale = Vector2(33, 649)
+mesh = SubResource("QuadMesh_y34g5")
+
+[node name="UpperWall" type="StaticBody2D" parent="obstacle"]
+collision_mask = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle/UpperWall"]
+position = Vector2(577, 7)
+shape = SubResource("RectangleShape2D_an7d4")
+one_way_collision_margin = 100.1
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="obstacle/UpperWall"]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(578, 7)
+scale = Vector2(1161.63, 45.5)
+mesh = SubResource("QuadMesh_y7bif")
+
+[node name="RighWall" type="StaticBody2D" parent="obstacle"]
+collision_mask = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle/RighWall"]
+position = Vector2(1140, 320)
+shape = SubResource("RectangleShape2D_v7cff")
+one_way_collision_margin = 100.1
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="obstacle/RighWall"]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(1139, 325)
+scale = Vector2(33, 649)
+mesh = SubResource("QuadMesh_lipyb")
+
+[node name="DownWall" type="StaticBody2D" parent="obstacle"]
+collision_mask = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle/DownWall"]
+position = Vector2(577, 643)
+shape = SubResource("RectangleShape2D_h4cv2")
+one_way_collision_margin = 100.1
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="obstacle/DownWall"]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(578, 647)
+scale = Vector2(1161.63, 45.5)
+mesh = SubResource("QuadMesh_q2dtn")
