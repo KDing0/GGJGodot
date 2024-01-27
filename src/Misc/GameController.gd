@@ -27,4 +27,10 @@ func spawnEnemy(enemyType):
 	enemy_instance.set_parameters(tex_enemy[0], test)
 	test += 1.0
 	get_node("../EnemyPaths/Path2D").add_child(enemy_instance)
+	setInstantiateBulletPattern(enemy_instance, enemyType)
 	
+func setInstantiateBulletPattern(enemy_instance, enemyType):
+	enemy_instance.BulletSpawnOffset = Vector2(0,0)
+	enemy_instance.BulletSpawnID = "two"
+	enemy_instance.BulletAnimationID = "first"
+	enemy_instance.BulletRotation = 0

@@ -32,9 +32,9 @@ func _on_timer_timeout():
 
 func _input(event):
 	if event.is_action_pressed("PTest"):
-		print("triggered")
+		
 		var pos = global_position + BulletSpawnOffset
-		Spawning.spawn({"position": pos, "rotation": 15}, "one", "first")
+		Spawning.spawn({"position": pos, "rotation": BulletRotation}, BulletSpawnID, BulletAnimationID)
 
 func shoot():
 	# for anzahl bullets
