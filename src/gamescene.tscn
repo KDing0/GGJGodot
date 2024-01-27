@@ -1,8 +1,8 @@
 [gd_scene load_steps=28 format=3 uid="uid://d4ajf2330ej2i"]
 
 [ext_resource type="Script" path="res://Misc/GameController.gd" id="1_prura"]
+[ext_resource type="Texture2D" uid="uid://dnbv34diyutyx" path="res://Assets/Characters/Enemies/Enemy1 Walk Animation Spritesheet.png" id="2_qbns1"]
 [ext_resource type="PackedScene" uid="uid://ipk1i003beqy" path="res://Player/player.tscn" id="2_uygfl"]
-[ext_resource type="Texture2D" uid="uid://cfajhosw6ap6y" path="res://icon.svg" id="2_xpmd0"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/BuHPattern.gd" id="4_ehlb4"]
 [ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="5_ck2a0"]
 [ext_resource type="Script" path="res://Addons/BulletUpHell/BuHBulletProperties.gd" id="6_7xkk1"]
@@ -265,7 +265,7 @@ r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
 [node name="GameController" type="Node" parent="."]
 script = ExtResource("1_prura")
-tex_enemy = Array[Texture2D]([ExtResource("2_xpmd0")])
+tex_enemy = Array[Texture2D]([ExtResource("2_qbns1")])
 
 [node name="player" parent="." instance=ExtResource("2_uygfl")]
 position = Vector2(304, 520)

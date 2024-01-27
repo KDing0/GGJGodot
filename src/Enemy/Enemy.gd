@@ -19,6 +19,8 @@ func set_parameters(p_texture: Texture2D = null, p_speed: float = 5.0, p_type :=
 	speed = p_speed
 	enemy_type = p_type
 
+func _ready():
+	$AnimationPlayer.play("move")
 
 func _process(delta):
 	progress += speed
