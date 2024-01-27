@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d4ajf2330ej2i"]
+[gd_scene load_steps=26 format=3 uid="uid://d4ajf2330ej2i"]
 
 [ext_resource type="PackedScene" uid="uid://cf6o2n1w1lpv0" path="res://Enemy/enemy.tscn" id="1_80436"]
 [ext_resource type="Script" path="res://Misc/GameController.gd" id="1_prura"]
@@ -33,6 +33,12 @@ size = Vector2(1178.5, 75)
 [sub_resource type="Curve2D" id="Curve2D_3sj47"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -202, -121, -24.0416, -19.799, 24.0416, 19.799, 148, 85, -4.24264, -111.723, 4.24264, 111.723, 272, 324, 29.6985, -36.7695, -29.6985, 36.7695, 221, 559, 0, 0, 0, 0, -138, 836)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_2c1im"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1261, 99, 49.4975, -2.82843, -49.4975, 2.82843, 361, 108, -1.41421, -172.534, 1.41421, 172.534, 310, 304, -57.9827, -4.24264, 57.9827, 4.24264, 357, 531, 0, 0, 0, 0, 1487, 624)
 }
 point_count = 5
 
@@ -269,11 +275,11 @@ mesh = SubResource("QuadMesh_q2dtn")
 
 [node name="EnemyPaths" type="Node2D" parent="."]
 
-[node name="Path2D" type="Path2D" parent="EnemyPaths"]
+[node name="EnemyPath_01" type="Path2D" parent="EnemyPaths"]
 curve = SubResource("Curve2D_3sj47")
 
-[node name="enemy" parent="EnemyPaths/Path2D" instance=ExtResource("1_80436")]
-position = Vector2(-202, -121)
+[node name="EnemyPath_02" type="Path2D" parent="EnemyPaths"]
+curve = SubResource("Curve2D_2c1im")
 
 [node name="SpawnPattern" type="Path2D" parent="."]
 curve = SubResource("Curve2D_jqf82")

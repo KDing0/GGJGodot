@@ -6,6 +6,7 @@ extends Node
 
 var test = 1.0
 var d = 0.0
+var rng = RandomNumberGenerator.new()
 
 var enemyScene = preload("res://Enemy/enemy.tscn")
 
@@ -23,8 +24,9 @@ func _process(delta):
 
 
 func spawnEnemy(enemyType):
+	var r = rng.randi_range(1, 2)
 	var enemy_instance = enemyScene.instantiate()
 	enemy_instance.set_parameters(tex_enemy[0], test)
 	test += 1.0
-	get_node("../EnemyPaths/Path2D").add_child(enemy_instance)
+	get_node("../EnemyPaths/EnemyPath_0" + str(r)).add_child(enemy_instance)
 	
