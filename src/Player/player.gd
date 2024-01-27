@@ -12,7 +12,6 @@ var FIRERATE = 0.2
 
 var bullet_scene = preload("res://Bullets/Bullet.tscn")
 var can_fire = true
-var player_lifes = 3
 
 func _physics_process(delta):
 	move()
@@ -65,6 +64,4 @@ func shoot():
 	
 func hit_by_bullet():
 	print("OUCH")
-	player_lifes = player_lifes - 1
-	
-	return
+	Livecounter.lives = Livecounter.lives - 1

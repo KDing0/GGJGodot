@@ -1,10 +1,11 @@
 extends Node
 
-enum States {MAIN_MENU, PAUSE_MENU, INGAME}
+enum States {MAIN_MENU, PAUSE_MENU, INGAME, GAMEOVER}
 
 const sceneStr_mainMenu = "res://Misc/MainMenu.tscn"
 const sceneStr_pauseMenu = "res://Misc/PauseMenu.tscn"
 const sceneStr_game = "res://gamescene.tscn"
+const sceneStr_gameOver = "res://Misc/GameOver.tscn"
 
 # -1 is no scene
 var currentState = -1
@@ -58,6 +59,20 @@ func loadPauseMenu():
 	currentState = States.PAUSE_MENU
 	self.add_child(instance_pauseMenu)
 
+func loadGameOverMenu():
+	if currentState != States.INGAME:
+		return
+	
+	var scene_gameOverMenu = preload(sceneStr_gameOver)
+	var instance_gameOverMenu = scene_gameOverMenu.instantiate()
+	
+	#instance_gameOverMenu.restartGame.connect(restart_game)
+	instance_gameOverMenu.toMenu.connect(loadMainMenu)
+	
+	currentState = States.GAMEOVER
+	self.add_child(instance_gameOverMenu)
+
+
 func startGame():
 	if currentState != States.MAIN_MENU:
 		return
@@ -65,6 +80,7 @@ func startGame():
 	# create game instance
 	var scene_game = preload(sceneStr_game)
 	var instance_game = scene_game.instantiate()
+	instance_game.game_over.connect(loadGameOverMenu)
 	
 	# delete menu scene
 	self.get_child(0).queue_free()
