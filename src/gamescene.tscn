@@ -13,22 +13,22 @@
 [ext_resource type="PackedScene" uid="uid://dl3h2vjeq7i23" path="res://UI/lives.tscn" id="10_l5axw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cd6u2"]
-size = Vector2(72, 710)
+size = Vector2(40, 380)
 
 [sub_resource type="QuadMesh" id="QuadMesh_y34g5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_an7d4"]
-size = Vector2(1178.5, 75)
+size = Vector2(720, 40)
 
 [sub_resource type="QuadMesh" id="QuadMesh_y7bif"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7cff"]
-size = Vector2(65, 705)
+size = Vector2(40, 370)
 
 [sub_resource type="QuadMesh" id="QuadMesh_lipyb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4cv2"]
-size = Vector2(1178.5, 75)
+size = Vector2(720.5, 40)
 
 [sub_resource type="QuadMesh" id="QuadMesh_q2dtn"]
 
@@ -259,7 +259,7 @@ script = ExtResource("1_prura")
 tex_enemy = Array[Texture2D]([ExtResource("2_xpmd0")])
 
 [node name="player" parent="." instance=ExtResource("2_uygfl")]
-position = Vector2(304, 520)
+position = Vector2(569, 327)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(574, 328)
@@ -270,56 +270,56 @@ position = Vector2(574, 328)
 collision_mask = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle/LeftWall"]
-position = Vector2(-1, 327)
+position = Vector2(252, 324)
 shape = SubResource("RectangleShape2D_cd6u2")
 one_way_collision_margin = 100.1
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="obstacle/LeftWall"]
 modulate = Color(0, 0, 1, 1)
-position = Vector2(0.5, 329.5)
-scale = Vector2(33, 649)
+position = Vector2(251, 324)
+scale = Vector2(25.322, 380)
 mesh = SubResource("QuadMesh_y34g5")
 
 [node name="UpperWall" type="StaticBody2D" parent="obstacle"]
 collision_mask = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle/UpperWall"]
-position = Vector2(577, 7)
+position = Vector2(572, 141)
 shape = SubResource("RectangleShape2D_an7d4")
 one_way_collision_margin = 100.1
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="obstacle/UpperWall"]
 modulate = Color(0, 0, 1, 1)
-position = Vector2(578, 7)
-scale = Vector2(1161.63, 45.5)
+position = Vector2(575, 142)
+scale = Vector2(650.63, 25.485)
 mesh = SubResource("QuadMesh_y7bif")
 
 [node name="RighWall" type="StaticBody2D" parent="obstacle"]
 collision_mask = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle/RighWall"]
-position = Vector2(1140, 320)
+position = Vector2(896, 329)
 shape = SubResource("RectangleShape2D_v7cff")
 one_way_collision_margin = 100.1
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="obstacle/RighWall"]
 modulate = Color(0, 0, 1, 1)
-position = Vector2(1139, 325)
-scale = Vector2(33, 649)
+position = Vector2(893, 321)
+scale = Vector2(19.321, 380)
 mesh = SubResource("QuadMesh_lipyb")
 
 [node name="DownWall" type="StaticBody2D" parent="obstacle"]
 collision_mask = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle/DownWall"]
-position = Vector2(577, 643)
+position = Vector2(580, 515)
 shape = SubResource("RectangleShape2D_h4cv2")
 one_way_collision_margin = 100.1
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="obstacle/DownWall"]
 modulate = Color(0, 0, 1, 1)
-position = Vector2(578, 647)
-scale = Vector2(1161.63, 45.5)
+position = Vector2(580, 515)
+scale = Vector2(720, 28.202)
 mesh = SubResource("QuadMesh_q2dtn")
 
 [node name="EnemyPaths" type="Node2D" parent="."]
@@ -355,3 +355,4 @@ id = "1"
 props = SubResource("PackedDataContainer_p2jyy")
 
 [node name="Lives" parent="." instance=ExtResource("10_l5axw")]
+position = Vector2(-32, 160)
