@@ -64,4 +64,5 @@ func shoot():
 	
 func hit_by_bullet():
 	print("OUCH")
+	self.position.x = self.position.x + 50
 	Livecounter.lives = Livecounter.lives - 1

@@ -29,7 +29,10 @@ func _on_Bullet_entered(body):
 		# Bullet Hit Enemy
 		body.queue_free()
 		queue_free()
-		
+	if collisionLayer == 2:
+		print("player run into enemy")
+		#player runs into Enemy
+		#Livecounter.lives = Livecounter.lives - 1
 
 func _process(delta):
 	progress_ratio += speed / 1000.0
