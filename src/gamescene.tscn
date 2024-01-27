@@ -1,0 +1,438 @@
+[gd_scene load_steps=33 format=3 uid="uid://cjeb3wlbtiy3c"]
+
+[ext_resource type="Script" path="res://gamescene.gd" id="1_1vxv1"]
+[ext_resource type="Script" path="res://Misc/GameController.gd" id="2_km06s"]
+[ext_resource type="Texture2D" uid="uid://d2ad7v3te2hdf" path="res://Assets/Characters/Enemies/Enemy1 Walk Animation Spritesheet.png" id="3_8wyyj"]
+[ext_resource type="PackedScene" uid="uid://ipk1i003beqy" path="res://Player/player.tscn" id="4_2y3bp"]
+[ext_resource type="Script" path="res://Misc/EnemyPaths.gd" id="5_25cn6"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/BuHPattern.gd" id="6_0q82q"]
+[ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="7_2uqx6"]
+[ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternCustomShape.gd" id="8_0fqpj"]
+[ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="9_s0pko"]
+[ext_resource type="Script" path="res://Addons/BulletUpHell/BuHBulletProperties.gd" id="10_l6oos"]
+[ext_resource type="Script" path="res://Addons/BulletUpHell/BulletProps.gd" id="11_hbg2d"]
+[ext_resource type="PackedScene" uid="uid://dl3h2vjeq7i23" path="res://UI/lives.tscn" id="12_5j5ut"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cd6u2"]
+size = Vector2(40, 380)
+
+[sub_resource type="QuadMesh" id="QuadMesh_y34g5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_an7d4"]
+size = Vector2(720, 40)
+
+[sub_resource type="QuadMesh" id="QuadMesh_y7bif"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7cff"]
+size = Vector2(40, 370)
+
+[sub_resource type="QuadMesh" id="QuadMesh_lipyb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4cv2"]
+size = Vector2(720.5, 40)
+
+[sub_resource type="QuadMesh" id="QuadMesh_q2dtn"]
+
+[sub_resource type="Curve2D" id="Curve2D_sosch"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 218, 38, -11.2246, -20.2043, 11.2246, 20.2043, 364, 226, 2.24493, -44.8985, -2.24493, 44.8985, 393, 334, 15.7145, -24.6942, -15.7145, 24.6942, 348, 451, 0, 0, 0, 0, 193, 635)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_ndshr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 148, 199, 0, 0, 0, 0, 427, 197, 0, 0, 0, 0, 790, 397, 0, 0, 0, 0, 1163, 433)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_j28tn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 759, -66, 0, 0, 0, 0, 768, 848)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_jqf82"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_m3wac"]
+resource_name = "PatternCircle"
+script = ExtResource("7_2uqx6")
+bullet = "1"
+nbr = 30
+radius = 3.0
+angle_total = 6.2832
+angle_decal = 0.0004
+pattern_angle = 0.0
+symmetric = false
+center = 0
+iterations = 1
+follows_parent = false
+forced_angle = 0.0
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+cooldown_stasis = false
+cooldown_spawn = 0.017
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+wait_latence = 0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+layer_nbr = 1
+layer_cooldown_spawn = 0.0
+layer_pos_offset = 0.0
+layer_speed_offset = 0.0
+layer_angle_offset = 0.0
+r_randomisation_chances = 1.0
+r_radius_choice = ""
+r_radius_variation = Vector3(0, 0, 0)
+r_angle_total_choice = ""
+r_angle_total_variation = Vector3(0, 0, 0)
+r_angle_decal_choice = ""
+r_angle_decal_variation = Vector3(0, 0, 0)
+r_symmetry_chances = 0.0
+r_bullet_choice = ""
+r_bullet_nbr_choice = ""
+r_bullet_nbr_variation = Vector3(0, 0, 0)
+r_pattern_angle_choice = ""
+r_pattern_angle_variation = Vector3(0, 0, 0)
+r_infinite_iter_chances = 0.0
+r_iterations_choice = ""
+r_iterations_variation = Vector3(0, 0, 0)
+r_forced_angle_choice = ""
+r_forced_angle_variation = Vector3(0, 0, 0)
+r_forced_target_choice = []
+r_stasis_chances = 0.0
+r_cooldown_spawn_choice = ""
+r_cooldown_spawn_variation = Vector3(0, 0, 0)
+r_cooldown_shoot_choice = ""
+r_cooldown_shoot_variation = Vector3(0, 0, 0)
+r_cooldown_n_spawn_choice = ""
+r_cooldown_n_spawn_variation = Vector3(0, 0, 0)
+r_cooldown_n_shoot_choice = ""
+r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
+
+[sub_resource type="Curve2D" id="Curve2D_nhm4t"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 100)
+}
+point_count = 4
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3igxc"]
+resource_name = "PatternCustomShape"
+script = ExtResource("8_0fqpj")
+bullet = "1"
+nbr = 3
+closed_shape = false
+center_pos = Vector2(0, 50)
+pattern_angle = 0.0
+symmetric = true
+center = 2
+iterations = 1
+follows_parent = false
+forced_angle = 0.0
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+cooldown_stasis = false
+cooldown_spawn = 0.017
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+wait_latence = 0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+layer_nbr = 1
+layer_cooldown_spawn = 0.0
+layer_pos_offset = 0.0
+layer_speed_offset = 0.0
+layer_angle_offset = 0.0
+r_randomisation_chances = 1.0
+r_symmetry_chances = 0.0
+r_bullet_choice = ""
+r_bullet_nbr_choice = ""
+r_bullet_nbr_variation = Vector3(0, 0, 0)
+r_pattern_angle_choice = ""
+r_pattern_angle_variation = Vector3(0, 0, 0)
+r_infinite_iter_chances = 0.0
+r_iterations_choice = ""
+r_iterations_variation = Vector3(0, 0, 0)
+r_forced_angle_choice = ""
+r_forced_angle_variation = Vector3(0, 0, 0)
+r_forced_target_choice = []
+r_stasis_chances = 0.0
+r_cooldown_spawn_choice = ""
+r_cooldown_spawn_variation = Vector3(0, 0, 0)
+r_cooldown_shoot_choice = ""
+r_cooldown_shoot_variation = Vector3(0, 0, 0)
+r_cooldown_n_spawn_choice = ""
+r_cooldown_n_spawn_variation = Vector3(0, 0, 0)
+r_cooldown_n_shoot_choice = ""
+r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_oabew"]
+resource_name = "PatternOne"
+script = ExtResource("9_s0pko")
+bullet = "1"
+iterations = 1
+follows_parent = false
+forced_angle = 0.0
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+cooldown_stasis = false
+cooldown_spawn = 0.017
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+wait_latence = 0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+layer_nbr = 1
+layer_cooldown_spawn = 0.0
+layer_pos_offset = 0.0
+layer_speed_offset = 0.0
+layer_angle_offset = 0.0
+r_randomisation_chances = 1.0
+r_bullet_choice = ""
+r_bullet_nbr_choice = ""
+r_bullet_nbr_variation = Vector3(0, 0, 0)
+r_pattern_angle_choice = ""
+r_pattern_angle_variation = Vector3(0, 0, 0)
+r_infinite_iter_chances = 0.0
+r_iterations_choice = ""
+r_iterations_variation = Vector3(0, 0, 0)
+r_forced_angle_choice = ""
+r_forced_angle_variation = Vector3(0, 0, 0)
+r_forced_target_choice = []
+r_stasis_chances = 0.0
+r_cooldown_spawn_choice = ""
+r_cooldown_spawn_variation = Vector3(0, 0, 0)
+r_cooldown_shoot_choice = ""
+r_cooldown_shoot_variation = Vector3(0, 0, 0)
+r_cooldown_n_spawn_choice = ""
+r_cooldown_n_spawn_variation = Vector3(0, 0, 0)
+r_cooldown_n_shoot_choice = ""
+r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
+
+[sub_resource type="Curve2D" id="Curve2D_qi17c"]
+
+[sub_resource type="Curve" id="Curve_vbs6u"]
+
+[sub_resource type="Curve" id="Curve_2xsyn"]
+
+[sub_resource type="PackedDataContainer" id="PackedDataContainer_p2jyy"]
+script = ExtResource("11_hbg2d")
+speed = 200.0
+scale = 1.0
+angle = -0.9996
+groups = ["EnemyBullet"]
+anim_idle_texture = "Basic"
+anim_spawn_texture = ""
+anim_waiting_texture = ""
+anim_delete_texture = ""
+anim_idle_collision = "0"
+anim_spawn_collision = ""
+anim_waiting_collision = ""
+anim_delete_collision = ""
+anim_idle_sfx = -1
+anim_spawn_sfx = -1
+anim_waiting_sfx = -1
+anim_delete_sfx = -1
+spec_bounces = 0
+spec_no_collision = false
+spec_modulate_loop = 0.0
+spec_skew = 0.0
+spec_trail_length = 0.0
+spec_trail_width = 0.0
+spec_trail_modulate = Color(1, 1, 1, 1)
+spec_rotating_speed = 0.0
+spec_angle_no_colliding = null
+spec_angle_no_coll_offset = null
+death_after_time = 30.0
+death_outside_box = Rect2(0, 0, 0, 0)
+death_from_collision = true
+a_direction_equation = ""
+a_curve_movement = 0
+a_speed_multiplier = SubResource("Curve_vbs6u")
+a_speed_multi_iterations = 0
+a_speed_multi_scale = 0.0
+trigger_container = ""
+trigger_wait_for_shot = true
+homing_type = 0
+homing_target = NodePath("")
+homing_steer = 0
+homing_time_start = 0
+homing_duration = 999
+scale_multi_iterations = 0
+scale_multiplier = SubResource("Curve_2xsyn")
+scale_multi_scale = 1
+r_randomisation_chances = 1.0
+r_speed_choice = ""
+r_speed_variation = Vector3(0, 0, 0)
+r_scale_choice = ""
+r_scale_variation = Vector3(0, 0, 0)
+r_angle_choice = ""
+r_angle_variation = Vector3(0, 0, 0)
+r_group_choice = []
+r_bounce_choice = ""
+r_bounce_variation = Vector3(0, 0, 0)
+r_no_coll_chances = 0.0
+r_modulate_variation = Vector3(0, 0, 0)
+r_trail_length_variation = Vector3(0, 0, 0)
+r_trail_color_variation = Vector3(0, 0, 0)
+r_rotating_variation = Vector3(0, 0, 0)
+r_death_after_choice = ""
+r_death_after_variation = Vector3(0, 0, 0)
+r_death_outside_chances = 0.0
+r_dir_equation_choice = ""
+r_curve_choice = []
+r_speed_multi_curve_choice = []
+r_speed_multi_iter_variation = Vector3(0, 0, 0)
+r_speed_multi_scale_variation = Vector3(0, 0, 0)
+r_trigger_choice = ""
+r_wait_for_shot_chances = 0.0
+r_homing_target_choice = []
+r_special_target_choice = ""
+r_group_target_choice = ""
+r_pos_target_choice = ""
+r_steer_choice = ""
+r_steer_variation = Vector3(0, 0, 0)
+r_homing_delay_choice = ""
+r_homing_delay_variation = Vector3(0, 0, 0)
+r_homing_dur_choice = ""
+r_homing_dur_variation = Vector3(0, 0, 0)
+r_beam_length_choice = ""
+r_beam_length_variation = Vector3(0, 0, 0)
+r_beam_bounce_choice = ""
+r_beam_width_variation = Vector3(0, 0, 0)
+r_scale_multi_curve_choice = []
+r_scale_multi_iter_variation = Vector3(0, 0, 0)
+r_scale_multi_scale_variation = Vector3(0, 0, 0)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_1vxv1")
+
+[node name="GameController" type="Node" parent="."]
+script = ExtResource("2_km06s")
+tex_enemy = Array[Texture2D]([ExtResource("3_8wyyj")])
+
+[node name="player" parent="." instance=ExtResource("4_2y3bp")]
+position = Vector2(332, 191)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(337, 192)
+
+[node name="obstacle" type="Node2D" parent="."]
+position = Vector2(-237, -136)
+
+[node name="LeftWall" type="StaticBody2D" parent="obstacle"]
+collision_mask = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle/LeftWall"]
+position = Vector2(252, 324)
+shape = SubResource("RectangleShape2D_cd6u2")
+one_way_collision_margin = 100.1
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="obstacle/LeftWall"]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(251, 324)
+scale = Vector2(25.322, 380)
+mesh = SubResource("QuadMesh_y34g5")
+
+[node name="UpperWall" type="StaticBody2D" parent="obstacle"]
+collision_mask = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle/UpperWall"]
+position = Vector2(572, 141)
+shape = SubResource("RectangleShape2D_an7d4")
+one_way_collision_margin = 100.1
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="obstacle/UpperWall"]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(575, 142)
+scale = Vector2(650.63, 25.485)
+mesh = SubResource("QuadMesh_y7bif")
+
+[node name="RighWall" type="StaticBody2D" parent="obstacle"]
+collision_mask = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle/RighWall"]
+position = Vector2(896, 329)
+shape = SubResource("RectangleShape2D_v7cff")
+one_way_collision_margin = 100.1
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="obstacle/RighWall"]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(893, 321)
+scale = Vector2(19.321, 380)
+mesh = SubResource("QuadMesh_lipyb")
+
+[node name="DownWall" type="StaticBody2D" parent="obstacle"]
+collision_mask = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle/DownWall"]
+position = Vector2(580, 515)
+shape = SubResource("RectangleShape2D_h4cv2")
+one_way_collision_margin = 100.1
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="obstacle/DownWall"]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(580, 515)
+scale = Vector2(720, 28.202)
+mesh = SubResource("QuadMesh_q2dtn")
+
+[node name="EnemyPaths" type="Node2D" parent="."]
+position = Vector2(-237, -136)
+script = ExtResource("5_25cn6")
+
+[node name="EnemyPath_01" type="Path2D" parent="EnemyPaths"]
+curve = SubResource("Curve2D_sosch")
+
+[node name="EnemyPath_02" type="Path2D" parent="EnemyPaths"]
+curve = SubResource("Curve2D_ndshr")
+
+[node name="EnemyPath_03" type="Path2D" parent="EnemyPaths"]
+curve = SubResource("Curve2D_j28tn")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Spawn" type="Node" parent="Node"]
+
+[node name="SpawnPattern1" type="Path2D" parent="Node/Spawn"]
+curve = SubResource("Curve2D_jqf82")
+script = ExtResource("6_0q82q")
+id = "one"
+pattern = SubResource("NavigationPolygon_m3wac")
+
+[node name="SpawnPattern2" type="Path2D" parent="Node/Spawn"]
+curve = SubResource("Curve2D_nhm4t")
+script = ExtResource("6_0q82q")
+id = "two"
+pattern = SubResource("NavigationPolygon_3igxc")
+
+[node name="SpawnPattern3" type="Path2D" parent="Node/Spawn"]
+curve = SubResource("Curve2D_jqf82")
+script = ExtResource("6_0q82q")
+id = "three"
+pattern = SubResource("NavigationPolygon_oabew")
+
+[node name="SpawnPattern4" type="Path2D" parent="Node/Spawn"]
+curve = SubResource("Curve2D_jqf82")
+script = ExtResource("6_0q82q")
+id = "four"
+pattern = SubResource("NavigationPolygon_m3wac")
+
+[node name="Bullet" type="Node" parent="Node"]
+
+[node name="BulletPattern1" type="Path2D" parent="Node/Bullet"]
+curve = SubResource("Curve2D_qi17c")
+script = ExtResource("10_l6oos")
+id = "1"
+props = SubResource("PackedDataContainer_p2jyy")
+
+[node name="Lives" parent="." instance=ExtResource("12_5j5ut")]
+position = Vector2(-269, 24)
