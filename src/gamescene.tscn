@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://d4ajf2330ej2i"]
+[gd_scene load_steps=33 format=3 uid="uid://d4ajf2330ej2i"]
 
 [ext_resource type="Script" path="res://Misc/GameController.gd" id="1_prura"]
 [ext_resource type="Script" path="res://gamescene.gd" id="1_sor5h"]
@@ -7,11 +7,10 @@
 [ext_resource type="Script" path="res://addons/BulletUpHell/BuHPattern.gd" id="4_ehlb4"]
 [ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="5_ck2a0"]
 [ext_resource type="Script" path="res://Addons/BulletUpHell/BuHBulletProperties.gd" id="6_7xkk1"]
+[ext_resource type="Script" path="res://Misc/EnemyPaths.gd" id="6_jelto"]
 [ext_resource type="Script" path="res://Addons/BulletUpHell/BulletProps.gd" id="7_q0fvn"]
 [ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternCustomShape.gd" id="7_uksj7"]
 [ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="8_3ru4j"]
-[ext_resource type="Script" path="res://Misc/EnemyPaths.gd" id="6_jelto"]
-[ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternLine.gd" id="7_il8iq"]
 [ext_resource type="PackedScene" uid="uid://dl3h2vjeq7i23" path="res://UI/lives.tscn" id="10_l5axw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cd6u2"]
@@ -228,7 +227,7 @@ r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
 [sub_resource type="PackedDataContainer" id="PackedDataContainer_p2jyy"]
 script = ExtResource("7_q0fvn")
 speed = 100.0
-scale = 1
+scale = 0.5
 angle = 2.0004
 groups = ["EnemyBullet"]
 anim_idle_texture = "0"
@@ -322,12 +321,13 @@ script = ExtResource("1_prura")
 tex_enemy = Array[Texture2D]([ExtResource("2_qbns1")])
 
 [node name="player" parent="." instance=ExtResource("2_uygfl")]
-position = Vector2(569, 327)
+position = Vector2(332, 191)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(574, 328)
+position = Vector2(337, 192)
 
 [node name="obstacle" type="Node2D" parent="."]
+position = Vector2(-237, -136)
 
 [node name="LeftWall" type="StaticBody2D" parent="obstacle"]
 collision_mask = 14
@@ -386,6 +386,7 @@ scale = Vector2(720, 28.202)
 mesh = SubResource("QuadMesh_q2dtn")
 
 [node name="EnemyPaths" type="Node2D" parent="."]
+position = Vector2(-237, -136)
 script = ExtResource("6_jelto")
 
 [node name="EnemyPath_01" type="Path2D" parent="EnemyPaths"]
@@ -434,4 +435,4 @@ id = "1"
 props = SubResource("PackedDataContainer_p2jyy")
 
 [node name="Lives" parent="." instance=ExtResource("10_l5axw")]
-position = Vector2(-32, 160)
+position = Vector2(-269, 24)

@@ -28,6 +28,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("5_jyxgs")
+}],
+"loop": true,
+"name": &"Basic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_3slxn")
 }, {
 "duration": 1.0,
@@ -39,14 +47,6 @@ animations = [{
 "loop": true,
 "name": &"Example",
 "speed": 1.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_jyxgs")
-}],
-"loop": true,
-"name": &"test",
-"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="2"]
@@ -73,7 +73,7 @@ collision_mask = 3
 [node name="ShapeManager" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = SubResource("1")
-animation = &"0"
+animation = &"Basic"
 
 [node name="0" type="CollisionShape2D" parent="ShapeManager"]
 shape = SubResource("2")
