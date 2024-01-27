@@ -56,9 +56,7 @@ func _on_spawnTimer_Timeout():
 			prepare_new_batch(enemy_batch[4])
 		else:
 			if !enemyPaths.signal_emitted:
-				print("Start waiting")
 				await enemyPaths.every_enemy_dead
-				print("Done waiting")
 			betweenWavesTimer.start(10.0)
 		return
 	
