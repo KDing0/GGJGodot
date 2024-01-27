@@ -64,12 +64,13 @@ func _on_spawnTimer_Timeout():
 	spawnTimer.start(0.5)
 	
 func setInstantiateBulletPattern(enemy_instance, enemyType):
-	enemy_instance.BulletSpawnOffset = Vector2(0,0)
-	enemy_instance.BulletSpawnID = "one"
-	enemy_instance.BulletAnimationID = "first"
-	enemy_instance.BulletRotation = 0
-	
-	enemy_instance.BulletStartDelay = 1
-	enemy_instance.BulletShootDelay = 0.12
-	enemy_instance.BulletCycleAmount = 5
-	enemy_instance.BulletCycleCooldown = 5
+	if(enemyType == 0):
+		enemy_instance.BulletSpawnOffset = Vector2(0,0)
+		enemy_instance.BulletSpawnID = "three"
+		enemy_instance.BulletAnimationID = "first"
+		enemy_instance.BulletRotation = 1
+		
+		enemy_instance.BulletStartDelay = 1
+		enemy_instance.BulletShootDelay = 0
+		enemy_instance.BulletCycleAmount = 1
+		enemy_instance.BulletCycleCooldown = 0.2

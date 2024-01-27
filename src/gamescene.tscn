@@ -59,8 +59,8 @@ script = ExtResource("5_ck2a0")
 bullet = "1"
 nbr = 30
 radius = 3.0
-angle_total = 6.28319
-angle_decal = 0
+angle_total = 6.2832
+angle_decal = 0.0004
 pattern_angle = 0.0
 symmetric = false
 center = 0
@@ -226,11 +226,11 @@ r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
 
 [sub_resource type="PackedDataContainer" id="PackedDataContainer_p2jyy"]
 script = ExtResource("7_q0fvn")
-speed = 100.0
-scale = 0.5
-angle = 2.0004
+speed = 200.0
+scale = 1.0
+angle = -0.9996
 groups = ["EnemyBullet"]
-anim_idle_texture = "0"
+anim_idle_texture = "Basic"
 anim_spawn_texture = ""
 anim_waiting_texture = ""
 anim_delete_texture = ""
