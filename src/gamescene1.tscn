@@ -38,8 +38,8 @@ point_count = 2
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_m3wac"]
 resource_name = "PatternCircle"
 script = ExtResource("7_8qbyn")
-bullet = "1"
-nbr = 30
+bullet = "2"
+nbr = 10
 radius = 3.0
 angle_total = 6.2832
 angle_decal = 0.0004
@@ -208,7 +208,7 @@ r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
 
 [sub_resource type="PackedDataContainer" id="PackedDataContainer_p2jyy"]
 script = ExtResource("11_518bo")
-speed = 200.0
+speed = 100.0
 scale = 1.0
 angle = -0.9996
 groups = ["EnemyBullet"]
@@ -474,6 +474,12 @@ pattern = SubResource("NavigationPolygon_m3wac")
 curve = SubResource("Curve2D_qi17c")
 script = ExtResource("10_6xvcr")
 id = "1"
+props = SubResource("PackedDataContainer_p2jyy")
+
+[node name="BulletPattern2" type="Path2D" parent="Node/Bullet"]
+curve = SubResource("Curve2D_qi17c")
+script = ExtResource("10_6xvcr")
+id = "2"
 props = SubResource("PackedDataContainer_p2jyy")
 
 [node name="Lives" parent="." instance=ExtResource("12_mkv35")]
