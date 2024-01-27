@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d4ajf2330ej2i"]
+[gd_scene load_steps=28 format=3 uid="uid://d4ajf2330ej2i"]
 
 [ext_resource type="PackedScene" uid="uid://cf6o2n1w1lpv0" path="res://Enemy/enemy.tscn" id="1_80436"]
 [ext_resource type="Script" path="res://Misc/GameController.gd" id="1_prura"]
@@ -37,11 +37,17 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="Curve2D" id="Curve2D_2c1im"]
+[sub_resource type="Curve2D" id="Curve2D_rquh7"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1261, 99, 49.4975, -2.82843, -49.4975, 2.82843, 361, 108, -1.41421, -172.534, 1.41421, 172.534, 310, 304, -57.9827, -4.24264, 57.9827, 4.24264, 357, 531, 0, 0, 0, 0, 1487, 624)
+"points": PackedVector2Array(0, 0, 0, 0, -164, 86, 0, 0, 0, 0, 580, 109, 0, 0, 0, 0, 925, 477, 0, 0, 0, 0, 1406, 513)
 }
-point_count = 5
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_j28tn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 936, -101, 0, 0, 0, 0, 977, 839)
+}
+point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_jqf82"]
 
@@ -281,7 +287,10 @@ script = ExtResource("6_jelto")
 curve = SubResource("Curve2D_3sj47")
 
 [node name="EnemyPath_02" type="Path2D" parent="EnemyPaths"]
-curve = SubResource("Curve2D_2c1im")
+curve = SubResource("Curve2D_rquh7")
+
+[node name="EnemyPath_03" type="Path2D" parent="EnemyPaths"]
+curve = SubResource("Curve2D_j28tn")
 
 [node name="SpawnPattern" type="Path2D" parent="."]
 curve = SubResource("Curve2D_jqf82")
