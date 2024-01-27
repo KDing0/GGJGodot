@@ -32,21 +32,21 @@ size = Vector2(720.5, 40)
 
 [sub_resource type="QuadMesh" id="QuadMesh_q2dtn"]
 
-[sub_resource type="Curve2D" id="Curve2D_3sj47"]
+[sub_resource type="Curve2D" id="Curve2D_sosch"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -202, -121, -24.0416, -19.799, 24.0416, 19.799, 148, 85, -4.24264, -111.723, 4.24264, 111.723, 272, 324, 29.6985, -36.7695, -29.6985, 36.7695, 221, 559, 0, 0, 0, 0, -138, 836)
+"points": PackedVector2Array(0, 0, 0, 0, 218, 38, -11.2246, -20.2043, 11.2246, 20.2043, 364, 226, 2.24493, -44.8985, -2.24493, 44.8985, 393, 334, 15.7145, -24.6942, -15.7145, 24.6942, 348, 451, 0, 0, 0, 0, 193, 635)
 }
 point_count = 5
 
-[sub_resource type="Curve2D" id="Curve2D_rquh7"]
+[sub_resource type="Curve2D" id="Curve2D_ndshr"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -164, 86, 0, 0, 0, 0, 580, 109, 0, 0, 0, 0, 925, 477, 0, 0, 0, 0, 1406, 513)
+"points": PackedVector2Array(0, 0, 0, 0, 148, 199, 0, 0, 0, 0, 427, 197, 0, 0, 0, 0, 790, 397, 0, 0, 0, 0, 1163, 433)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_j28tn"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 936, -101, 0, 0, 0, 0, 977, 839)
+"points": PackedVector2Array(0, 0, 0, 0, 759, -66, 0, 0, 0, 0, 768, 848)
 }
 point_count = 2
 
@@ -338,10 +338,10 @@ mesh = SubResource("QuadMesh_q2dtn")
 script = ExtResource("6_jelto")
 
 [node name="EnemyPath_01" type="Path2D" parent="EnemyPaths"]
-curve = SubResource("Curve2D_3sj47")
+curve = SubResource("Curve2D_sosch")
 
 [node name="EnemyPath_02" type="Path2D" parent="EnemyPaths"]
-curve = SubResource("Curve2D_rquh7")
+curve = SubResource("Curve2D_ndshr")
 
 [node name="EnemyPath_03" type="Path2D" parent="EnemyPaths"]
 curve = SubResource("Curve2D_j28tn")
