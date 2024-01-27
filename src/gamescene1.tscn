@@ -1,17 +1,17 @@
 [gd_scene load_steps=33 format=3 uid="uid://d4ajf2330ej2i"]
 
-[ext_resource type="Script" path="res://Misc/GameController.gd" id="1_prura"]
-[ext_resource type="Script" path="res://gamescene.gd" id="1_sor5h"]
-[ext_resource type="Texture2D" uid="uid://d2ad7v3te2hdf" path="res://Assets/Characters/Enemies/Enemy1 Walk Animation Spritesheet.png" id="2_qbns1"]
-[ext_resource type="PackedScene" uid="uid://ipk1i003beqy" path="res://Player/player.tscn" id="2_uygfl"]
-[ext_resource type="Script" path="res://addons/BulletUpHell/BuHPattern.gd" id="4_ehlb4"]
-[ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="5_ck2a0"]
-[ext_resource type="Script" path="res://Addons/BulletUpHell/BuHBulletProperties.gd" id="6_7xkk1"]
-[ext_resource type="Script" path="res://Misc/EnemyPaths.gd" id="6_jelto"]
-[ext_resource type="Script" path="res://Addons/BulletUpHell/BulletProps.gd" id="7_q0fvn"]
-[ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternCustomShape.gd" id="7_uksj7"]
-[ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="8_3ru4j"]
-[ext_resource type="PackedScene" uid="uid://dl3h2vjeq7i23" path="res://UI/lives.tscn" id="10_l5axw"]
+[ext_resource type="Script" path="res://gamescene.gd" id="1_an4nj"]
+[ext_resource type="Script" path="res://Misc/GameController.gd" id="2_f7n03"]
+[ext_resource type="Texture2D" uid="uid://d2ad7v3te2hdf" path="res://Assets/Characters/Enemies/Enemy1 Walk Animation Spritesheet.png" id="3_a7uqt"]
+[ext_resource type="PackedScene" uid="uid://ipk1i003beqy" path="res://Player/player.tscn" id="4_ckvhk"]
+[ext_resource type="Script" path="res://Misc/EnemyPaths.gd" id="5_oti35"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/BuHPattern.gd" id="6_ktm1b"]
+[ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="7_8qbyn"]
+[ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternCustomShape.gd" id="8_gglqv"]
+[ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="9_eobxd"]
+[ext_resource type="Script" path="res://Addons/BulletUpHell/BuHBulletProperties.gd" id="10_6xvcr"]
+[ext_resource type="Script" path="res://Addons/BulletUpHell/BulletProps.gd" id="11_518bo"]
+[ext_resource type="PackedScene" uid="uid://dl3h2vjeq7i23" path="res://UI/lives.tscn" id="12_mkv35"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cd6u2"]
 size = Vector2(40, 380)
@@ -55,7 +55,7 @@ point_count = 2
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_m3wac"]
 resource_name = "PatternCircle"
-script = ExtResource("5_ck2a0")
+script = ExtResource("7_8qbyn")
 bullet = "1"
 nbr = 30
 radius = 3.0
@@ -121,7 +121,7 @@ point_count = 4
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3igxc"]
 resource_name = "PatternCustomShape"
-script = ExtResource("7_uksj7")
+script = ExtResource("8_gglqv")
 bullet = "1"
 nbr = 3
 closed_shape = false
@@ -174,7 +174,7 @@ r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_oabew"]
 resource_name = "PatternOne"
-script = ExtResource("8_3ru4j")
+script = ExtResource("9_eobxd")
 bullet = "1"
 iterations = 1
 follows_parent = false
@@ -225,7 +225,7 @@ r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
 [sub_resource type="Curve" id="Curve_2xsyn"]
 
 [sub_resource type="PackedDataContainer" id="PackedDataContainer_p2jyy"]
-script = ExtResource("7_q0fvn")
+script = ExtResource("11_518bo")
 speed = 200.0
 scale = 1.0
 angle = -0.9996
@@ -314,13 +314,13 @@ r_scale_multi_iter_variation = Vector3(0, 0, 0)
 r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_sor5h")
+script = ExtResource("1_an4nj")
 
 [node name="GameController" type="Node" parent="."]
-script = ExtResource("1_prura")
-tex_enemy = Array[Texture2D]([ExtResource("2_qbns1")])
+script = ExtResource("2_f7n03")
+tex_enemy = Array[Texture2D]([ExtResource("3_a7uqt")])
 
-[node name="player" parent="." instance=ExtResource("2_uygfl")]
+[node name="player" parent="." instance=ExtResource("4_ckvhk")]
 position = Vector2(332, 191)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -387,7 +387,7 @@ mesh = SubResource("QuadMesh_q2dtn")
 
 [node name="EnemyPaths" type="Node2D" parent="."]
 position = Vector2(-237, -136)
-script = ExtResource("6_jelto")
+script = ExtResource("5_oti35")
 
 [node name="EnemyPath_01" type="Path2D" parent="EnemyPaths"]
 curve = SubResource("Curve2D_sosch")
@@ -404,25 +404,25 @@ curve = SubResource("Curve2D_j28tn")
 
 [node name="SpawnPattern1" type="Path2D" parent="Node/Spawn"]
 curve = SubResource("Curve2D_jqf82")
-script = ExtResource("4_ehlb4")
+script = ExtResource("6_ktm1b")
 id = "one"
 pattern = SubResource("NavigationPolygon_m3wac")
 
 [node name="SpawnPattern2" type="Path2D" parent="Node/Spawn"]
 curve = SubResource("Curve2D_nhm4t")
-script = ExtResource("4_ehlb4")
+script = ExtResource("6_ktm1b")
 id = "two"
 pattern = SubResource("NavigationPolygon_3igxc")
 
 [node name="SpawnPattern3" type="Path2D" parent="Node/Spawn"]
 curve = SubResource("Curve2D_jqf82")
-script = ExtResource("4_ehlb4")
+script = ExtResource("6_ktm1b")
 id = "three"
 pattern = SubResource("NavigationPolygon_oabew")
 
 [node name="SpawnPattern4" type="Path2D" parent="Node/Spawn"]
 curve = SubResource("Curve2D_jqf82")
-script = ExtResource("4_ehlb4")
+script = ExtResource("6_ktm1b")
 id = "four"
 pattern = SubResource("NavigationPolygon_m3wac")
 
@@ -430,9 +430,9 @@ pattern = SubResource("NavigationPolygon_m3wac")
 
 [node name="BulletPattern1" type="Path2D" parent="Node/Bullet"]
 curve = SubResource("Curve2D_qi17c")
-script = ExtResource("6_7xkk1")
+script = ExtResource("10_6xvcr")
 id = "1"
 props = SubResource("PackedDataContainer_p2jyy")
 
-[node name="Lives" parent="." instance=ExtResource("10_l5axw")]
+[node name="Lives" parent="." instance=ExtResource("12_mkv35")]
 position = Vector2(-269, 24)
