@@ -21,8 +21,8 @@ func _physics_process(delta):
 		
 func move():
 	# TODO should replace UI actions with custom gameplay actions.
-	var horizontal = Input.get_axis("ui_left", "ui_right")
-	var vertically = Input.get_axis("ui_up", "ui_down")
+	var horizontal = Input.get_axis("player_left", "player_right")
+	var vertically = Input.get_axis("player_up", "player_down")
 	if horizontal:
 		velocity.x = horizontal * SPEED
 	else:
