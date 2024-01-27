@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+func _on_ready():
+	Spawning.player = self
+
 ##TODO add animation
 
 const SPEED = 400.0
