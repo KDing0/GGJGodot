@@ -22,5 +22,3 @@ shape = SubResource("CapsuleShape2D_161ag")
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 modulate = Color(1, 0, 0, 1)
 mesh = SubResource("QuadMesh_fsbxt")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

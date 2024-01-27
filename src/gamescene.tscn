@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d4ajf2330ej2i"]
+[gd_scene load_steps=11 format=3 uid="uid://d4ajf2330ej2i"]
 
 [ext_resource type="PackedScene" uid="uid://cf6o2n1w1lpv0" path="res://Enemy/enemy.tscn" id="1_80436"]
 [ext_resource type="PackedScene" uid="uid://ipk1i003beqy" path="res://Player/player.tscn" id="2_uygfl"]
@@ -22,11 +22,6 @@ size = Vector2(65, 705)
 size = Vector2(1178.5, 75)
 
 [sub_resource type="QuadMesh" id="QuadMesh_q2dtn"]
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_cwp51"]
-vertices = PackedVector2Array(33, 601, 28, 43, 1112, 41, 1105, 603)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(33, 601, 28, 43, 1112, 41, 1105, 603)])
 
 [node name="Node2D" type="Node2D"]
 
@@ -96,6 +91,3 @@ modulate = Color(0, 0, 1, 1)
 position = Vector2(578, 647)
 scale = Vector2(1161.63, 45.5)
 mesh = SubResource("QuadMesh_q2dtn")
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_cwp51")
