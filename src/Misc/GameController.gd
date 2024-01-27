@@ -4,10 +4,6 @@ extends Node
 
 @onready var waves = Waves.new()
 
-var test = 1.0
-var d = 0.0
-var rng = RandomNumberGenerator.new()
-
 var spawnTimer = Timer.new()
 var betweenWavesTimer = Timer.new() 
 var enemy_batch = []
