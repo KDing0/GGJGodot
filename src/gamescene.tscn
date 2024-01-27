@@ -273,13 +273,19 @@ curve = SubResource("Curve2D_3sj47")
 [node name="enemy" parent="EnemyPaths/Path2D" instance=ExtResource("1_80436")]
 position = Vector2(-202, -121)
 
-[node name="SpawnPattern" type="Path2D" parent="."]
+[node name="Node" type="Node" parent="."]
+
+[node name="Spawn" type="Node" parent="Node"]
+
+[node name="SpawnPattern1" type="Path2D" parent="Node/Spawn"]
 curve = SubResource("Curve2D_jqf82")
 script = ExtResource("4_ehlb4")
 id = "one"
 pattern = SubResource("NavigationPolygon_m3wac")
 
-[node name="BulletPattern2" type="Path2D" parent="."]
+[node name="Bullet" type="Node" parent="Node"]
+
+[node name="BulletPattern1" type="Path2D" parent="Node/Bullet"]
 curve = SubResource("Curve2D_qi17c")
 script = ExtResource("6_7xkk1")
 id = "1"
