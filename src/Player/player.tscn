@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://nl4eeyr3jh1c" path="res://Assets/Characters/Player/MC Walk Animation Spritesheet.png" id="4_22afs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_161ag"]
-radius = 17.5
-height = 35.0
+radius = 5.0
+height = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_evgr3"]
 atlas = ExtResource("3_wigxu")

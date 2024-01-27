@@ -46,7 +46,7 @@ _data = {
 "move": SubResource("Animation_joich")
 }
 
-[node name="Enemy" type="PathFollow2D"]
+[node name="Enemy" type="PathFollow2D" groups=["Enemy"]]
 rotates = false
 script = ExtResource("1_ul17h")
 
@@ -55,7 +55,7 @@ hframes = 3
 vframes = 2
 frame = 1
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
 position = Vector2(-1, -2)
 collision_layer = 4
 collision_mask = 31

@@ -5,7 +5,7 @@ func _on_ready():
 
 ##TODO add animation
 
-const SPEED = 400.0
+const SPEED = 250.0
 var BULLETSPEED = 500  # Adjust this value to control the bullet speed
 var FIRERATE = 0.2
 @onready var sprite = $AnimatedSprite2D
@@ -31,12 +31,12 @@ func move():
 	if horizontal:
 		velocity.x = horizontal * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, 15)
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	if vertically:
 		velocity.y = vertically * SPEED
 	else:
-		velocity.y = move_toward(velocity.y, 0, 15)
+		velocity.y = move_toward(velocity.y, 0, SPEED)
 		
 	var isLeft = velocity.x < 0
 	sprite.flip_h = isLeft

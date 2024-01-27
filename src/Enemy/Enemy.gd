@@ -39,6 +39,10 @@ func _ready():
 	$Area2D.body_entered.connect(_on_Bullet_entered)
 
 func _on_Bullet_entered(body):
+	var g = body.get_groups()
+	if(g.size() > 0):
+		if(g[0] == "Tile"):
+			return
 	var collisionLayer = body.get_collision_layer()
 	if collisionLayer == 16:
 		# Bullet Hit Enemy
