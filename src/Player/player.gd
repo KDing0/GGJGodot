@@ -37,7 +37,6 @@ func shoot():
 	bullet_instance.gravity_scale = 0
 	bullet_instance.linear_velocity = Vector2(0, -BULLETSPEED)
 	get_parent().add_child(bullet_instance)
-	
 	can_fire = false
 	await get_tree().create_timer(FIRERATE).timeout
 	can_fire = true
