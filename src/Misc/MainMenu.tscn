@@ -2,17 +2,10 @@
 
 [ext_resource type="Script" path="res://Misc/MainMenu.gd" id="1_av7h0"]
 
-[node name="UI_MainMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="UI_MainMenu" type="CanvasLayer"]
 script = ExtResource("1_av7h0")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.25
 anchor_top = 0.25
