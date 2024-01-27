@@ -6,7 +6,7 @@ func _on_ready():
 ##TODO add animation
 
 const SPEED = 400.0
-var BULLETSPEED = 1000  # Adjust this value to control the bullet speed
+var BULLETSPEED = 500  # Adjust this value to control the bullet speed
 var FIRERATE = 0.2
 @onready var sprite = $AnimatedSprite2D
 
@@ -64,4 +64,5 @@ func shoot():
 	
 func hit_by_bullet():
 	print("OUCH")
+	self.position.x = self.position.x + 50
 	Livecounter.lives = Livecounter.lives - 1

@@ -34,6 +34,19 @@ func set_parameters(p_texture: Texture2D = null, p_speed: float = 5.0, p_type :=
 
 func _ready():
 	$AnimationPlayer.play("move")
+	self.rotates = false
+	self.loop = false
+	$Area2D.body_entered.connect(_on_Bullet_entered)
+
+func _on_Bullet_entered(body):
+	var collisionLayer = body.get_collision_layer()
+	if collisionLayer == 16:
+		# Bullet Hit Enemy
+		body.queue_free()
+		queue_free()
+	if collisionLayer == 2:
+		#player runs into Enemy
+		Livecounter.lives = Livecounter.lives - 1
 
 func _process(delta):
 	progress += speed
