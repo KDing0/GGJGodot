@@ -15,6 +15,22 @@ run/main_scene="res://gamescene.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Spawning="*res://addons/BulletUpHell/Spawning.tscn"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/BulletUpHell/plugin.cfg")
+
+[input]
+
+LMB={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(72, 0),"global_position":Vector2(76, 43),"factor":1.0,"button_index":1,"pressed":true,"double_click":false,"script":null)
+]
+}
+
 [layer_names]
 
 2d_physics/layer_1="World"
