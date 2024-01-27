@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://d4ajf2330ej2i"]
+[gd_scene load_steps=27 format=3 uid="uid://d4ajf2330ej2i"]
 
 [ext_resource type="PackedScene" uid="uid://cf6o2n1w1lpv0" path="res://Enemy/enemy.tscn" id="1_80436"]
 [ext_resource type="Script" path="res://Misc/GameController.gd" id="1_prura"]
@@ -35,6 +35,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -202, -121, -24.0416, -19.799, 24.0416, 19.799, 148, 85, -4.24264, -111.723, 4.24264, 111.723, 272, 324, 29.6985, -36.7695, -29.6985, 36.7695, 221, 559, 0, 0, 0, 0, -138, 836)
 }
 point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_lj88p"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -202, -121, -24.0416, -19.799, 24.0416, 19.799, 30, -85, -4.24264, -111.723, 4.24264, 111.723, -31, 53, 29.6985, -36.7695, -29.6985, 36.7695, -175, -1, 0, 0, 0, 0, -239, -85, 0, 0, 0, 0, -202, -121)
+}
+point_count = 6
 
 [sub_resource type="Curve2D" id="Curve2D_jqf82"]
 
@@ -114,7 +120,7 @@ forced_target = NodePath("")
 forced_lookat_mouse = false
 forced_pattern_lookat = true
 cooldown_stasis = false
-cooldown_spawn = 0.017
+cooldown_spawn = 0.0
 cooldown_shoot = 0.0
 cooldown_next_spawn = 0.0
 cooldown_next_shoot = 0.0
@@ -326,6 +332,22 @@ curve = SubResource("Curve2D_3sj47")
 
 [node name="enemy" parent="EnemyPaths/Path2D" instance=ExtResource("1_80436")]
 position = Vector2(-202, -121)
+BulletStartDelay = 4.0
+BulletCycleAmount = 1
+
+[node name="Path2D2" type="Path2D" parent="EnemyPaths"]
+position = Vector2(858, 402)
+curve = SubResource("Curve2D_lj88p")
+
+[node name="enemy" parent="EnemyPaths/Path2D2" instance=ExtResource("1_80436")]
+position = Vector2(-202, -121)
+rotation = 0.153945
+loop = true
+BulletSpawnID = "two"
+BulletStartDelay = 1.0
+BulletShootDelay = 0.1
+BulletCycleAmount = 5
+BulletCycleCooldown = 1.0
 
 [node name="Node" type="Node" parent="."]
 

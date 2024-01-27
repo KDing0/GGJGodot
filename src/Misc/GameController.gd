@@ -34,3 +34,8 @@ func setInstantiateBulletPattern(enemy_instance, enemyType):
 	enemy_instance.BulletSpawnID = "two"
 	enemy_instance.BulletAnimationID = "first"
 	enemy_instance.BulletRotation = 0
+	
+	enemy_instance.BulletStartDelay = 1
+	enemy_instance.BulletShootDelay = 0.12
+	enemy_instance.BulletCycleAmount = 5
+	enemy_instance.BulletCycleCooldown = 5
