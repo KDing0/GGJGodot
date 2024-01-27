@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d4ajf2330ej2i"]
+[gd_scene load_steps=30 format=3 uid="uid://d4ajf2330ej2i"]
 
 [ext_resource type="PackedScene" uid="uid://cf6o2n1w1lpv0" path="res://Enemy/enemy.tscn" id="1_80436"]
 [ext_resource type="Script" path="res://Misc/GameController.gd" id="1_prura"]
@@ -7,8 +7,9 @@
 [ext_resource type="Script" path="res://addons/BulletUpHell/BuHPattern.gd" id="4_ehlb4"]
 [ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="5_ck2a0"]
 [ext_resource type="Script" path="res://Addons/BulletUpHell/BuHBulletProperties.gd" id="6_7xkk1"]
-[ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternLine.gd" id="7_il8iq"]
 [ext_resource type="Script" path="res://Addons/BulletUpHell/BulletProps.gd" id="7_q0fvn"]
+[ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternCustomShape.gd" id="7_uksj7"]
+[ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="8_3ru4j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cd6u2"]
 size = Vector2(72, 710)
@@ -38,9 +39,9 @@ point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_lj88p"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -202, -121, -24.0416, -19.799, 24.0416, 19.799, 30, -85, -4.24264, -111.723, 4.24264, 111.723, -31, 53, 29.6985, -36.7695, -29.6985, 36.7695, -175, -1, 0, 0, 0, 0, -239, -85, 0, 0, 0, 0, -202, -121)
+"points": PackedVector2Array(0, 0, 0, 0, -202, -121, 0, 0, 0, 0, -202, -121)
 }
-point_count = 6
+point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_jqf82"]
 
@@ -48,8 +49,8 @@ point_count = 6
 resource_name = "PatternCircle"
 script = ExtResource("5_ck2a0")
 bullet = "1"
-nbr = 4
-radius = 0
+nbr = 30
+radius = 3.0
 angle_total = 6.28319
 angle_decal = 0
 pattern_angle = 0.0
@@ -104,23 +105,30 @@ r_cooldown_n_spawn_variation = Vector3(0, 0, 0)
 r_cooldown_n_shoot_choice = ""
 r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_uwvbn"]
-resource_name = "PatternLine"
-script = ExtResource("7_il8iq")
-offset = Vector2(18, 13)
-center = 1
-symmetrical = null
+[sub_resource type="Curve2D" id="Curve2D_nhm4t"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 100)
+}
+point_count = 4
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3igxc"]
+resource_name = "PatternCustomShape"
+script = ExtResource("7_uksj7")
 bullet = "1"
-nbr = 5
-pattern_angle = -1.6376
+nbr = 3
+closed_shape = false
+center_pos = Vector2(0, 50)
+pattern_angle = 0.0
+symmetric = true
+center = 2
 iterations = 1
 follows_parent = false
-forced_angle = 0.9324
+forced_angle = 0.0
 forced_target = NodePath("")
 forced_lookat_mouse = false
 forced_pattern_lookat = true
 cooldown_stasis = false
-cooldown_spawn = 0.0
+cooldown_spawn = 0.017
 cooldown_shoot = 0.0
 cooldown_next_spawn = 0.0
 cooldown_next_shoot = 0.0
@@ -134,11 +142,53 @@ layer_pos_offset = 0.0
 layer_speed_offset = 0.0
 layer_angle_offset = 0.0
 r_randomisation_chances = 1.0
-r_offset_choice = ""
-r_offset_x_variation = Vector3(0, 0, 0)
-r_offset_y_variation = Vector3(0, 0, 0)
-r_center_choice = ""
 r_symmetry_chances = 0.0
+r_bullet_choice = ""
+r_bullet_nbr_choice = ""
+r_bullet_nbr_variation = Vector3(0, 0, 0)
+r_pattern_angle_choice = ""
+r_pattern_angle_variation = Vector3(0, 0, 0)
+r_infinite_iter_chances = 0.0
+r_iterations_choice = ""
+r_iterations_variation = Vector3(0, 0, 0)
+r_forced_angle_choice = ""
+r_forced_angle_variation = Vector3(0, 0, 0)
+r_forced_target_choice = []
+r_stasis_chances = 0.0
+r_cooldown_spawn_choice = ""
+r_cooldown_spawn_variation = Vector3(0, 0, 0)
+r_cooldown_shoot_choice = ""
+r_cooldown_shoot_variation = Vector3(0, 0, 0)
+r_cooldown_n_spawn_choice = ""
+r_cooldown_n_spawn_variation = Vector3(0, 0, 0)
+r_cooldown_n_shoot_choice = ""
+r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_oabew"]
+resource_name = "PatternOne"
+script = ExtResource("8_3ru4j")
+bullet = "1"
+iterations = 1
+follows_parent = false
+forced_angle = 0.0
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+cooldown_stasis = false
+cooldown_spawn = 0.017
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+wait_latence = 0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+layer_nbr = 1
+layer_cooldown_spawn = 0.0
+layer_pos_offset = 0.0
+layer_speed_offset = 0.0
+layer_angle_offset = 0.0
+r_randomisation_chances = 1.0
 r_bullet_choice = ""
 r_bullet_nbr_choice = ""
 r_bullet_nbr_variation = Vector3(0, 0, 0)
@@ -340,14 +390,14 @@ position = Vector2(858, 402)
 curve = SubResource("Curve2D_lj88p")
 
 [node name="enemy" parent="EnemyPaths/Path2D2" instance=ExtResource("1_80436")]
-position = Vector2(-202, -121)
-rotation = 0.153945
+position = Vector2(-230, -92)
 loop = true
-BulletSpawnID = "two"
+BulletSpawnID = "four"
+BulletRotation = 1.1
 BulletStartDelay = 1.0
-BulletShootDelay = 0.1
-BulletCycleAmount = 5
-BulletCycleCooldown = 1.0
+BulletShootDelay = 0.2
+BulletCycleAmount = 3
+BulletCycleCooldown = 2.0
 
 [node name="Node" type="Node" parent="."]
 
@@ -360,10 +410,22 @@ id = "one"
 pattern = SubResource("NavigationPolygon_m3wac")
 
 [node name="SpawnPattern2" type="Path2D" parent="Node/Spawn"]
-curve = SubResource("Curve2D_jqf82")
+curve = SubResource("Curve2D_nhm4t")
 script = ExtResource("4_ehlb4")
 id = "two"
-pattern = SubResource("NavigationPolygon_uwvbn")
+pattern = SubResource("NavigationPolygon_3igxc")
+
+[node name="SpawnPattern3" type="Path2D" parent="Node/Spawn"]
+curve = SubResource("Curve2D_jqf82")
+script = ExtResource("4_ehlb4")
+id = "three"
+pattern = SubResource("NavigationPolygon_oabew")
+
+[node name="SpawnPattern4" type="Path2D" parent="Node/Spawn"]
+curve = SubResource("Curve2D_jqf82")
+script = ExtResource("4_ehlb4")
+id = "four"
+pattern = SubResource("NavigationPolygon_m3wac")
 
 [node name="Bullet" type="Node" parent="Node"]
 

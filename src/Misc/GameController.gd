@@ -31,7 +31,7 @@ func spawnEnemy(enemyType):
 	
 func setInstantiateBulletPattern(enemy_instance, enemyType):
 	enemy_instance.BulletSpawnOffset = Vector2(0,0)
-	enemy_instance.BulletSpawnID = "two"
+	enemy_instance.BulletSpawnID = "one"
 	enemy_instance.BulletAnimationID = "first"
 	enemy_instance.BulletRotation = 0
 	

@@ -5,18 +5,21 @@ class_name Enemy
 @export var SPEED = 5.0
 @export var BulletSpawnID = "one"
 @export var BulletAnimationID = "first"
-@export var BulletRotation = 15
+@export var BulletRotation = 15.0
 @export var BulletSpawnOffset = Vector2(0,0)
 
 @export var BulletStartDelay = 0.0
 @export var BulletShootDelay = 0.0
 @export var BulletCycleAmount = 0
 @export var BulletCycleCooldown = 0.0
+@export var BulletRotationShift = 0.0
 
 var timer = 0
 var firstShot = true
 var nextShotCooldown = 0 
 var shotCycle = 0
+var rotationShift = 0
+
 
 enum EnemyTypes {ENEMY_TYPE1, ENEMY_TYPE2}
 
@@ -37,6 +40,7 @@ func _process(delta):
 		self.queue_free()
 	shootCooldownCounting(delta)
 	
+	
 func _on_timer_timeout(delta):
 	# shoot()
 	pass
@@ -47,7 +51,8 @@ func _input(event):
 		
 func shoot():
 	var pos = global_position + BulletSpawnOffset
-	Spawning.spawn({"position": pos, "rotation": BulletRotation}, BulletSpawnID, BulletAnimationID)
+	rotationShift += BulletRotationShift
+	Spawning.spawn({"position": pos, "rotation": BulletRotation + rotationShift}, BulletSpawnID, BulletAnimationID)
 
 
 func shootCooldownCounting(delta):
