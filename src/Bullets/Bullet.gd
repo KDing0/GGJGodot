@@ -8,6 +8,5 @@ func _ready():
 func _on_Bullet_body_entered(body):
 	# Check if the bullet has collided with a wall
 	var collisionLayer = body.get_collision_layer()
-	print(collisionLayer)
 	if collisionLayer == 1:
 		queue_free()  # Remove the bullet from the scene upon collision with a wall):
