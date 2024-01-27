@@ -3,6 +3,7 @@ extends Node
 @export var tex_enemy : Array[Texture2D]
 
 @onready var waves = Waves.new()
+@onready var enemyPaths = self.get_node("../EnemyPaths")
 
 var spawnTimer = Timer.new()
 var betweenWavesTimer = Timer.new() 
@@ -46,13 +47,18 @@ func spawnEnemy(enemyType, path: int, speed: float):
 
 func _on_spawnTimer_Timeout():
 	spawnEnemy(enemy_batch[0], enemy_batch[1], enemy_batch[2])
+	enemyPaths.signal_emitted = false
 	
 	enemy_inBatch_counter += 1
 	if enemy_batch[3] <= enemy_inBatch_counter:
 		enemy_inBatch_counter = 0
 		if enemy_batch.size() >= 5:
 			prepare_new_batch(enemy_batch[4])
-		else :
+		else:
+			if !enemyPaths.signal_emitted:
+				print("Start waiting")
+				await enemyPaths.every_enemy_dead
+				print("Done waiting")
 			betweenWavesTimer.start(10.0)
 		return
 	
