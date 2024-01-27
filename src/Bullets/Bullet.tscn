@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ukc04gvtb3x4"]
+[gd_scene load_steps=4 format=3 uid="uid://ukc04gvtb3x4"]
+
+[ext_resource type="Script" path="res://Bullets/Bullet.gd" id="1_6c6jx"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_sqcps"]
 
@@ -6,7 +8,10 @@
 
 [node name="Bullet" type="RigidBody2D"]
 collision_layer = 8
-collision_mask = 7
+collision_mask = 5
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_6c6jx")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 modulate = Color(1, 1, 0, 1)
