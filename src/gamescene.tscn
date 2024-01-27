@@ -194,7 +194,12 @@ script = ExtResource("6_7xkk1")
 id = "1"
 props = SubResource("PackedDataContainer_p2jyy")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="player" parent="." instance=ExtResource("2_uygfl")]
+position = Vector2(544, 389)
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Background"]
 y_sort_enabled = true
 texture_filter = 1
 tile_set = ExtResource("8_0j1y0")
@@ -223,13 +228,10 @@ layer_3/y_sort_origin = 0
 layer_3/z_index = 4
 layer_3/tile_data = PackedInt32Array(851995, 262146, 3, 917531, 262146, 4, 983067, 262146, 5, 851975, 262146, 3, 917511, 262146, 4, 983047, 262146, 5, 1114112, 0, 1, 1179648, 0, 2, 1245184, 0, 3, 1114113, 65536, 1, 1179649, 65536, 2, 1245185, 65536, 3, 1114114, 131072, 1, 1179650, 131072, 2, 1245186, 131072, 3, 1114115, 0, 1, 1179651, 0, 2, 1245187, 0, 3, 1114116, 65536, 1, 1179652, 65536, 2, 1245188, 65536, 3, 1114117, 131072, 1, 1179653, 131072, 2, 1245189, 131072, 3, 1114118, 0, 1, 1179654, 0, 2, 1245190, 0, 3, 1114119, 65536, 1, 1179655, 65536, 2, 1245191, 65536, 3, 1114120, 131072, 1, 1179656, 131072, 2, 1245192, 131072, 3, 1114121, 0, 1, 1179657, 0, 2, 1245193, 0, 3, 1114122, 65536, 1, 1179658, 65536, 2, 1245194, 65536, 3, 1114123, 131072, 1, 1179659, 131072, 2, 1245195, 131072, 3, 1114124, 0, 1, 1179660, 0, 2, 1245196, 0, 3, 1114125, 65536, 1, 1179661, 65536, 2, 1245197, 65536, 3, 1114126, 131072, 1, 1179662, 131072, 2, 1245198, 131072, 3, 1114132, 0, 1, 1179668, 0, 2, 1245204, 0, 3, 1114133, 65536, 1, 1179669, 65536, 2, 1245205, 65536, 3, 1114134, 131072, 1, 1179670, 131072, 2, 1245206, 131072, 3, 1114135, 0, 1, 1179671, 0, 2, 1245207, 0, 3, 1114136, 65536, 1, 1179672, 65536, 2, 1245208, 65536, 3, 1114137, 131072, 1, 1179673, 131072, 2, 1245209, 131072, 3, 1114138, 0, 1, 1179674, 0, 2, 1245210, 0, 3, 1114139, 65536, 1, 1179675, 65536, 2, 1245211, 65536, 3, 1114140, 131072, 1, 1179676, 131072, 2, 1245212, 131072, 3, 1114141, 0, 1, 1179677, 0, 2, 1245213, 0, 3, 1114142, 65536, 1, 1179678, 65536, 2, 1245214, 65536, 3, 1114143, 131072, 1, 1179679, 131072, 2, 1245215, 131072, 3, 1114144, 0, 1, 1179680, 0, 2, 1245216, 0, 3, 1114145, 65536, 1, 1179681, 65536, 2, 1245217, 65536, 3, 1114146, 131072, 1, 1179682, 131072, 2, 1245218, 131072, 3, 1048610, 196608, 1, 1048609, 196608, 1, 1048608, 196608, 1, 1048607, 196608, 1, 1048606, 196608, 1, 1048605, 196608, 1, 1048604, 196608, 1, 1048603, 196608, 1, 1048602, 196608, 1, 1048601, 196608, 1, 1048600, 196608, 1, 1048599, 196608, 1, 1048598, 196608, 1, 1048597, 196608, 1, 1048596, 196608, 1, 1048595, 196608, 1, 1048594, 196608, 1, 1048593, 196608, 1, 1048592, 196608, 1, 1048591, 196608, 1, 1048590, 196608, 1, 1048589, 196608, 1, 1048588, 196608, 1, 1048587, 196608, 1, 1048586, 196608, 1, 1048585, 196608, 1, 1048584, 196608, 1, 1048583, 196608, 1, 1048582, 196608, 1, 1048581, 196608, 1, 1048580, 196608, 1, 1048579, 196608, 1, 1048578, 196608, 1, 1048577, 196608, 1, 1048576, 196608, 1)
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="CanvasModulate" type="CanvasModulate" parent="Background"]
 color = Color(0.298039, 0.227451, 0.329412, 1)
 
-[node name="player" parent="." instance=ExtResource("2_uygfl")]
-position = Vector2(544, 389)
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="Background"]
 position = Vector2(720, 416)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -240,7 +242,7 @@ shadow_filter = 2
 texture = ExtResource("9_ox15u")
 texture_scale = 1.8
 
-[node name="PointLight2D2" type="PointLight2D" parent="."]
+[node name="PointLight2D2" type="PointLight2D" parent="Background"]
 position = Vector2(880, 416)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -251,7 +253,7 @@ shadow_filter = 2
 texture = ExtResource("9_ox15u")
 texture_scale = 1.8
 
-[node name="PointLight2D3" type="PointLight2D" parent="."]
+[node name="PointLight2D3" type="PointLight2D" parent="Background"]
 position = Vector2(1040, 416)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -262,7 +264,7 @@ shadow_filter = 2
 texture = ExtResource("9_ox15u")
 texture_scale = 1.8
 
-[node name="PointLight2D4" type="PointLight2D" parent="."]
+[node name="PointLight2D4" type="PointLight2D" parent="Background"]
 position = Vector2(80, 416)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -273,7 +275,7 @@ shadow_filter = 2
 texture = ExtResource("9_ox15u")
 texture_scale = 1.8
 
-[node name="PointLight2D5" type="PointLight2D" parent="."]
+[node name="PointLight2D5" type="PointLight2D" parent="Background"]
 position = Vector2(240, 416)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -284,7 +286,7 @@ shadow_filter = 2
 texture = ExtResource("9_ox15u")
 texture_scale = 1.8
 
-[node name="PointLight2D7" type="PointLight2D" parent="."]
+[node name="PointLight2D7" type="PointLight2D" parent="Background"]
 position = Vector2(576, -96)
 scale = Vector2(5.34766, 7.29)
 color = Color(0.768627, 0.647059, 0.917647, 1)
@@ -298,7 +300,7 @@ texture = ExtResource("9_ox15u")
 offset = Vector2(-2.99196, 4.38957)
 texture_scale = 1.06
 
-[node name="PointLight2D6" type="PointLight2D" parent="."]
+[node name="PointLight2D6" type="PointLight2D" parent="Background"]
 position = Vector2(400, 416)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
