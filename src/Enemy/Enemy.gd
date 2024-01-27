@@ -24,18 +24,19 @@ var rotationShift = 0
 enum EnemyTypes {ENEMY_TYPE1, ENEMY_TYPE2}
 
 var speed = 5.0
+var enemy_type
 
-func set_parameters(p_texture: Texture2D = null, p_speed: float = 5.0) -> void:
+func set_parameters(p_texture: Texture2D = null, p_speed: float = 5.0, p_type := EnemyTypes.ENEMY_TYPE1) -> void:
 	if p_texture:
 		$Sprite2D.texture = p_texture
 	speed = p_speed
-	
-	self.rotates = false
-	self.loop = false
+	enemy_type = p_type
 
+func _ready():
+	$AnimationPlayer.play("move")
 
 func _process(delta):
-	progress_ratio += speed / 1000.0
+	progress += speed
 	if progress_ratio >= 1.0:
 		self.queue_free()
 	shootCooldownCounting(delta)

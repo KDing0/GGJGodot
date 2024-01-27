@@ -8,6 +8,7 @@ func _on_ready():
 const SPEED = 400.0
 var BULLETSPEED = 1000  # Adjust this value to control the bullet speed
 var FIRERATE = 0.2
+@onready var sprite = $AnimatedSprite2D
 
 var bullet_scene = preload("res://Bullets/Bullet.tscn")
 var can_fire = true
@@ -20,9 +21,13 @@ func _physics_process(delta):
 		shoot()   
 		
 func move():
+	if (velocity.x > 1 || velocity.x < -1 || velocity.y > 1 || velocity.y < -1):
+		sprite.animation = "running"
+	else:
+		sprite.animation = "default"
 	# TODO should replace UI actions with custom gameplay actions.
-	var horizontal = Input.get_axis("ui_left", "ui_right")
-	var vertically = Input.get_axis("ui_up", "ui_down")
+	var horizontal = Input.get_axis("player_left", "player_right")
+	var vertically = Input.get_axis("player_up", "player_down")
 	if horizontal:
 		velocity.x = horizontal * SPEED
 	else:
@@ -32,6 +37,9 @@ func move():
 		velocity.y = vertically * SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, 15)
+		
+	var isLeft = velocity.x < 0
+	sprite.flip_h = isLeft
 	
 func shoot():
 	var bullet_instance = bullet_scene.instantiate()
@@ -56,4 +64,4 @@ func shoot():
 	
 func hit_by_bullet():
 	print("OUCH")
-	return
+	Livecounter.lives = Livecounter.lives - 1

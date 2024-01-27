@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl3h2vjeq7i23"]
+
+[ext_resource type="Texture2D" uid="uid://dfwjjbrb0vlkd" path="res://Assets/Characters/Player/MC.png" id="1_0iii3"]
+[ext_resource type="Script" path="res://UI/lives.gd" id="1_5fj5m"]
+
+[node name="Lives" type="Node2D"]
+script = ExtResource("1_5fj5m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(616, 16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_0iii3")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(600, 16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_0iii3")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(584, 16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_0iii3")
