@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://d4ajf2330ej2i"]
+[gd_scene load_steps=24 format=3 uid="uid://d4ajf2330ej2i"]
 
 [ext_resource type="PackedScene" uid="uid://cf6o2n1w1lpv0" path="res://Enemy/enemy.tscn" id="1_80436"]
+[ext_resource type="Script" path="res://Misc/GameController.gd" id="1_prura"]
 [ext_resource type="Script" path="res://Enemy/enemyBullethellSpawn.gd" id="2_tjv66"]
 [ext_resource type="PackedScene" uid="uid://ipk1i003beqy" path="res://Player/player.tscn" id="2_uygfl"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/BuHPattern.gd" id="4_ehlb4"]
@@ -192,6 +193,9 @@ r_scale_multi_iter_variation = Vector3(0, 0, 0)
 r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
 [node name="Node2D" type="Node2D"]
+
+[node name="GameController" type="Node" parent="."]
+script = ExtResource("1_prura")
 
 [node name="enemyProjectile Spawner" parent="." instance=ExtResource("1_80436")]
 position = Vector2(211, 296)
