@@ -1117,8 +1117,7 @@ func bullet_collide_body(body_rid:RID,body:Node,body_shape_index:int,local_shape
 	
 	if body.is_in_group("Player"):
 		delete_bullet(rid)
-		player.test()
-		print("blub")
+		player.hit_by_bullet()
 	elif B["props"]["death_from_collision"]: delete_bullet(rid)
 
 func bounce(B:Dictionary, shared_area:Area2D):

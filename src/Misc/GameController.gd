@@ -44,6 +44,7 @@ func spawnEnemy(enemyType, path: int, speed: float):
 	var enemy_instance = enemyScene.instantiate()
 	enemy_instance.set_parameters(tex_enemy[0], speed)
 	get_node("../EnemyPaths/EnemyPath_0" + str(path)).add_child(enemy_instance)
+	setInstantiateBulletPattern(enemy_instance, enemyType)
 
 func _on_spawnTimer_Timeout():
 	spawnEnemy(enemy_batch[0], enemy_batch[1], enemy_batch[2])
@@ -62,3 +63,8 @@ func _on_spawnTimer_Timeout():
 	
 	spawnTimer.start(0.5)
 	
+func setInstantiateBulletPattern(enemy_instance, enemyType):
+	enemy_instance.BulletSpawnOffset = Vector2(0,0)
+	enemy_instance.BulletSpawnID = "two"
+	enemy_instance.BulletAnimationID = "first"
+	enemy_instance.BulletRotation = 0
