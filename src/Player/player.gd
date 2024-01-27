@@ -13,9 +13,14 @@ var bullet_scene = preload("res://Bullets/Bullet.tscn")
 var can_fire = true
 
 func _physics_process(delta):
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	move()
+	move_and_slide()
+	
+	if Input.is_action_pressed("shoot") and can_fire:
+		shoot()   
+		
+func move():
+	# TODO should replace UI actions with custom gameplay actions.
 	var horizontal = Input.get_axis("ui_left", "ui_right")
 	var vertically = Input.get_axis("ui_up", "ui_down")
 	if horizontal:
@@ -28,18 +33,23 @@ func _physics_process(delta):
 	else:
 		velocity.y = move_toward(velocity.y, 0, 15)
 	
-	move_and_slide()
-	
-	if Input.is_action_pressed("shoot") and can_fire:
-		shoot()         
-		
-	
 func shoot():
-	var bullet_instance = bullet_scene.instantiate() #bullet_scene.instance()
+	var bullet_instance = bullet_scene.instantiate()
 	bullet_instance.position = global_position
+	
+	var mousePosition = get_global_mouse_position()
+	var mouseX = mousePosition.x
+	var mouseY = mousePosition.y
+	var distX = mouseX - bullet_instance.position.x
+	var distY = mouseY - bullet_instance.position.y 
+	var xDirection = distX/(abs(distX)+abs(distY))
+	var yDirection = distY/(abs(distX)+abs(distY))
+	
 	bullet_instance.gravity_scale = 0
-	bullet_instance.linear_velocity = Vector2(0, -BULLETSPEED)
+	bullet_instance.linear_velocity.x = xDirection * BULLETSPEED
+	bullet_instance.linear_velocity.y = yDirection * BULLETSPEED
 	get_parent().add_child(bullet_instance)
+	
 	can_fire = false
 	await get_tree().create_timer(FIRERATE).timeout
 	can_fire = true
