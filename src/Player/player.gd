@@ -53,3 +53,7 @@ func shoot():
 	can_fire = false
 	await get_tree().create_timer(FIRERATE).timeout
 	can_fire = true
+	
+func hit_by_bullet():
+	print("OUCH")
+	return
