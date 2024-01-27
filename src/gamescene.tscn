@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d4ajf2330ej2i"]
+[gd_scene load_steps=12 format=3 uid="uid://d4ajf2330ej2i"]
 
 [ext_resource type="PackedScene" uid="uid://cf6o2n1w1lpv0" path="res://Enemy/enemy.tscn" id="1_80436"]
 [ext_resource type="PackedScene" uid="uid://ipk1i003beqy" path="res://Player/player.tscn" id="2_uygfl"]
@@ -23,10 +23,13 @@ size = Vector2(1178.5, 75)
 
 [sub_resource type="QuadMesh" id="QuadMesh_q2dtn"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="Curve2D" id="Curve2D_3sj47"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -202, -121, -24.0416, -19.799, 24.0416, 19.799, 148, 85, -4.24264, -111.723, 4.24264, 111.723, 272, 324, 29.6985, -36.7695, -29.6985, 36.7695, 221, 559, 0, 0, 0, 0, -138, 836)
+}
+point_count = 5
 
-[node name="enemy" parent="." instance=ExtResource("1_80436")]
-position = Vector2(685, 154)
+[node name="Node2D" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("2_uygfl")]
 position = Vector2(597, 505)
@@ -91,3 +94,11 @@ modulate = Color(0, 0, 1, 1)
 position = Vector2(578, 647)
 scale = Vector2(1161.63, 45.5)
 mesh = SubResource("QuadMesh_q2dtn")
+
+[node name="EnemyPaths" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="EnemyPaths"]
+curve = SubResource("Curve2D_3sj47")
+
+[node name="enemy" parent="EnemyPaths/Path2D" instance=ExtResource("1_80436")]
+position = Vector2(-202, -121)

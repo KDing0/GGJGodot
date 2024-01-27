@@ -1,6 +1,9 @@
-extends CharacterBody2D
+extends PathFollow2D
 
-@export var SPEED = 200.0
+@export var SPEED = 5.0
+
+func _process(delta):
+	progress_ratio += SPEED / 1000.0
 
 func _on_timer_timeout():
 	# shoot()
