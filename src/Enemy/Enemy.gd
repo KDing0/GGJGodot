@@ -19,7 +19,17 @@ func set_parameters(p_texture: Texture2D = null, p_speed: float = 5.0) -> void:
 	
 	self.rotates = false
 	self.loop = false
+	
+func _ready():
+	$Area2D.body_entered.connect(_on_Bullet_entered)
 
+func _on_Bullet_entered(body):
+	var collisionLayer = body.get_collision_layer()
+	if collisionLayer == 16:
+		# Bullet Hit Enemy
+		body.queue_free()
+		queue_free()
+		
 
 func _process(delta):
 	progress_ratio += speed / 1000.0
