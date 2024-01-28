@@ -36,6 +36,7 @@ func freeAllChildren():
 func loadMainMenu():
 	if currentState == States.MAIN_MENU:
 		return
+	
 	Input.set_custom_mouse_cursor(defaultCoursor)
 	get_tree().paused = false
 	Spawning.reset_bullets()
