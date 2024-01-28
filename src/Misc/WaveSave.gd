@@ -3,12 +3,12 @@ class_name Waves
 
 # EnemyType, PathID, Speed, Amount of Enemies, Time to next batch, Portrait ID,  Time between unit spawns, LastBatch
 const wave_1 = [
-	[Enemy.EnemyTypes.ENEMY_TYPE1, 4, 70.0, 5, 0,  0, 0.5, 0],
-	[Enemy.EnemyTypes.ENEMY_TYPE1, 3, 90.0, 10, 1, -1, 1, 0],
-	[Enemy.EnemyTypes.ENEMY_TYPE2, 4, 90.0, 4, 2,  -1, 0.5, 0],
-	[Enemy.EnemyTypes.ENEMY_TYPE3, 3, 80.0, 7, 5, 1, 0.5, 0],
-	[Enemy.EnemyTypes.ENEMY_TYPE1, 1, 70.0, 5, 0, -1, 0.5, 0],
-	[Enemy.EnemyTypes.ENEMY_TYPE2, 3, 70.0, 10, 2,  -1, 0.5, 1],
+	[Enemy.EnemyTypes.ENEMY_TYPE1, 4, 70.0, 5, 0,  	0, 	0.5, 0],
+	[Enemy.EnemyTypes.ENEMY_TYPE1, 3, 90.0, 10, 1, 	-1, 0.5, 0],
+	[Enemy.EnemyTypes.ENEMY_TYPE2, 4, 90.0, 4, 2,  	-1, 0.5, 0],
+	[Enemy.EnemyTypes.ENEMY_TYPE3, 3, 80.0, 7, 5, 	1, 0.5, 0],
+	[Enemy.EnemyTypes.ENEMY_TYPE1, 1, 70.0, 5, 0, 	-1, 0.5, 0],
+	[Enemy.EnemyTypes.ENEMY_TYPE2, 3, 70.0, 10, 2, 	-1, 0.5, 1],
 ]
 const wave_2 = [
 	[Enemy.EnemyTypes.ENEMY_TYPE4, 2, 80.0, 3, 1, 2, 0.5, 0],
@@ -20,7 +20,17 @@ const wave_2 = [
 	[Enemy.EnemyTypes.ENEMY_TYPE2, 1, 70.0, 10, 1, -1, 0.5, 1]
 ]
 
-const waveMap = {0: wave_1, 1: wave_2}
+const wave_3= [
+	[Enemy.EnemyTypes.ENEMY_TYPE1, 1, 110.0, 10, 1, 4, 0.5, 0],
+	[Enemy.EnemyTypes.ENEMY_TYPE5, 2, 110.0, 10, 0.3, -1, 0.8, 0],
+	[Enemy.EnemyTypes.ENEMY_TYPE4, 3, 110.0, 15, 0.2, -1, 0.5, 0],
+	[Enemy.EnemyTypes.ENEMY_TYPE2, 4, 110.0, 15, 0, 5, 0.3, 0],
+	[Enemy.EnemyTypes.ENEMY_TYPE3, 3, 110.0, 20, 0, -1, 0.5, 0],
+	[Enemy.EnemyTypes.ENEMY_TYPE3, 2, 110.0, 25, 0, -1, 0.5, 0],
+	[Enemy.EnemyTypes.ENEMY_TYPE2, 1, 110.0, 5, 1, -1, 0.5, 1]
+]
+
+const waveMap = {0: wave_1, 1: wave_2, 2: wave_3}
 
 # Text, from_word, to_word
 const texts = [
@@ -29,6 +39,7 @@ const texts = [
 	["You and my family get along terribly :(", "terribly :(", "great :)"],
 	["You are really bad at this", "bad", "good"],
 	["We should hang out less", "less", "more"],
+	["You are so lame", "lame", "funny"],
 ]
 
 var currentWave : int = -1
@@ -49,4 +60,4 @@ func next() -> Array:
 	return waveMap[currentWave][currentBatch]
 
 func get_text(id):
-	return texts[id]
+	return texts[id]a

@@ -71,7 +71,7 @@ func _on_spawnTimer_Timeout():
 			betweenWavesTimer.start(10.0)
 		return
 	
-	spawnTimer.start(enemy_batch[5])
+	spawnTimer.start(enemy_batch[6])
 	
 func setInstantiateBulletPattern(enemy_instance, enemyType):
 	enemy_instance.playerInstance = player
