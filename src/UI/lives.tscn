@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dl3h2vjeq7i23"]
 
-[ext_resource type="Texture2D" uid="uid://dfwjjbrb0vlkd" path="res://Assets/Characters/Player/MC.png" id="1_0iii3"]
 [ext_resource type="Script" path="res://UI/lives.gd" id="1_5fj5m"]
+[ext_resource type="Texture2D" uid="uid://cljo3qmn0yhvf" path="res://Assets/UI/heart_full.png" id="2_j33g4"]
 
 [node name="Lives" type="CanvasLayer"]
 process_mode = 3
@@ -11,20 +11,21 @@ script = ExtResource("1_5fj5m")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -52.0
-offset_right = 52.0
-offset_bottom = 32.0
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 64.0
 grow_horizontal = 2
-pivot_offset = Vector2(52, 0)
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(100, 0)
 
 [node name="Sprite2D" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_0iii3")
+texture = ExtResource("2_j33g4")
 
 [node name="Sprite2D2" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_0iii3")
+texture = ExtResource("2_j33g4")
 
 [node name="Sprite2D3" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_0iii3")
+texture = ExtResource("2_j33g4")
