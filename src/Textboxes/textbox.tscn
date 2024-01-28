@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://wndowv53go84"]
 
 [ext_resource type="Script" path="res://Textboxes/textbox.gd" id="1_gfbi4"]
-[ext_resource type="Texture2D" uid="uid://bqyui0nfuaj4a" path="res://Assets/UI/UI_GF_Smile.png" id="2_ajb3v"]
-[ext_resource type="Texture2D" uid="uid://ds881nrmlvhtw" path="res://Assets/UI/UI_speechBubble.png" id="3_svvb8"]
+[ext_resource type="Texture2D" uid="uid://cdf14h82sf4hp" path="res://Assets/UI/UI_GF_Laugh720.png" id="2_jyvug"]
+[ext_resource type="Texture2D" uid="uid://cisipfj3ladov" path="res://Assets/UI/UI_speechBubble720.png" id="3_a7feg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_su1er"]
 
@@ -10,34 +10,10 @@
 
 [sub_resource type="Animation" id="Animation_nrith"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_c77ln"]
 resource_name = "close_textbox"
-length = 0.2
+length = 1.7
 step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -46,10 +22,10 @@ tracks/0/path = NodePath("Control:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(1.5, 1.7),
 "transitions": PackedFloat32Array(0.535887, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 100)]
+"values": [Vector2(0, 0), Vector2(0, 250)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -58,7 +34,7 @@ tracks/1/path = NodePath("Control:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 1.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -78,7 +54,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.25),
 "transitions": PackedFloat32Array(1, 3.73213, 1.7411),
 "update": 0,
-"values": [Vector2(0, 100), Vector2(0, -10), Vector2(0, 0)]
+"values": [Vector2(0, 250), Vector2(0, -10), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -106,11 +82,10 @@ script = ExtResource("1_gfbi4")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 2560.0
-offset_bottom = 1440.0
+offset_top = 250.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -126,7 +101,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_su1er")
 
 [node name="Image" type="TextureRect" parent="Control/ImageContainer"]
 layout_mode = 2
-texture = ExtResource("2_ajb3v")
+texture = ExtResource("2_jyvug")
 
 [node name="TextBoxContainer" type="PanelContainer" parent="Control"]
 layout_mode = 1
@@ -140,18 +115,18 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_4vk8d")
 
 [node name="BoxMargin" type="MarginContainer" parent="Control/TextBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 150
+theme_override_constants/margin_left = 280
 theme_override_constants/margin_bottom = 20
 
 [node name="TextBox" type="TextureRect" parent="Control/TextBoxContainer/BoxMargin"]
-modulate = Color(1, 1, 1, 0.45098)
+modulate = Color(1, 1, 1, 0.490196)
 layout_mode = 2
-texture = ExtResource("3_svvb8")
+texture = ExtResource("3_a7feg")
 
 [node name="TextMargin" type="MarginContainer" parent="Control/TextBoxContainer/BoxMargin"]
 layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 0
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 

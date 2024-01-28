@@ -4,6 +4,7 @@ extends Node
 
 @onready var waves = Waves.new()
 @onready var enemyPaths = self.get_node("../EnemyPaths")
+@onready var textCollision = self.get_node("../TextCollisions")
 
 var spawnTimer = Timer.new()
 var betweenWavesTimer = Timer.new() 
@@ -51,10 +52,15 @@ func _on_spawnTimer_Timeout():
 	spawnEnemy(enemy_batch[0], enemy_batch[1], enemy_batch[2])
 	enemyPaths.signal_emitted = false
 	
+	if enemy_inBatch_counter == 0:
+		if enemy_batch.size() >= 6:
+			textCollision.setText(waves.get_text(enemy_batch[5]))
+	
 	enemy_inBatch_counter += 1
 	if enemy_batch[3] <= enemy_inBatch_counter:
 		enemy_inBatch_counter = 0
 		if enemy_batch.size() >= 5:
+			await textCollision.textbox_gone
 			prepare_new_batch(enemy_batch[4])
 		else:
 			if !enemyPaths.signal_emitted:
