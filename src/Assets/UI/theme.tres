@@ -1,0 +1,94 @@
+[gd_resource type="Theme" load_steps=17 format=3 uid="uid://d0u5mofsrkc7b"]
+
+[ext_resource type="FontFile" uid="uid://bpl53d6glw1xb" path="res://Assets/UI/Font/04B_30__.TTF" id="1_ueh2x"]
+[ext_resource type="Texture2D" uid="uid://cewm16sltjxvk" path="res://Assets/UI/button_start.png" id="2_dou8n"]
+[ext_resource type="Texture2D" uid="uid://it0cyde6xbj7" path="res://Assets/UI/button_hovered.png" id="2_wymee"]
+[ext_resource type="Texture2D" uid="uid://cbjo1k2qcdg3c" path="res://Assets/UI/button_normal.png" id="3_l3678"]
+[ext_resource type="Texture2D" uid="uid://3j68xh2r0jst" path="res://Assets/UI/button_pressed.png" id="4_pob7s"]
+[ext_resource type="Texture2D" uid="uid://dufejyspisco" path="res://Assets/UI/slider_handle.png" id="5_kir3q"]
+[ext_resource type="Texture2D" uid="uid://b6pt8wt1c44i1" path="res://Assets/UI/slider_bar_empty.png" id="6_1envu"]
+[ext_resource type="Texture2D" uid="uid://dsov6a6akyksc" path="res://Assets/UI/slider_handle_highlight.png" id="6_dk82g"]
+[ext_resource type="Texture2D" uid="uid://ch1e5h5s5empw" path="res://Assets/UI/slider_bar_full.png" id="7_o4otf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x0eit"]
+texture = ExtResource("2_wymee")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hya88"]
+texture = ExtResource("3_l3678")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x24qy"]
+texture = ExtResource("4_pob7s")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3j2h7"]
+texture = ExtResource("7_o4otf")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3uoae"]
+texture = ExtResource("7_o4otf")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3clxs"]
+texture = ExtResource("6_1envu")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1vso5"]
+texture = ExtResource("2_dou8n")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[resource]
+Button/colors/font_color = Color(0.67451, 0.168627, 0.32549, 1)
+Button/colors/font_hover_color = Color(0.580392, 0.0941176, 0.207843, 1)
+Button/colors/font_outline_color = Color(0.905882, 0.713726, 0.819608, 1)
+Button/constants/outline_size = 4
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("1_ueh2x")
+Button/styles/hover = SubResource("StyleBoxTexture_x0eit")
+Button/styles/normal = SubResource("StyleBoxTexture_hya88")
+Button/styles/pressed = SubResource("StyleBoxTexture_x24qy")
+HSlider/icons/grabber = ExtResource("5_kir3q")
+HSlider/icons/grabber_highlight = ExtResource("6_dk82g")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_3j2h7")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_3uoae")
+HSlider/styles/slider = SubResource("StyleBoxTexture_3clxs")
+HeaderLarge/base_type = &"Label"
+HeaderLarge/colors/font_color = Color(1, 1, 1, 1)
+HeaderLarge/colors/font_outline_color = Color(0.447059, 0.152941, 0.282353, 1)
+HeaderLarge/colors/font_shadow_color = Color(0.447059, 0.152941, 0.282353, 0.32549)
+HeaderLarge/font_sizes/font_size = 128
+Label/colors/font_color = Color(0.447059, 0.152941, 0.282353, 1)
+Label/colors/font_outline_color = Color(0.945098, 0.686275, 0.8, 1)
+Label/colors/font_shadow_color = Color(0.360784, 0.25098, 0.458824, 0.196078)
+Label/constants/outline_size = 5
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_ueh2x")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_1vso5")
