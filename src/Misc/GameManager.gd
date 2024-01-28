@@ -31,7 +31,7 @@ func freeAllChildren():
 func loadMainMenu():
 	if currentState == States.MAIN_MENU:
 		return
-		
+	
 	freeAllChildren()
 	var scene_mainMenu = preload(sceneStr_mainMenu)
 	var instance_mainMenu = scene_mainMenu.instantiate()

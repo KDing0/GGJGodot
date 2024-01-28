@@ -18,7 +18,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	self.position = Vector2.ZERO + cam.position
+	self.position = cam.get_screen_center_position()
+	print(position)
 
 func _on_text_hit(from, to):
 	textbox.changeText(from, to)

@@ -27,12 +27,12 @@ func setText(text):
 	pass
 
 func changeText(from_word, to_word):
-	var label: RichTextLabel = $Control/TextBoxContainer/TextMargin/RichTextLabel
+	var label: RichTextLabel = $Control/TextBoxContainer/BoxMargin/TextMargin/RichTextLabel
 	label.text = label.text.replace("[b]" + from_word + "[/b]", to_word)
 
 func add_area_on(word) -> Area2D:
 	
-	var label: RichTextLabel = $Control/TextBoxContainer/TextMargin/RichTextLabel
+	var label: RichTextLabel = $Control/TextBoxContainer/BoxMargin/TextMargin/RichTextLabel
 	var fnt = label.get_theme_font("normal_font")
 	var fnt_size = label.get_theme_font_size("normal_font_size")
 	
@@ -44,12 +44,12 @@ func add_area_on(word) -> Area2D:
 	var line = text.count("\n", 0, idx) if idx != 0 else 0
 	var idx_in_line = text_lines[line].find(word)
 	print(word, ", ", lines, ", ", line)
-	var length_to_word = fnt.get_string_size(text_lines[line].substr(0, idx_in_line), 0, -1, fnt_size)
-	var height_to_word = fnt.get_height(fnt_size) * line
-	var length_of_word = fnt.get_string_size(word, 0, -1, fnt_size)
+	var length_to_word = fnt.get_string_size(text_lines[line].substr(0, idx_in_line), 0, -1, fnt_size) / 2.0
+	var height_to_word = fnt.get_height(fnt_size) * line / 2.0
+	var length_of_word = fnt.get_string_size(word, 0, -1, fnt_size) / 2.0
 	
-	var posX = -320 + (length_of_word.x / 2.0) + length_to_word.x + $Control/ImageContainer.size.x + 65.0
-	var posY = 160 - (length_of_word.y / 2.0) - ((lines - line) * length_of_word.y)
+	var posX = -320 + (length_of_word.x / 2.0) + length_to_word.x + $Control/ImageContainer.size.x / 2.0 + 30.0
+	var posY = 180 - (length_of_word.y / 2.0) - ((lines - line) * length_of_word.y) - 12
 	
 	var area = Area2D.new()
 	var collision = CollisionShape2D.new()
