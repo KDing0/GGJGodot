@@ -65,5 +65,7 @@ func shoot():
 	
 func hit_by_bullet():
 	hit_sfx.play()
-	self.position.x = self.position.x + 50
-	Livecounter.lives = Livecounter.lives - 1
+	if !$AnimationPlayer.is_playing():
+		$AnimationPlayer.play("hit")
+		#self.position.x = self.position.x + 50
+		Livecounter.lives = Livecounter.lives - 1

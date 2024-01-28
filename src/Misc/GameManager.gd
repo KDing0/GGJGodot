@@ -7,6 +7,9 @@ const sceneStr_pauseMenu = "res://Misc/PauseMenu.tscn"
 const sceneStr_game = "res://gamescene.tscn"
 const sceneStr_gameOver = "res://Misc/GameOver.tscn"
 
+const crosshairCoursor = preload("res://Assets/UI/UI_crosshair.png")
+const defaultCoursor = preload("res://Assets/UI/UI_cursor.png")
+
 # -1 is no scene
 var currentState = -1
 
@@ -16,6 +19,8 @@ var val_sfx = 1.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	loadMainMenu()
+	#Input.set_custom_mouse_cursor(crosshairCoursor, Input.CURSOR_BUSY, Vector2(0,0))
+	#Input.set_custom_mouse_cursor(defaultCoursor, Input.CURSOR_ARROW, Vector2(0,0))
 
 func _input(event):
 	if Input.is_action_just_pressed("pause_game"):
@@ -31,8 +36,11 @@ func freeAllChildren():
 func loadMainMenu():
 	if currentState == States.MAIN_MENU:
 		return
-		
+	Input.set_custom_mouse_cursor(defaultCoursor)
+	get_tree().paused = false
+	Spawning.reset_bullets()
 	freeAllChildren()
+
 	var scene_mainMenu = preload(sceneStr_mainMenu)
 	var instance_mainMenu = scene_mainMenu.instantiate()
 	currentState = States.MAIN_MENU
@@ -46,7 +54,10 @@ func loadMainMenu():
 func loadPauseMenu():
 	if currentState != States.INGAME:
 		return
+
 	
+	#call_deferred()
+	get_tree().paused = true
 	var scene_pauseMenu = preload(sceneStr_pauseMenu)
 	var instance_pauseMenu = scene_pauseMenu.instantiate()
 	
@@ -58,11 +69,13 @@ func loadPauseMenu():
 	
 	currentState = States.PAUSE_MENU
 	self.add_child(instance_pauseMenu)
+	Input.set_custom_mouse_cursor(defaultCoursor)
 
 func loadGameOverMenu():
 	if currentState != States.INGAME:
 		return
-	
+	Input.set_custom_mouse_cursor(defaultCoursor)
+	get_tree().paused = true
 	var scene_gameOverMenu = preload(sceneStr_gameOver)
 	var instance_gameOverMenu = scene_gameOverMenu.instantiate()
 	
@@ -77,6 +90,8 @@ func startGame():
 	if currentState != States.MAIN_MENU:
 		return
 	
+	get_tree().paused = false
+	Input.set_custom_mouse_cursor(crosshairCoursor)
 	# create game instance
 	var scene_game = preload(sceneStr_game)
 	var instance_game = scene_game.instantiate()
@@ -92,7 +107,8 @@ func startGame():
 func resume_game():
 	if currentState != States.PAUSE_MENU:
 		return
-	
+	Input.set_custom_mouse_cursor(crosshairCoursor)
+	get_tree().paused = false
 	currentState = States.INGAME
 	self.get_child(1).queue_free()
 

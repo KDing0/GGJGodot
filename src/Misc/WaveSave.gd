@@ -23,6 +23,8 @@ func startWave() -> bool:
 	currentWave += 1
 	currentBatch = -1
 	print("INFO: Start wave: ", currentWave)
+	if (currentWave != 0):
+		LaughCounter.laughs = LaughCounter.laughs + 1
 	return waveMap.has(currentWave)
 
 func next() -> Array:

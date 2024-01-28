@@ -1,22 +1,65 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl3h2vjeq7i23"]
+[gd_scene load_steps=6 format=3 uid="uid://dl3h2vjeq7i23"]
 
-[ext_resource type="Texture2D" uid="uid://dfwjjbrb0vlkd" path="res://Assets/Characters/Player/MC.png" id="1_0iii3"]
 [ext_resource type="Script" path="res://UI/lives.gd" id="1_5fj5m"]
+[ext_resource type="Texture2D" uid="uid://cljo3qmn0yhvf" path="res://Assets/UI/heart_full.png" id="2_j33g4"]
+[ext_resource type="Texture2D" uid="uid://osbnseh8heeu" path="res://Assets/UI/UI_progressBar_empty.png" id="3_kk4q1"]
 
-[node name="Lives" type="Node2D"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2mjcc"]
+texture = ExtResource("3_kk4q1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4n5v"]
+bg_color = Color(0.831373, 0, 0.109804, 1)
+border_width_left = 66
+border_width_top = 12
+border_width_right = 8
+border_width_bottom = 18
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[node name="Lives" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_5fj5m")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(616, 16)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_0iii3")
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -104.0
+offset_right = 796.0
+offset_bottom = 64.0
+grow_horizontal = 2
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(-500, 0)
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(600, 16)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_0iii3")
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(584, 16)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_0iii3")
+[node name="Sprite2D" type="TextureRect" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_j33g4")
+
+[node name="Sprite2D2" type="TextureRect" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_j33g4")
+
+[node name="Sprite2D3" type="TextureRect" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_j33g4")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 0
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxTexture_2mjcc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_x4n5v")
+max_value = 5.0
+value = 3.0

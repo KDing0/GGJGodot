@@ -56,8 +56,8 @@ func _on_Bullet_entered(body):
 		queue_free()
 	if collisionLayer == 2:
 		#player runs into Enemy
-		Livecounter.lives = Livecounter.lives - 1
-		
+		body.hit_by_bullet()
+		#Livecounter.lives = Livecounter.lives - 1
 
 func _process(delta):
 	var timeTillShot = nextShotCooldown - timer
