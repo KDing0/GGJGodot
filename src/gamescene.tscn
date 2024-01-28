@@ -476,12 +476,11 @@ script = ExtResource("12_hnyun")
 id = "1"
 props = SubResource("PackedDataContainer_p2jyy")
 
-
-[node name="Lives" parent="." instance=ExtResource("10_l5axw")]
-
 [node name="BulletPattern2" type="Path2D" parent="Node/Bullet"]
 curve = SubResource("Curve2D_qi17c")
 script = ExtResource("12_hnyun")
 id = "2"
 props = SubResource("PackedDataContainer_p2jyy")
 
+[node name="Lives" parent="." instance=ExtResource("14_tsjvf")]
+position = Vector2(-269, 24)

@@ -19,8 +19,8 @@ var val_sfx = 1.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	loadMainMenu()
-	Input.set_custom_mouse_cursor(crosshairCoursor, Input.CURSOR_BUSY, Vector2(0,0))
-	Input.set_custom_mouse_cursor(defaultCoursor, Input.CURSOR_ARROW, Vector2(0,0))
+	#Input.set_custom_mouse_cursor(crosshairCoursor, Input.CURSOR_BUSY, Vector2(0,0))
+	#Input.set_custom_mouse_cursor(defaultCoursor, Input.CURSOR_ARROW, Vector2(0,0))
 
 func _input(event):
 	if Input.is_action_just_pressed("pause_game"):
@@ -36,7 +36,7 @@ func freeAllChildren():
 func loadMainMenu():
 	if currentState == States.MAIN_MENU:
 		return
-	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+	Input.set_custom_mouse_cursor(defaultCoursor)
 	get_tree().paused = false
 	Spawning.reset_bullets()
 	freeAllChildren()
@@ -69,12 +69,12 @@ func loadPauseMenu():
 	
 	currentState = States.PAUSE_MENU
 	self.add_child(instance_pauseMenu)
-	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+	Input.set_custom_mouse_cursor(defaultCoursor)
 
 func loadGameOverMenu():
 	if currentState != States.INGAME:
 		return
-	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+	Input.set_custom_mouse_cursor(defaultCoursor)
 	get_tree().paused = true
 	var scene_gameOverMenu = preload(sceneStr_gameOver)
 	var instance_gameOverMenu = scene_gameOverMenu.instantiate()
@@ -91,7 +91,7 @@ func startGame():
 		return
 	
 	get_tree().paused = false
-	Input.set_default_cursor_shape(Input.CURSOR_BUSY)
+	Input.set_custom_mouse_cursor(crosshairCoursor)
 	# create game instance
 	var scene_game = preload(sceneStr_game)
 	var instance_game = scene_game.instantiate()
@@ -107,7 +107,7 @@ func startGame():
 func resume_game():
 	if currentState != States.PAUSE_MENU:
 		return
-	Input.set_default_cursor_shape(Input.CURSOR_BUSY)
+	Input.set_custom_mouse_cursor(crosshairCoursor)
 	get_tree().paused = false
 	currentState = States.INGAME
 	self.get_child(1).queue_free()
