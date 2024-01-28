@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://3gbe1awb6s1h"]
+[gd_scene load_steps=46 format=3 uid="uid://3gbe1awb6s1h"]
 
 [ext_resource type="Script" path="res://gamescene.gd" id="1_gocne"]
 [ext_resource type="TileSet" uid="uid://bpu6gvb67yrfh" path="res://Assets/Environment/Tilemap/blocking_tile_set.tres" id="2_4lc22"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dl3h2vjeq7i23" path="res://UI/lives.tscn" id="14_tsjvf"]
 [ext_resource type="Script" path="res://Textboxes/TextCollisions.gd" id="15_j13t8"]
 [ext_resource type="PackedScene" uid="uid://wndowv53go84" path="res://Textboxes/textbox.tscn" id="16_dv4pa"]
+[ext_resource type="PackedScene" uid="uid://bh7uf4pd3f8tu" path="res://Misc/GF.tscn" id="23_gecpj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_so6hv"]
 animations = [{
@@ -1213,3 +1214,6 @@ cam = NodePath("../player/Camera2D")
 textbox = NodePath("../Textbox")
 
 [node name="Textbox" parent="." instance=ExtResource("16_dv4pa")]
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("23_gecpj")]
+position = Vector2(559, 151)
