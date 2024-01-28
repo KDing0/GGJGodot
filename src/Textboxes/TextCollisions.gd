@@ -5,6 +5,7 @@ extends Node2D
 @export var timeout_time = 5
 
 var timer = Timer.new()
+var signal_emitted = false
 
 signal textbox_gone
 
@@ -16,11 +17,12 @@ func _process(delta):
 	self.position = cam.get_screen_center_position()
 
 func _on_text_hit(from, to):
-	#timer.stop()
+	timer.stop()
 	textbox.changeText(from, to)
 	if self.get_child_count() <= 2:
 		textbox.closeTextBox()
 		textbox_gone.emit()
+		signal_emitted = true
 
 func setText(text_array):
 	textbox.setText(text_array[0])
@@ -28,6 +30,7 @@ func setText(text_array):
 	textHitArea.hit.connect(_on_text_hit)
 	self.add_child(textHitArea)
 	timer.start(timeout_time)
+	signal_emitted = false
 
 func _on_timer_timeout():
 	timer.stop()
@@ -38,3 +41,4 @@ func _on_timer_timeout():
 	textbox.closeTextBox()
 	textbox.setAngry()
 	textbox_gone.emit()
+	signal_emitted = true
