@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Spawning="*res://addons/BulletUpHell/Spawning.tscn"
 Livecounter="*res://UI/Livecounter.gd"
+LaughCounter="*res://UI/LaughCounter.gd"
 
 [display]
 
