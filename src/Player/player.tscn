@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dfwjjbrb0vlkd" path="res://Assets/Characters/Player/MC.png" id="3_wigxu"]
 [ext_resource type="Texture2D" uid="uid://nl4eeyr3jh1c" path="res://Assets/Characters/Player/MC Walk Animation Spritesheet.png" id="4_22afs"]
 [ext_resource type="AudioStream" uid="uid://cihtsogyesroo" path="res://Assets/Sound/AC_Bubbly_Hit.wav" id="5_gjs2v"]
-[ext_resource type="PackedScene" uid="uid://qpsm8lci3edn" path="res://Assets/Effects/hit_particles.tscn" id="6_v3rnv"]
+[ext_resource type="PackedScene" path="res://Assets/Effects/hit_particles.tscn" id="6_v3rnv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_evgr3"]
 atlas = ExtResource("3_wigxu")

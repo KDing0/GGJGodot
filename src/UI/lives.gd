@@ -2,6 +2,7 @@ extends CanvasLayer
 
 var MAX_LAUGHS = 5
 signal game_over
+signal victory
 var empty_heart = preload("res://Assets/UI/heart_empty.png")
 
 func _ready():
@@ -22,3 +23,6 @@ func _process(delta):
 		$HBoxContainer/HBoxContainer/Sprite2D3.texture = empty_heart
 		game_over.emit()
 		#get_tree().reload_current_scene()
+		
+	if progress == MAX_LAUGHS:
+		victory.emit()

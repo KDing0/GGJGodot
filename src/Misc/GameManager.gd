@@ -1,11 +1,12 @@
 extends Node
 
-enum States {MAIN_MENU, PAUSE_MENU, INGAME, GAMEOVER}
+enum States {MAIN_MENU, PAUSE_MENU, INGAME, GAMEOVER, VICTORY}
 
 const sceneStr_mainMenu = "res://Misc/MainMenu.tscn"
 const sceneStr_pauseMenu = "res://Misc/PauseMenu.tscn"
 const sceneStr_game = "res://gamescene.tscn"
 const sceneStr_gameOver = "res://Misc/GameOver.tscn"
+const sceneStr_victory = "res://Misc/Victory.tscn"
 
 const crosshairCoursor = preload("res://Assets/UI/UI_crosshair.png")
 const defaultCoursor = preload("res://Assets/UI/UI_cursor.png")
@@ -85,6 +86,19 @@ func loadGameOverMenu():
 	
 	currentState = States.GAMEOVER
 	self.add_child(instance_gameOverMenu)
+	
+func loadVictoryMenu():
+	if currentState != States.INGAME:
+		return
+	Input.set_custom_mouse_cursor(defaultCoursor)
+	get_tree().paused = true
+	var scene_victoryMenu = preload(sceneStr_victory)
+	var instance_victoryMenu = scene_victoryMenu.instantiate()
+	
+	instance_victoryMenu.toMenu.connect(loadMainMenu)
+	
+	currentState = States.VICTORY
+	self.add_child(instance_victoryMenu)
 
 
 func startGame():
@@ -97,6 +111,7 @@ func startGame():
 	var scene_game = preload(sceneStr_game)
 	var instance_game = scene_game.instantiate()
 	instance_game.game_over.connect(loadGameOverMenu)
+	instance_game.victory.connect(loadVictoryMenu)
 	
 	# delete menu scene
 	self.get_child(0).queue_free()
