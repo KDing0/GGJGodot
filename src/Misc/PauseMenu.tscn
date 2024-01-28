@@ -1,9 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cat8if8m4os4a"]
 
 [ext_resource type="Script" path="res://Misc/PauseMenu.gd" id="1_wdk6q"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_sbbkr"]
-font_size = 48
+[ext_resource type="Theme" uid="uid://d0u5mofsrkc7b" path="res://Assets/UI/theme.tres" id="2_oub0h"]
 
 [node name="UI_PauseMenu" type="CanvasLayer"]
 script = ExtResource("1_wdk6q")
@@ -33,47 +31,80 @@ alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("2_oub0h")
+theme_type_variation = &"HeaderLarge"
 text = "PAUSE"
-label_settings = SubResource("LabelSettings_sbbkr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
 [node name="Btn_ResumeGame" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_oub0h")
 text = "Resume Game"
 
 [node name="Btn_ToMenu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_oub0h")
 text = "To Menu"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
 alignment = 1
 
 [node name="Label_Music" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_oub0h")
 text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Slider_Music" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_oub0h")
 max_value = 1.0
 step = 0.01
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
 alignment = 1
 
 [node name="Label_SFX" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+theme = ExtResource("2_oub0h")
 text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Slider_SFX" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("2_oub0h")
 max_value = 1.0
 step = 0.01
 
