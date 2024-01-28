@@ -80,7 +80,6 @@ func startGame():
 		return
 	
 	get_tree().paused = false
-	Livecounter.reset()
 	# create game instance
 	var scene_game = preload(sceneStr_game)
 	var instance_game = scene_game.instantiate()
