@@ -62,7 +62,8 @@ func _on_spawnTimer_Timeout():
 		enemy_inBatch_counter = 0
 
 		if enemy_batch[7] == 0:
-			await textCollision.textbox_gone
+			if !textCollision.signal_emitted:
+				await textCollision.textbox_gone
 			prepare_new_batch(enemy_batch[4])
 		else:
 			if !enemyPaths.signal_emitted:
