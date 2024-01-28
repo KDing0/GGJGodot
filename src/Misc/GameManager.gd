@@ -4,7 +4,7 @@ enum States {MAIN_MENU, PAUSE_MENU, INGAME, GAMEOVER}
 
 const sceneStr_mainMenu = "res://Misc/MainMenu.tscn"
 const sceneStr_pauseMenu = "res://Misc/PauseMenu.tscn"
-const sceneStr_game = "res://gamescene1.tscn"
+const sceneStr_game = "res://gamescene.tscn"
 const sceneStr_gameOver = "res://Misc/GameOver.tscn"
 
 const crosshairCoursor = preload("res://Assets/UI/UI_crosshair.png")
