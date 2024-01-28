@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfh0j30pwn0no"
-path="res://.godot/imported/Enemy3 Walk Animation Spritesheet.png-75c658806162d75c54a2637d33eb40fe.ctex"
+uid="uid://dajvyjbsi7wrq"
+path="res://.godot/imported/bullet_football.png-584dad46848030c744c09b218377dfd2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Enemies/Enemy3 Walk Animation Spritesheet.png"
-dest_files=["res://.godot/imported/Enemy3 Walk Animation Spritesheet.png-75c658806162d75c54a2637d33eb40fe.ctex"]
+source_file="res://Assets/Environment/Assets/Ammo/bullet_football.png"
+dest_files=["res://.godot/imported/bullet_football.png-584dad46848030c744c09b218377dfd2.ctex"]
 
 [params]
 

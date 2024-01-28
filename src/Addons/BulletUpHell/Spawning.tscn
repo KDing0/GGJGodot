@@ -1,11 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://gixop20d1d75"]
+[gd_scene load_steps=17 format=3 uid="uid://gixop20d1d75"]
 
 [ext_resource type="Script" path="res://addons/BulletUpHell/BuHSpawner.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bjjyy4jqou22y" path="res://Addons/BulletUpHell/BulletScene/Sprites/Bullet_3.png" id="2_3slxn"]
 [ext_resource type="Texture2D" uid="uid://bfrd7glm7xt2l" path="res://Addons/BulletUpHell/BulletScene/Sprites/Bullet_06.png" id="3_6fafs"]
 [ext_resource type="Texture2D" uid="uid://cyl6mgq86fywe" path="res://Assets/Environment/Assets/Ammo/bullet_enemy2.png" id="3_hti5e"]
+[ext_resource type="Texture2D" uid="uid://cq7iirmdk75lo" path="res://Assets/Environment/Assets/Ammo/bullet_mc_2.png" id="3_qj4ch"]
+[ext_resource type="Texture2D" uid="uid://dajvyjbsi7wrq" path="res://Assets/Environment/Assets/Ammo/bullet_football.png" id="3_v1g0n"]
 [ext_resource type="Texture2D" uid="uid://jsf6t31tlfld" path="res://Addons/BulletUpHell/BulletScene/Sprites/Bullet_11.png" id="4_gntuv"]
+[ext_resource type="Texture2D" uid="uid://d04r4f3rrkudc" path="res://Assets/Environment/Assets/Ammo/bullet_beer.png" id="5_r3pie"]
 [ext_resource type="AudioStream" uid="uid://c6x5p1wu4yo3q" path="res://Addons/BulletUpHell/BulletScene/Hit Hurt.wav" id="5_rada6"]
+[ext_resource type="Texture2D" uid="uid://thngy2tg2g84" path="res://Assets/Environment/Assets/Ammo/bullet_carrot.png" id="6_485b1"]
+[ext_resource type="Texture2D" uid="uid://ek4ckr6x1dn2" path="res://Assets/Environment/Assets/Ammo/bullet_dumbbell.png" id="7_cgl4r"]
+[ext_resource type="Texture2D" uid="uid://bmyutuqu4dyk1" path="res://Assets/Environment/Assets/Ammo/bullet_wrench.png" id="11_2aop5"]
 
 [sub_resource type="Curve" id="4"]
 _data = [Vector2(0, 0.501305), 0.0, 0.880193, 0, 1, Vector2(0.244176, 0.716227), 2.21406, 2.21406, 0, 0, Vector2(0.515975, 1), -0.239755, -0.239755, 0, 0, Vector2(0.76004, 0.723903), -2.76758, -2.76758, 0, 0, Vector2(1, 0.501305), -1.40458, 0.0, 0, 0]
@@ -28,10 +34,34 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("5_r3pie")
+}],
+"loop": true,
+"name": &"Beer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_hti5e")
 }],
 "loop": true,
-"name": &"Basic",
+"name": &"Bullet",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qj4ch")
+}],
+"loop": true,
+"name": &"Cake",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_485b1")
+}],
+"loop": true,
+"name": &"Carrot",
 "speed": 5.0
 }, {
 "frames": [{
@@ -47,6 +77,30 @@ animations = [{
 "loop": true,
 "name": &"Example",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_v1g0n")
+}],
+"loop": true,
+"name": &"Football",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_cgl4r")
+}],
+"loop": true,
+"name": &"Weight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_2aop5")
+}],
+"loop": true,
+"name": &"Wrench",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="2"]
@@ -74,7 +128,7 @@ collision_mask = 3
 [node name="ShapeManager" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = SubResource("1")
-animation = &"Basic"
+animation = &"Cake"
 
 [node name="0" type="CollisionShape2D" parent="ShapeManager"]
 shape = SubResource("2")

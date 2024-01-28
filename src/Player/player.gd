@@ -9,6 +9,7 @@ const SPEED = 250.0
 var BULLETSPEED = 500  # Adjust this value to control the bullet speed
 var FIRERATE = 0.2
 @onready var sprite = $AnimatedSprite2D
+@onready var hit_sfx = $HitSfx
 
 var bullet_scene = preload("res://Bullets/Bullet.tscn")
 var can_fire = true
@@ -63,6 +64,6 @@ func shoot():
 	can_fire = true
 	
 func hit_by_bullet():
-	print("OUCH")
+	hit_sfx.play()
 	self.position.x = self.position.x + 50
 	Livecounter.lives = Livecounter.lives - 1

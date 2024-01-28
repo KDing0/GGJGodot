@@ -1,7 +1,7 @@
 extends Node
 
 @export var tex_enemy : Array[Texture2D]
-
+@onready var player = $"../player"
 @onready var waves = Waves.new()
 @onready var enemyPaths = self.get_node("../EnemyPaths")
 
@@ -14,6 +14,7 @@ var enemyScene = preload("res://Enemy/enemy.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	Spawning.reset(true)
 	betweenWavesTimer.one_shot = true
 	spawnTimer.one_shot = true
@@ -43,7 +44,7 @@ func prepare_new_batch(time):
 
 func spawnEnemy(enemyType, path: int, speed: float):
 	var enemy_instance = enemyScene.instantiate()
-	enemy_instance.set_parameters(tex_enemy[0], speed)
+	enemy_instance.set_parameters(tex_enemy[enemyType], speed)
 	get_node("../EnemyPaths/EnemyPath_0" + str(path)).add_child(enemy_instance)
 	setInstantiateBulletPattern(enemy_instance, enemyType)
 
@@ -54,7 +55,7 @@ func _on_spawnTimer_Timeout():
 	enemy_inBatch_counter += 1
 	if enemy_batch[3] <= enemy_inBatch_counter:
 		enemy_inBatch_counter = 0
-		if enemy_batch.size() >= 5:
+		if enemy_batch[6] == 0:
 			prepare_new_batch(enemy_batch[4])
 		else:
 			if !enemyPaths.signal_emitted:
@@ -62,28 +63,76 @@ func _on_spawnTimer_Timeout():
 			betweenWavesTimer.start(10.0)
 		return
 	
-	spawnTimer.start(0.5)
+	spawnTimer.start(enemy_batch[5])
 	
 func setInstantiateBulletPattern(enemy_instance, enemyType):
+	enemy_instance.playerInstance = player
+	
 	if(enemyType == 0):
 		enemy_instance.BulletSpawnOffset = Vector2(0,0)
-		enemy_instance.BulletSpawnID = "three"
+		enemy_instance.BulletSpawnID = "Football"
 		enemy_instance.BulletAnimationID = "first"
-		enemy_instance.BulletRotation = 1
-		
+		#TopLeft, TopRight, DownLeft, DownRight
+		enemy_instance.BulletRotation = [-2.2,1,-2.2,1,]
 		enemy_instance.BulletStartDelay = 1
 		enemy_instance.BulletShootDelay = 0
 		enemy_instance.BulletCycleAmount = 1
 		enemy_instance.BulletCycleCooldown = 0.4
+		enemy_instance.ShootingWalkSpeed = 1.0
 		
 	if(enemyType == 1):
 		enemy_instance.BulletSpawnOffset = Vector2(0,0)
-		enemy_instance.BulletSpawnID = "one"
+		enemy_instance.BulletSpawnID = "Cake"
 		enemy_instance.BulletAnimationID = "first"
-		enemy_instance.BulletRotation = 1
+		#TopLeft, TopRight, DownLeft, DownRight
+		enemy_instance.BulletRotation = [1,-1,1,-1]
 		
 		enemy_instance.BulletStartDelay = 2
-		enemy_instance.BulletShootDelay = 0.06
+		enemy_instance.BulletShootDelay = 0.059
 		enemy_instance.BulletCycleAmount = 8
 		enemy_instance.BulletCycleCooldown = 4
-		enemy_instance.BulletRotationShift = 1
+		enemy_instance.BulletRotationShift = 0.1
+		enemy_instance.ShootingWalkSpeed = 0.0
+		
+	if(enemyType == 2):
+		enemy_instance.BulletSpawnOffset = Vector2(0,0)
+		enemy_instance.BulletSpawnID = "Weight"
+		enemy_instance.BulletAnimationID = "first"
+		#TopLeft, TopRight, DownLeft, DownRight
+		enemy_instance.BulletRotation = [-2.2,1,-2.2,1]
+		
+		enemy_instance.BulletStartDelay = 2
+		enemy_instance.BulletShootDelay = 0.09
+		enemy_instance.BulletCycleAmount = 3
+		enemy_instance.BulletCycleCooldown = 4
+		enemy_instance.BulletRotationShift = 0
+		enemy_instance.ShootingWalkSpeed = 0.4
+		
+	if(enemyType == 3):
+		enemy_instance.BulletSpawnOffset = Vector2(0,0)
+		enemy_instance.BulletSpawnID = "Carrot"
+		enemy_instance.BulletAnimationID = "first"
+		#TopLeft, TopRight, DownLeft, DownRight
+		enemy_instance.BulletRotation = [-2.2,1,-2.2,1]
+		
+		enemy_instance.BulletStartDelay = 2
+		enemy_instance.BulletShootDelay = 0.1
+		enemy_instance.BulletCycleAmount = 10
+		enemy_instance.BulletCycleCooldown = 4
+		enemy_instance.BulletRotationShift = 0
+		enemy_instance.ShootingWalkSpeed = 0.2
+
+	if(enemyType == 4):
+		enemy_instance.BulletSpawnOffset = Vector2(0,0)
+		enemy_instance.BulletSpawnID = "Wrench"
+		enemy_instance.BulletAnimationID = "first"
+		#TopLeft, TopRight, DownLeft, DownRight
+		enemy_instance.BulletRotation = [-2.2,1,-2.2,1]
+		
+		enemy_instance.BulletStartDelay = 2
+		enemy_instance.BulletShootDelay = 0
+		enemy_instance.BulletCycleAmount = 1
+		enemy_instance.BulletCycleCooldown = 4
+		enemy_instance.BulletRotationShift = 0
+		enemy_instance.ShootingWalkSpeed = 0
+		enemy_instance.PreShotSlowTime = 0.4

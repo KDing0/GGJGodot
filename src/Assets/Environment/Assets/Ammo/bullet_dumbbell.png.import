@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfh0j30pwn0no"
-path="res://.godot/imported/Enemy3 Walk Animation Spritesheet.png-75c658806162d75c54a2637d33eb40fe.ctex"
+uid="uid://ek4ckr6x1dn2"
+path="res://.godot/imported/bullet_dumbbell.png-cff367bfc49baa3a3bec7faccd163c5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Enemies/Enemy3 Walk Animation Spritesheet.png"
-dest_files=["res://.godot/imported/Enemy3 Walk Animation Spritesheet.png-75c658806162d75c54a2637d33eb40fe.ctex"]
+source_file="res://Assets/Environment/Assets/Ammo/bullet_dumbbell.png"
+dest_files=["res://.godot/imported/bullet_dumbbell.png-cff367bfc49baa3a3bec7faccd163c5c.ctex"]
 
 [params]
 

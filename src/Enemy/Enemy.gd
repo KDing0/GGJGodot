@@ -1,11 +1,15 @@
 extends PathFollow2D
 class_name Enemy
 
+var playerInstance
+var oldPos = global_position
+var savedAngle = 0
 
 @export var SPEED = 5.0
 @export var BulletSpawnID = "one"
 @export var BulletAnimationID = "first"
-@export var BulletRotation = 15.0
+#TopLeft, TopRight, DownLeft, DownRight
+@export var BulletRotation = [0,0,0,0]
 @export var BulletSpawnOffset = Vector2(0,0)
 
 @export var BulletStartDelay = 0.0
@@ -14,14 +18,16 @@ class_name Enemy
 @export var BulletCycleCooldown = 0.0
 @export var BulletRotationShift = 0.0
 
+@export var ShootingWalkSpeed = 1.0
+@export var PreShotSlowTime = 0.0
+
 var timer = 0
 var firstShot = true
 var nextShotCooldown = 0 
 var shotCycle = 0
 var rotationShift = 0
 
-
-enum EnemyTypes {ENEMY_TYPE1, ENEMY_TYPE2}
+enum EnemyTypes {ENEMY_TYPE1, ENEMY_TYPE2, ENEMY_TYPE3, ENEMY_TYPE4, ENEMY_TYPE5}
 
 var speed = 5.0
 var enemy_type
@@ -51,13 +57,23 @@ func _on_Bullet_entered(body):
 	if collisionLayer == 2:
 		#player runs into Enemy
 		Livecounter.lives = Livecounter.lives - 1
+		
 
 func _process(delta):
-	progress += speed*delta
+	var timeTillShot = nextShotCooldown - timer
+	if(shotCycle > 0 || (timeTillShot <= PreShotSlowTime and PreShotSlowTime > 0)):
+		progress += speed*delta*ShootingWalkSpeed
+	else: progress += speed*delta
 	if progress_ratio >= 1.0:
 		self.queue_free()
 	shootCooldownCounting(delta)
-	
+	turn_around_check()
+
+
+func turn_around_check():
+	var isLeft = oldPos[0] > global_position[0]
+	$Sprite2D.flip_h = isLeft
+	oldPos = global_position
 	
 func _on_timer_timeout(delta):
 	# shoot()
@@ -70,29 +86,35 @@ func _input(event):
 func shoot():
 	var pos = global_position + BulletSpawnOffset
 	rotationShift += BulletRotationShift
-	Spawning.spawn({"position": pos, "rotation": BulletRotation + rotationShift}, BulletSpawnID, BulletAnimationID)
+	var angle = BulletRotation[shootAngle() ] + rotationShift
+	Spawning.spawn({"position": pos, "rotation": angle }, BulletSpawnID, BulletAnimationID)
 
-
+func shootAngle()->int:
+	var angle = 0
+	var playerX = playerInstance.global_position[0]
+	var playerY = playerInstance.global_position[1]
+	if(global_position[0] <= playerX):
+		angle += 1
+	if(global_position[1] <= playerY):
+		angle += 2
+	return angle
+	
 func shootCooldownCounting(delta):
-	timer = timer + delta
-	if(firstShot == true and timer >= BulletStartDelay):
+	timer += delta
+	if(firstShot == true):
+		nextShotCooldown = BulletStartDelay
 		firstShot = false
-		timer = 0
-		shotCycle = shotCycle + 1
-		if(BulletCycleAmount >= 1):
-			nextShotCooldown = BulletShootDelay
-			if(shotCycle >= BulletCycleAmount):
-				nextShotCooldown += BulletCycleCooldown
-		shoot()
 	
 	if(BulletCycleCooldown > 0 and BulletCycleAmount >= 1 and firstShot == false and timer >= nextShotCooldown):
 		timer = 0
+		if(shotCycle == 0):
+			savedAngle = shootAngle()
+		shoot()
 		shotCycle = shotCycle + 1
 		if(BulletCycleAmount >= 1):
 			nextShotCooldown = BulletShootDelay
 			if(shotCycle >= BulletCycleAmount):
 				shotCycle = 0
 				nextShotCooldown += BulletCycleCooldown
-		shoot()
 # if hit by a player bullet:
 # 	queue_free()
