@@ -14,6 +14,7 @@ var enemyScene = preload("res://Enemy/enemy.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Spawning.reset(true)
 	betweenWavesTimer.one_shot = true
 	spawnTimer.one_shot = true
 	betweenWavesTimer.timeout.connect(startWave)
@@ -82,7 +83,7 @@ func setInstantiateBulletPattern(enemy_instance, enemyType):
 		enemy_instance.BulletRotation = 1
 		
 		enemy_instance.BulletStartDelay = 2
-		enemy_instance.BulletShootDelay = 0.1
-		enemy_instance.BulletCycleAmount = 3
-		enemy_instance.BulletCycleCooldown = 1
+		enemy_instance.BulletShootDelay = 0.06
+		enemy_instance.BulletCycleAmount = 8
+		enemy_instance.BulletCycleCooldown = 4
 		enemy_instance.BulletRotationShift = 1

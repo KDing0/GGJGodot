@@ -1,25 +1,48 @@
-[gd_scene load_steps=16 format=3 uid="uid://d4ajf2330ej2i"]
+[gd_scene load_steps=27 format=3 uid="uid://dynw4l3vsa24b"]
 
-[ext_resource type="PackedScene" uid="uid://cf6o2n1w1lpv0" path="res://Enemy/enemy.tscn" id="1_80436"]
-[ext_resource type="Script" path="res://Enemy/enemyBullethellSpawn.gd" id="2_tjv66"]
+[ext_resource type="Script" path="res://gamescene.gd" id="1_ewbs4"]
 [ext_resource type="PackedScene" uid="uid://ipk1i003beqy" path="res://Player/player.tscn" id="2_uygfl"]
+[ext_resource type="Script" path="res://Misc/GameController.gd" id="4_b7qfc"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/BuHPattern.gd" id="4_ehlb4"]
 [ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="5_ck2a0"]
+[ext_resource type="Texture2D" uid="uid://d2ad7v3te2hdf" path="res://Assets/Characters/Enemies/Enemy1 Walk Animation Spritesheet.png" id="5_o8hfc"]
 [ext_resource type="Script" path="res://Addons/BulletUpHell/BuHBulletProperties.gd" id="6_7xkk1"]
+[ext_resource type="Script" path="res://Misc/EnemyPaths.gd" id="7_h3ojj"]
 [ext_resource type="Script" path="res://Addons/BulletUpHell/BulletProps.gd" id="7_q0fvn"]
 [ext_resource type="TileSet" uid="uid://bpu6gvb67yrfh" path="res://Assets/Environment/Tilemap/blocking_tile_set.tres" id="8_0j1y0"]
 [ext_resource type="Texture2D" uid="uid://ooon6deycnvo" path="res://Assets/Effects/Light.png" id="9_ox15u"]
+[ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternCustomShape.gd" id="10_mowba"]
+[ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="11_iufo3"]
+[ext_resource type="PackedScene" uid="uid://dl3h2vjeq7i23" path="res://UI/lives.tscn" id="14_jautl"]
+
+[sub_resource type="Curve2D" id="Curve2D_sosch"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 218, 38, -11.2246, -20.2043, 11.2246, 20.2043, 364, 226, 2.24493, -44.8985, -2.24493, 44.8985, 663, 381, 15.7145, -24.6942, -15.7145, 24.6942, 659, 586, 0, 0, 0, 0, 342, 703)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_ndshr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 148, 199, 0, 0, 0, 0, 427, 197, 0, 0, 0, 0, 790, 397, 0, 0, 0, 0, 1163, 433)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_j28tn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 759, -66, 0, 0, 0, 0, 768, 848)
+}
+point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_jqf82"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_m3wac"]
 resource_name = "PatternCircle"
 script = ExtResource("5_ck2a0")
-bullet = "1"
-nbr = 4
-radius = 0
-angle_total = 6.28319
-angle_decal = 0
+bullet = "2"
+nbr = 6
+radius = 3.0
+angle_total = 6.2832
+angle_decal = 0.0004
 pattern_angle = 0.0
 symmetric = false
 center = 0
@@ -72,6 +95,111 @@ r_cooldown_n_spawn_variation = Vector3(0, 0, 0)
 r_cooldown_n_shoot_choice = ""
 r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
 
+[sub_resource type="Curve2D" id="Curve2D_nhm4t"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 100)
+}
+point_count = 4
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3igxc"]
+resource_name = "PatternCustomShape"
+script = ExtResource("10_mowba")
+bullet = "1"
+nbr = 3
+closed_shape = false
+center_pos = Vector2(0, 50)
+pattern_angle = 0.0
+symmetric = true
+center = 2
+iterations = 1
+follows_parent = false
+forced_angle = 0.0
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+cooldown_stasis = false
+cooldown_spawn = 0.017
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+wait_latence = 0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+layer_nbr = 1
+layer_cooldown_spawn = 0.0
+layer_pos_offset = 0.0
+layer_speed_offset = 0.0
+layer_angle_offset = 0.0
+r_randomisation_chances = 1.0
+r_symmetry_chances = 0.0
+r_bullet_choice = ""
+r_bullet_nbr_choice = ""
+r_bullet_nbr_variation = Vector3(0, 0, 0)
+r_pattern_angle_choice = ""
+r_pattern_angle_variation = Vector3(0, 0, 0)
+r_infinite_iter_chances = 0.0
+r_iterations_choice = ""
+r_iterations_variation = Vector3(0, 0, 0)
+r_forced_angle_choice = ""
+r_forced_angle_variation = Vector3(0, 0, 0)
+r_forced_target_choice = []
+r_stasis_chances = 0.0
+r_cooldown_spawn_choice = ""
+r_cooldown_spawn_variation = Vector3(0, 0, 0)
+r_cooldown_shoot_choice = ""
+r_cooldown_shoot_variation = Vector3(0, 0, 0)
+r_cooldown_n_spawn_choice = ""
+r_cooldown_n_spawn_variation = Vector3(0, 0, 0)
+r_cooldown_n_shoot_choice = ""
+r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_oabew"]
+resource_name = "PatternOne"
+script = ExtResource("11_iufo3")
+bullet = "1"
+iterations = 1
+follows_parent = false
+forced_angle = 0.0
+forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+cooldown_stasis = false
+cooldown_spawn = 0.017
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+wait_latence = 0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+layer_nbr = 1
+layer_cooldown_spawn = 0.0
+layer_pos_offset = 0.0
+layer_speed_offset = 0.0
+layer_angle_offset = 0.0
+r_randomisation_chances = 1.0
+r_bullet_choice = ""
+r_bullet_nbr_choice = ""
+r_bullet_nbr_variation = Vector3(0, 0, 0)
+r_pattern_angle_choice = ""
+r_pattern_angle_variation = Vector3(0, 0, 0)
+r_infinite_iter_chances = 0.0
+r_iterations_choice = ""
+r_iterations_variation = Vector3(0, 0, 0)
+r_forced_angle_choice = ""
+r_forced_angle_variation = Vector3(0, 0, 0)
+r_forced_target_choice = []
+r_stasis_chances = 0.0
+r_cooldown_spawn_choice = ""
+r_cooldown_spawn_variation = Vector3(0, 0, 0)
+r_cooldown_shoot_choice = ""
+r_cooldown_shoot_variation = Vector3(0, 0, 0)
+r_cooldown_n_spawn_choice = ""
+r_cooldown_n_spawn_variation = Vector3(0, 0, 0)
+r_cooldown_n_shoot_choice = ""
+r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
+
 [sub_resource type="Curve2D" id="Curve2D_qi17c"]
 
 [sub_resource type="Curve" id="Curve_vbs6u"]
@@ -81,10 +209,10 @@ r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
 [sub_resource type="PackedDataContainer" id="PackedDataContainer_p2jyy"]
 script = ExtResource("7_q0fvn")
 speed = 100.0
-scale = 1
-angle = 2.0004
+scale = 1.0
+angle = -0.9996
 groups = ["EnemyBullet"]
-anim_idle_texture = "0"
+anim_idle_texture = "Basic"
 anim_spawn_texture = ""
 anim_waiting_texture = ""
 anim_delete_texture = ""
@@ -168,30 +296,11 @@ r_scale_multi_iter_variation = Vector3(0, 0, 0)
 r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
 [node name="Node2D" type="Node2D"]
-y_sort_enabled = true
+script = ExtResource("1_ewbs4")
 
-[node name="enemy" parent="." instance=ExtResource("1_80436")]
-visible = false
-position = Vector2(685, 154)
+[node name="Background" type="Node2D" parent="."]
 
-[node name="enemyProjectile Spawner" parent="." instance=ExtResource("1_80436")]
-visible = false
-position = Vector2(211, 296)
-script = ExtResource("2_tjv66")
-
-[node name="SpawnPattern" type="Path2D" parent="."]
-curve = SubResource("Curve2D_jqf82")
-script = ExtResource("4_ehlb4")
-id = "one"
-pattern = SubResource("NavigationPolygon_m3wac")
-
-[node name="BulletPattern2" type="Path2D" parent="."]
-curve = SubResource("Curve2D_qi17c")
-script = ExtResource("6_7xkk1")
-id = "1"
-props = SubResource("PackedDataContainer_p2jyy")
-
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="Background" groups=["Tile"]]
 y_sort_enabled = true
 texture_filter = 1
 tile_set = ExtResource("8_0j1y0")
@@ -220,21 +329,10 @@ layer_3/y_sort_origin = 0
 layer_3/z_index = 4
 layer_3/tile_data = PackedInt32Array(851975, 262146, 3, 917511, 262146, 4, 983047, 262146, 5, 1114112, 0, 1, 1179648, 0, 2, 1245184, 0, 3, 1114113, 65536, 1, 1179649, 65536, 2, 1245185, 65536, 3, 1114114, 131072, 1, 1179650, 131072, 2, 1245186, 131072, 3, 1114115, 0, 1, 1179651, 0, 2, 1245187, 0, 3, 1114116, 65536, 1, 1179652, 65536, 2, 1245188, 65536, 3, 1114117, 131072, 1, 1179653, 131072, 2, 1245189, 131072, 3, 1114118, 0, 1, 1179654, 0, 2, 1245190, 0, 3, 1114119, 65536, 1, 1179655, 65536, 2, 1245191, 65536, 3, 1114120, 131072, 1, 1179656, 131072, 2, 1245192, 131072, 3, 1114121, 0, 1, 1179657, 0, 2, 1245193, 0, 3, 1114122, 65536, 1, 1179658, 65536, 2, 1245194, 65536, 3, 1114123, 131072, 1, 1179659, 131072, 2, 1245195, 131072, 3, 1114124, 0, 1, 1179660, 0, 2, 1245196, 0, 3, 1114125, 65536, 1, 1179661, 65536, 2, 1245197, 65536, 3, 1114135, 0, 1, 1179671, 0, 2, 1245207, 0, 3, 1114136, 65536, 1, 1179672, 65536, 2, 1245208, 65536, 3, 1114137, 131072, 1, 1179673, 131072, 2, 1245209, 131072, 3, 1114138, 0, 1, 1179674, 0, 2, 1245210, 0, 3, 1114139, 65536, 1, 1179675, 65536, 2, 1245211, 65536, 3, 1114140, 131072, 1, 1179676, 131072, 2, 1245212, 131072, 3, 1114141, 0, 1, 1179677, 0, 2, 1245213, 0, 3, 1114142, 65536, 1, 1179678, 65536, 2, 1245214, 65536, 3, 1114143, 131072, 1, 1179679, 131072, 2, 1245215, 131072, 3, 1114144, 0, 1, 1179680, 0, 2, 1245216, 0, 3, 1114145, 65536, 1, 1179681, 65536, 2, 1245217, 65536, 3, 1114146, 131072, 1, 1179682, 131072, 2, 1245218, 131072, 3, 1048610, 196608, 1, 1048609, 196608, 1, 1048608, 196608, 1, 1048607, 196608, 1, 1048606, 196608, 1, 1048605, 196608, 1, 1048604, 196608, 1, 1048603, 196608, 1, 1048602, 196608, 1, 1048601, 196608, 1, 1048600, 196608, 1, 1048599, 196608, 1, 1048598, 196608, 1, 1048597, 196608, 1, 1048589, 196608, 1, 1048588, 196608, 1, 1048587, 196608, 1, 1048586, 196608, 1, 1048585, 196608, 1, 1048584, 196608, 1, 1048583, 196608, 1, 1048582, 196608, 1, 1048581, 196608, 1, 1048580, 196608, 1, 1048579, 196608, 1, 1048578, 196608, 1, 1048577, 196608, 1, 1048576, 196608, 1, 1048593, 196608, 1, 1048594, 196608, 1, 1048595, 196608, 1, 1048596, 196608, 1, 1114129, 131072, 1, 1179665, 131072, 2, 1245201, 131072, 3, 1114147, 0, 1, 1179683, 0, 2, 1245219, 0, 3, 1114148, 65536, 1, 1179684, 65536, 2, 1245220, 65536, 3, 1114149, 131072, 1, 1179685, 131072, 2, 1245221, 131072, 3, 1114150, 0, 1, 1179686, 0, 2, 1245222, 0, 3, 1114151, 65536, 1, 1179687, 65536, 2, 1245223, 65536, 3, 1114152, 131072, 1, 1179688, 131072, 2, 1245224, 131072, 3, 1114126, 0, 1, 1179662, 0, 2, 1245198, 0, 3, 1114127, 65536, 1, 1179663, 65536, 2, 1245199, 65536, 3, 1114128, 131072, 1, 1179664, 131072, 2, 1245200, 131072, 3, 1048590, 196608, 1, 1048591, 196608, 1, 1048592, 196608, 1, 1048611, 196608, 1, 1048612, 196608, 1, 1048613, 196608, 1, 1048614, 196608, 1, 1048615, 196608, 1, 1310755, 0, 4, 1376291, 0, 4, 1441827, 0, 4, 1310756, 0, 4, 1376292, 0, 4, 1441828, 0, 4, 1310757, 0, 4, 1376293, 0, 4, 1441829, 0, 4, 1310758, 0, 4, 1376294, 0, 4, 1441830, 0, 4, 1310759, 0, 4, 1376295, 0, 4, 1441831, 0, 4, 851998, 262146, 3, 917534, 262146, 4, 983070, 262146, 5)
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="CanvasModulate" type="CanvasModulate" parent="Background"]
 color = Color(0.298039, 0.227451, 0.329412, 1)
 
-[node name="player" parent="." instance=ExtResource("2_uygfl")]
-position = Vector2(544, 389)
-
-[node name="Camera2D" type="Camera2D" parent="player"]
-position = Vector2(3, -5)
-limit_left = 0
-limit_top = 0
-limit_right = 1280
-limit_bottom = 720
-position_smoothing_enabled = true
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="Background"]
 position = Vector2(816, 416)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -245,7 +343,7 @@ shadow_filter = 2
 texture = ExtResource("9_ox15u")
 texture_scale = 1.8
 
-[node name="PointLight2D2" type="PointLight2D" parent="."]
+[node name="PointLight2D2" type="PointLight2D" parent="Background"]
 position = Vector2(976, 416)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -256,7 +354,7 @@ shadow_filter = 2
 texture = ExtResource("9_ox15u")
 texture_scale = 1.8
 
-[node name="PointLight2D3" type="PointLight2D" parent="."]
+[node name="PointLight2D3" type="PointLight2D" parent="Background"]
 position = Vector2(1136, 416)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -267,7 +365,7 @@ shadow_filter = 2
 texture = ExtResource("9_ox15u")
 texture_scale = 1.8
 
-[node name="PointLight2D4" type="PointLight2D" parent="."]
+[node name="PointLight2D4" type="PointLight2D" parent="Background"]
 position = Vector2(80, 416)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -278,7 +376,7 @@ shadow_filter = 2
 texture = ExtResource("9_ox15u")
 texture_scale = 1.8
 
-[node name="PointLight2D5" type="PointLight2D" parent="."]
+[node name="PointLight2D5" type="PointLight2D" parent="Background"]
 position = Vector2(240, 416)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -289,7 +387,7 @@ shadow_filter = 2
 texture = ExtResource("9_ox15u")
 texture_scale = 1.8
 
-[node name="PointLight2D7" type="PointLight2D" parent="."]
+[node name="PointLight2D7" type="PointLight2D" parent="Background"]
 position = Vector2(576, -96)
 scale = Vector2(5.34766, 7.29)
 color = Color(0.768627, 0.647059, 0.917647, 1)
@@ -303,7 +401,7 @@ texture = ExtResource("9_ox15u")
 offset = Vector2(-2.99196, 4.38957)
 texture_scale = 1.06
 
-[node name="PointLight2D6" type="PointLight2D" parent="."]
+[node name="PointLight2D6" type="PointLight2D" parent="Background"]
 position = Vector2(880, 880)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -313,3 +411,76 @@ shadow_color = Color(0.647059, 0.321569, 0.768627, 0)
 shadow_filter = 2
 texture = ExtResource("9_ox15u")
 texture_scale = 1.8
+
+[node name="GameController" type="Node" parent="."]
+script = ExtResource("4_b7qfc")
+tex_enemy = Array[Texture2D]([ExtResource("5_o8hfc"), null])
+
+[node name="player" parent="." instance=ExtResource("2_uygfl")]
+position = Vector2(332, 191)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 1280
+limit_bottom = 720
+position_smoothing_enabled = true
+
+[node name="EnemyPaths" type="Node2D" parent="."]
+position = Vector2(-237, -136)
+script = ExtResource("7_h3ojj")
+
+[node name="EnemyPath_01" type="Path2D" parent="EnemyPaths"]
+curve = SubResource("Curve2D_sosch")
+
+[node name="EnemyPath_02" type="Path2D" parent="EnemyPaths"]
+curve = SubResource("Curve2D_ndshr")
+
+[node name="EnemyPath_03" type="Path2D" parent="EnemyPaths"]
+curve = SubResource("Curve2D_j28tn")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Spawn" type="Node" parent="Node"]
+
+[node name="SpawnPattern1" type="Path2D" parent="Node/Spawn"]
+curve = SubResource("Curve2D_jqf82")
+script = ExtResource("4_ehlb4")
+id = "one"
+pattern = SubResource("NavigationPolygon_m3wac")
+
+[node name="SpawnPattern2" type="Path2D" parent="Node/Spawn"]
+curve = SubResource("Curve2D_nhm4t")
+script = ExtResource("4_ehlb4")
+id = "two"
+pattern = SubResource("NavigationPolygon_3igxc")
+
+[node name="SpawnPattern3" type="Path2D" parent="Node/Spawn"]
+curve = SubResource("Curve2D_jqf82")
+script = ExtResource("4_ehlb4")
+id = "three"
+pattern = SubResource("NavigationPolygon_oabew")
+
+[node name="SpawnPattern4" type="Path2D" parent="Node/Spawn"]
+curve = SubResource("Curve2D_jqf82")
+script = ExtResource("4_ehlb4")
+id = "four"
+pattern = SubResource("NavigationPolygon_m3wac")
+
+[node name="Bullet" type="Node" parent="Node"]
+
+[node name="BulletPattern1" type="Path2D" parent="Node/Bullet"]
+curve = SubResource("Curve2D_qi17c")
+script = ExtResource("6_7xkk1")
+id = "1"
+props = SubResource("PackedDataContainer_p2jyy")
+
+[node name="BulletPattern2" type="Path2D" parent="Node/Bullet"]
+curve = SubResource("Curve2D_qi17c")
+script = ExtResource("6_7xkk1")
+id = "2"
+props = SubResource("PackedDataContainer_p2jyy")
+
+[node name="Lives" parent="." instance=ExtResource("14_jautl")]
+position = Vector2(-269, 24)

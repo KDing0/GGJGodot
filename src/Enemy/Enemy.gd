@@ -53,7 +53,7 @@ func _on_Bullet_entered(body):
 		Livecounter.lives = Livecounter.lives - 1
 
 func _process(delta):
-	progress += speed
+	progress += speed*delta
 	if progress_ratio >= 1.0:
 		self.queue_free()
 	shootCooldownCounting(delta)

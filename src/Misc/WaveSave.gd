@@ -4,15 +4,15 @@ class_name Waves
 # EnemyType, PathID, Speed, Amount of Enemies, Time to next batch
 # If there is no next batch, just leave the last element
 const wave_1 = [
-	[Enemy.EnemyTypes.ENEMY_TYPE1, 1, 2.0, 10, 2],
-	[Enemy.EnemyTypes.ENEMY_TYPE2, 2, 5.0, 5, 2],
-	[Enemy.EnemyTypes.ENEMY_TYPE1, 3, 7.0, 5]
+	[Enemy.EnemyTypes.ENEMY_TYPE1, 1, 70.0, 1, 2],
+	[Enemy.EnemyTypes.ENEMY_TYPE2, 2, 90.0, 1, 2],
+	[Enemy.EnemyTypes.ENEMY_TYPE1, 3, 80.0, 1]
 ]
 const wave_2 = [
-	[Enemy.EnemyTypes.ENEMY_TYPE2, 2, 5.0, 5, 0.5],
-	[Enemy.EnemyTypes.ENEMY_TYPE2, 1, 7.0, 5, 0.5],
-	[Enemy.EnemyTypes.ENEMY_TYPE1, 2, 3.0, 5, 0.5],
-	[Enemy.EnemyTypes.ENEMY_TYPE1, 1, 6.0, 5]
+	[Enemy.EnemyTypes.ENEMY_TYPE2, 2, 80.0, 1, 0.5],
+	[Enemy.EnemyTypes.ENEMY_TYPE2, 1, 90.0, 1, 0.5],
+	[Enemy.EnemyTypes.ENEMY_TYPE1, 2, 60.0, 1, 0.5],
+	[Enemy.EnemyTypes.ENEMY_TYPE1, 1, 70.0, 1]
 ]
 
 const waveMap = {0: wave_1, 1: wave_2}
