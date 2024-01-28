@@ -16,6 +16,7 @@ func _process(delta):
 	self.position = cam.get_screen_center_position()
 
 func _on_text_hit(from, to):
+	#timer.stop()
 	textbox.changeText(from, to)
 	if self.get_child_count() <= 2:
 		textbox.closeTextBox()

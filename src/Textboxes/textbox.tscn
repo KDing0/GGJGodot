@@ -120,7 +120,6 @@ theme_override_constants/margin_left = 280
 theme_override_constants/margin_bottom = 20
 
 [node name="TextBox" type="TextureRect" parent="Control/TextBoxContainer/BoxMargin"]
-modulate = Color(1, 1, 1, 0.490196)
 layout_mode = 2
 texture = ExtResource("3_a7feg")
 
