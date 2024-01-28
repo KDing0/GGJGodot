@@ -29,7 +29,21 @@ size = Vector2(8.9759, 92.1811)
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="player" parent="." instance=ExtResource("2_uygfl")]
+position = Vector2(544, 389)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(3, -5)
+zoom = Vector2(3, 3)
+limit_left = 0
+limit_top = -64
+limit_right = 1280
+limit_bottom = 720
+position_smoothing_enabled = true
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Map"]
 y_sort_enabled = true
 texture_filter = 1
 tile_set = ExtResource("8_0j1y0")
@@ -65,22 +79,10 @@ layer_4/y_sort_origin = 0
 layer_4/z_index = 5
 layer_4/tile_data = PackedInt32Array(1114135, 458752, 1, 1179671, 458752, 2, 1245207, 458752, 3, 1310743, 458752, 4, 1376279, 458752, 5, 1114136, 524288, 1, 1179672, 524288, 2, 1245208, 524288, 3, 1310744, 524288, 4, 1376280, 524288, 5, 1114128, 589824, 1, 1179664, 589824, 2, 1245200, 589824, 3, 1310736, 589824, 4, 1376272, 589824, 5, 1114129, 655360, 1, 1179665, 655360, 2, 1245201, 655360, 3, 1310737, 655360, 4, 1376273, 655360, 5, 196642, 262146, 3, 262178, 262146, 4, 327714, 262146, 5, 196615, 262146, 3, 262151, 262146, 4, 327687, 262146, 5)
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="CanvasModulate" type="CanvasModulate" parent="Map"]
 color = Color(0.298039, 0.227451, 0.329412, 1)
 
-[node name="player" parent="." instance=ExtResource("2_uygfl")]
-position = Vector2(544, 389)
-
-[node name="Camera2D" type="Camera2D" parent="player"]
-position = Vector2(3, -5)
-zoom = Vector2(3, 3)
-limit_left = 0
-limit_top = -64
-limit_right = 1280
-limit_bottom = 720
-position_smoothing_enabled = true
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="Map"]
 position = Vector2(913, 15)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -91,7 +93,7 @@ shadow_color = Color(0.647059, 0.321569, 0.768627, 0)
 shadow_filter = 2
 texture = ExtResource("9_ox15u")
 
-[node name="PointLight2D2" type="PointLight2D" parent="."]
+[node name="PointLight2D2" type="PointLight2D" parent="Map"]
 position = Vector2(432, 16)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -102,7 +104,7 @@ shadow_color = Color(0.647059, 0.321569, 0.768627, 0)
 shadow_filter = 2
 texture = ExtResource("9_ox15u")
 
-[node name="PointLight2D3" type="PointLight2D" parent="."]
+[node name="PointLight2D3" type="PointLight2D" parent="Map"]
 position = Vector2(1040, 272)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -113,7 +115,7 @@ shadow_color = Color(0.647059, 0.321569, 0.768627, 0)
 shadow_filter = 2
 texture = ExtResource("9_ox15u")
 
-[node name="PointLight2D4" type="PointLight2D" parent="."]
+[node name="PointLight2D4" type="PointLight2D" parent="Map"]
 position = Vector2(1200, 272)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -124,7 +126,7 @@ shadow_color = Color(0.647059, 0.321569, 0.768627, 0)
 shadow_filter = 2
 texture = ExtResource("9_ox15u")
 
-[node name="PointLight2D12" type="PointLight2D" parent="."]
+[node name="PointLight2D12" type="PointLight2D" parent="Map"]
 position = Vector2(154, 272)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -135,7 +137,7 @@ shadow_color = Color(0.647059, 0.321569, 0.768627, 0)
 shadow_filter = 2
 texture = ExtResource("9_ox15u")
 
-[node name="PointLight2D13" type="PointLight2D" parent="."]
+[node name="PointLight2D13" type="PointLight2D" parent="Map"]
 position = Vector2(304, 272)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -146,7 +148,7 @@ shadow_color = Color(0.647059, 0.321569, 0.768627, 0)
 shadow_filter = 2
 texture = ExtResource("9_ox15u")
 
-[node name="PointLight2D5" type="PointLight2D" parent="."]
+[node name="PointLight2D5" type="PointLight2D" parent="Map"]
 position = Vector2(1296, 464)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -157,7 +159,7 @@ shadow_color = Color(0.647059, 0.321569, 0.768627, 0)
 shadow_filter = 2
 texture = ExtResource("9_ox15u")
 
-[node name="PointLight2D11" type="PointLight2D" parent="."]
+[node name="PointLight2D11" type="PointLight2D" parent="Map"]
 position = Vector2(16.0001, 464)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -168,7 +170,7 @@ shadow_color = Color(0.647059, 0.321569, 0.768627, 0)
 shadow_filter = 2
 texture = ExtResource("9_ox15u")
 
-[node name="PointLight2D6" type="PointLight2D" parent="."]
+[node name="PointLight2D6" type="PointLight2D" parent="Map"]
 position = Vector2(1072, 464)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -180,7 +182,7 @@ shadow_color = Color(0.647059, 0.321569, 0.768627, 0)
 shadow_filter = 2
 texture = ExtResource("9_ox15u")
 
-[node name="PointLight2D10" type="PointLight2D" parent="."]
+[node name="PointLight2D10" type="PointLight2D" parent="Map"]
 position = Vector2(240, 464)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -192,7 +194,7 @@ shadow_color = Color(0.647059, 0.321569, 0.768627, 0)
 shadow_filter = 2
 texture = ExtResource("9_ox15u")
 
-[node name="PointLight2D8" type="PointLight2D" parent="."]
+[node name="PointLight2D8" type="PointLight2D" parent="Map"]
 position = Vector2(848, 464)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -204,7 +206,7 @@ shadow_color = Color(0.647059, 0.321569, 0.768627, 0)
 shadow_filter = 2
 texture = ExtResource("9_ox15u")
 
-[node name="PointLight2D9" type="PointLight2D" parent="."]
+[node name="PointLight2D9" type="PointLight2D" parent="Map"]
 position = Vector2(464, 464)
 scale = Vector2(2.3125, 2.7)
 color = Color(1, 1, 0.886275, 1)
@@ -216,7 +218,7 @@ shadow_color = Color(0.647059, 0.321569, 0.768627, 0)
 shadow_filter = 2
 texture = ExtResource("9_ox15u")
 
-[node name="PointLight2D7" type="PointLight2D" parent="."]
+[node name="PointLight2D7" type="PointLight2D" parent="Map"]
 position = Vector2(674, -17)
 scale = Vector2(5.34766, 7.29)
 color = Color(0.145098, 0.027451, 0.317647, 1)
@@ -226,17 +228,17 @@ texture = ExtResource("9_ox15u")
 offset = Vector2(-2.99196, 4.38957)
 texture_scale = 1.06
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Map"]
 position = Vector2(672, 96)
 sprite_frames = SubResource("SpriteFrames_6h7pb")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="WallLights" type="Node2D" parent="."]
+[node name="WallLights" type="Node2D" parent="Map"]
 position = Vector2(240, 16)
 scale = Vector2(2.3125, 2.7)
 
-[node name="PointLight2D3" type="PointLight2D" parent="WallLights"]
+[node name="PointLight2D3" type="PointLight2D" parent="Map/WallLights"]
 color = Color(0.933333, 0.811765, 0.470588, 1)
 energy = 0.7
 shadow_enabled = true
@@ -246,7 +248,7 @@ shadow_filter_smooth = 6.0
 texture = ExtResource("9_ox15u")
 texture_scale = 0.35
 
-[node name="PointLight2D9" type="PointLight2D" parent="WallLights"]
+[node name="PointLight2D9" type="PointLight2D" parent="Map/WallLights"]
 position = Vector2(0, 201.481)
 color = Color(0.933333, 0.811765, 0.470588, 1)
 energy = 0.7
@@ -258,7 +260,7 @@ shadow_filter_smooth = 6.0
 texture = ExtResource("9_ox15u")
 texture_scale = 0.35
 
-[node name="PointLight2D10" type="PointLight2D" parent="WallLights"]
+[node name="PointLight2D10" type="PointLight2D" parent="Map/WallLights"]
 position = Vector2(359.784, 201.481)
 color = Color(0.933333, 0.811765, 0.470588, 1)
 energy = 0.7
@@ -270,7 +272,7 @@ shadow_filter_smooth = 6.0
 texture = ExtResource("9_ox15u")
 texture_scale = 0.35
 
-[node name="PointLight2D4" type="PointLight2D" parent="WallLights"]
+[node name="PointLight2D4" type="PointLight2D" parent="Map/WallLights"]
 position = Vector2(69.1892, 0)
 color = Color(0.933333, 0.811765, 0.470588, 1)
 energy = 0.7
@@ -282,7 +284,7 @@ texture = ExtResource("9_ox15u")
 offset = Vector2(0, 1.48148)
 texture_scale = 0.35
 
-[node name="PointLight2D5" type="PointLight2D" parent="WallLights"]
+[node name="PointLight2D5" type="PointLight2D" parent="Map/WallLights"]
 position = Vector2(-69.1892, 0)
 color = Color(0.933333, 0.811765, 0.470588, 1)
 energy = 0.7
@@ -294,7 +296,7 @@ texture = ExtResource("9_ox15u")
 offset = Vector2(0, 1.48148)
 texture_scale = 0.35
 
-[node name="PointLight2D6" type="PointLight2D" parent="WallLights"]
+[node name="PointLight2D6" type="PointLight2D" parent="Map/WallLights"]
 position = Vector2(371.892, 0)
 color = Color(0.933333, 0.811765, 0.470588, 1)
 energy = 0.7
@@ -305,7 +307,7 @@ shadow_filter_smooth = 6.0
 texture = ExtResource("9_ox15u")
 texture_scale = 0.35
 
-[node name="PointLight2D7" type="PointLight2D" parent="WallLights"]
+[node name="PointLight2D7" type="PointLight2D" parent="Map/WallLights"]
 position = Vector2(441.081, 0)
 color = Color(0.933333, 0.811765, 0.470588, 1)
 energy = 0.7
@@ -317,7 +319,7 @@ texture = ExtResource("9_ox15u")
 offset = Vector2(0, 1.48148)
 texture_scale = 0.35
 
-[node name="PointLight2D8" type="PointLight2D" parent="WallLights"]
+[node name="PointLight2D8" type="PointLight2D" parent="Map/WallLights"]
 position = Vector2(302.703, 0)
 color = Color(0.933333, 0.811765, 0.470588, 1)
 energy = 0.7
@@ -329,25 +331,25 @@ texture = ExtResource("9_ox15u")
 offset = Vector2(0, 1.48148)
 texture_scale = 0.35
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="Map"]
 z_index = 6
 position = Vector2(656, 656)
 scale = Vector2(5.34766, 7.29)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/StaticBody2D"]
 shape = SubResource("RectangleShape2D_iralb")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="StaticBody2D2" type="StaticBody2D" parent="Map"]
 z_index = 6
 position = Vector2(656, 352)
 scale = Vector2(5.34766, 7.29)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/StaticBody2D2"]
 position = Vector2(-128.654, -1.14441e-05)
 shape = SubResource("RectangleShape2D_1kjh1")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Map/StaticBody2D2"]
 position = Vector2(127.158, -1.14441e-05)
 shape = SubResource("RectangleShape2D_1kjh1")

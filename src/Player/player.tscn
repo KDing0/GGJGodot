@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ipk1i003beqy"]
+[gd_scene load_steps=18 format=3 uid="uid://ipk1i003beqy"]
 
 [ext_resource type="Script" path="res://Player/Test.gd" id="1_h3uet"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_ou0hw"]
@@ -123,7 +123,6 @@ autoplay = "default"
 shape = SubResource("CircleShape2D_8bjk8")
 debug_color = Color(0.878431, 0, 0.529412, 0.643137)
 script = ExtResource("1_h3uet")
-
 
 [node name="HitSfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_gjs2v")
