@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dynw4l3vsa24b"]
+[gd_scene load_steps=33 format=3 uid="uid://dynw4l3vsa24b"]
 
 [ext_resource type="Script" path="res://gamescene.gd" id="1_ewbs4"]
 [ext_resource type="PackedScene" uid="uid://ipk1i003beqy" path="res://Player/player.tscn" id="2_uygfl"]
@@ -7,9 +7,13 @@
 [ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="5_ck2a0"]
 [ext_resource type="Texture2D" uid="uid://d2ad7v3te2hdf" path="res://Assets/Characters/Enemies/Enemy1 Walk Animation Spritesheet.png" id="5_o8hfc"]
 [ext_resource type="Script" path="res://Addons/BulletUpHell/BuHBulletProperties.gd" id="6_7xkk1"]
+[ext_resource type="Texture2D" uid="uid://5e6bi2cc3mnm" path="res://Assets/Characters/Enemies/Enemy4 Walk Animation Spritesheet.png" id="6_xl4yq"]
+[ext_resource type="Texture2D" uid="uid://c8bk6jvidu3ll" path="res://Assets/Characters/Enemies/Enemy2 Walk Animation Spritesheet.png" id="7_1o6m3"]
 [ext_resource type="Script" path="res://Misc/EnemyPaths.gd" id="7_h3ojj"]
 [ext_resource type="Script" path="res://Addons/BulletUpHell/BulletProps.gd" id="7_q0fvn"]
 [ext_resource type="TileSet" uid="uid://bpu6gvb67yrfh" path="res://Assets/Environment/Tilemap/blocking_tile_set.tres" id="8_0j1y0"]
+[ext_resource type="Texture2D" uid="uid://dfh0j30pwn0no" path="res://Assets/Characters/Enemies/Enemy3 Walk Animation Spritesheet.png" id="8_a1otr"]
+[ext_resource type="Texture2D" uid="uid://dslwp6fv75iro" path="res://Assets/Characters/Enemies/Enemy5 Walk Animation Spritesheet.png" id="9_63qnd"]
 [ext_resource type="Texture2D" uid="uid://ooon6deycnvo" path="res://Assets/Effects/Light.png" id="9_ox15u"]
 [ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternCustomShape.gd" id="10_mowba"]
 [ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="11_iufo3"]
@@ -108,7 +112,7 @@ bullet = "1"
 nbr = 3
 closed_shape = false
 center_pos = Vector2(0, 50)
-pattern_angle = 0.0
+pattern_angle = 0.0004
 symmetric = true
 center = 2
 iterations = 1
@@ -116,7 +120,7 @@ follows_parent = false
 forced_angle = 0.0
 forced_target = NodePath("")
 forced_lookat_mouse = false
-forced_pattern_lookat = true
+forced_pattern_lookat = false
 cooldown_stasis = false
 cooldown_spawn = 0.017
 cooldown_shoot = 0.0
@@ -162,6 +166,52 @@ iterations = 1
 follows_parent = false
 forced_angle = 0.0
 forced_target = NodePath("")
+forced_lookat_mouse = false
+forced_pattern_lookat = false
+cooldown_stasis = false
+cooldown_spawn = 0.017
+cooldown_shoot = 0.0
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
+wait_latence = 0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+layer_nbr = 1
+layer_cooldown_spawn = 0.0
+layer_pos_offset = 0.0
+layer_speed_offset = 0.0
+layer_angle_offset = 0.0
+r_randomisation_chances = 1.0
+r_bullet_choice = ""
+r_bullet_nbr_choice = ""
+r_bullet_nbr_variation = Vector3(0, 0, 0)
+r_pattern_angle_choice = ""
+r_pattern_angle_variation = Vector3(0, 0, 0)
+r_infinite_iter_chances = 0.0
+r_iterations_choice = ""
+r_iterations_variation = Vector3(0, 0, 0)
+r_forced_angle_choice = ""
+r_forced_angle_variation = Vector3(0, 0, 0)
+r_forced_target_choice = []
+r_stasis_chances = 0.0
+r_cooldown_spawn_choice = ""
+r_cooldown_spawn_variation = Vector3(0, 0, 0)
+r_cooldown_shoot_choice = ""
+r_cooldown_shoot_variation = Vector3(0, 0, 0)
+r_cooldown_n_spawn_choice = ""
+r_cooldown_n_spawn_variation = Vector3(0, 0, 0)
+r_cooldown_n_shoot_choice = ""
+r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_445k4"]
+resource_name = "PatternOne"
+script = ExtResource("11_iufo3")
+bullet = "1"
+iterations = 1
+follows_parent = false
+forced_angle = 0.0
+forced_target = NodePath("../../../player")
 forced_lookat_mouse = false
 forced_pattern_lookat = true
 cooldown_stasis = false
@@ -213,6 +263,95 @@ scale = 1.0
 angle = -0.9996
 groups = ["EnemyBullet"]
 anim_idle_texture = "Basic"
+anim_spawn_texture = ""
+anim_waiting_texture = ""
+anim_delete_texture = ""
+anim_idle_collision = "0"
+anim_spawn_collision = ""
+anim_waiting_collision = ""
+anim_delete_collision = ""
+anim_idle_sfx = -1
+anim_spawn_sfx = -1
+anim_waiting_sfx = -1
+anim_delete_sfx = -1
+spec_bounces = 0
+spec_no_collision = false
+spec_modulate_loop = 0.0
+spec_skew = 0.0
+spec_trail_length = 0.0
+spec_trail_width = 0.0
+spec_trail_modulate = Color(1, 1, 1, 1)
+spec_rotating_speed = 0.0
+spec_angle_no_colliding = null
+spec_angle_no_coll_offset = null
+death_after_time = 30.0
+death_outside_box = Rect2(0, 0, 0, 0)
+death_from_collision = true
+a_direction_equation = ""
+a_curve_movement = 0
+a_speed_multiplier = SubResource("Curve_vbs6u")
+a_speed_multi_iterations = 0
+a_speed_multi_scale = 0.0
+trigger_container = ""
+trigger_wait_for_shot = true
+homing_type = 0
+homing_target = NodePath("")
+homing_steer = 0
+homing_time_start = 0
+homing_duration = 999
+scale_multi_iterations = 0
+scale_multiplier = SubResource("Curve_2xsyn")
+scale_multi_scale = 1
+r_randomisation_chances = 1.0
+r_speed_choice = ""
+r_speed_variation = Vector3(0, 0, 0)
+r_scale_choice = ""
+r_scale_variation = Vector3(0, 0, 0)
+r_angle_choice = ""
+r_angle_variation = Vector3(0, 0, 0)
+r_group_choice = []
+r_bounce_choice = ""
+r_bounce_variation = Vector3(0, 0, 0)
+r_no_coll_chances = 0.0
+r_modulate_variation = Vector3(0, 0, 0)
+r_trail_length_variation = Vector3(0, 0, 0)
+r_trail_color_variation = Vector3(0, 0, 0)
+r_rotating_variation = Vector3(0, 0, 0)
+r_death_after_choice = ""
+r_death_after_variation = Vector3(0, 0, 0)
+r_death_outside_chances = 0.0
+r_dir_equation_choice = ""
+r_curve_choice = []
+r_speed_multi_curve_choice = []
+r_speed_multi_iter_variation = Vector3(0, 0, 0)
+r_speed_multi_scale_variation = Vector3(0, 0, 0)
+r_trigger_choice = ""
+r_wait_for_shot_chances = 0.0
+r_homing_target_choice = []
+r_special_target_choice = ""
+r_group_target_choice = ""
+r_pos_target_choice = ""
+r_steer_choice = ""
+r_steer_variation = Vector3(0, 0, 0)
+r_homing_delay_choice = ""
+r_homing_delay_variation = Vector3(0, 0, 0)
+r_homing_dur_choice = ""
+r_homing_dur_variation = Vector3(0, 0, 0)
+r_beam_length_choice = ""
+r_beam_length_variation = Vector3(0, 0, 0)
+r_beam_bounce_choice = ""
+r_beam_width_variation = Vector3(0, 0, 0)
+r_scale_multi_curve_choice = []
+r_scale_multi_iter_variation = Vector3(0, 0, 0)
+r_scale_multi_scale_variation = Vector3(0, 0, 0)
+
+[sub_resource type="PackedDataContainer" id="PackedDataContainer_a2n34"]
+script = ExtResource("7_q0fvn")
+speed = 100.0
+scale = 1.0
+angle = -0.9996
+groups = ["EnemyBullet"]
+anim_idle_texture = "2"
 anim_spawn_texture = ""
 anim_waiting_texture = ""
 anim_delete_texture = ""
@@ -414,7 +553,7 @@ texture_scale = 1.8
 
 [node name="GameController" type="Node" parent="."]
 script = ExtResource("4_b7qfc")
-tex_enemy = Array[Texture2D]([ExtResource("5_o8hfc"), null])
+tex_enemy = Array[Texture2D]([ExtResource("8_a1otr"), ExtResource("9_63qnd"), ExtResource("7_1o6m3"), ExtResource("5_o8hfc"), ExtResource("6_xl4yq")])
 
 [node name="player" parent="." instance=ExtResource("2_uygfl")]
 position = Vector2(332, 191)
@@ -468,6 +607,12 @@ script = ExtResource("4_ehlb4")
 id = "four"
 pattern = SubResource("NavigationPolygon_m3wac")
 
+[node name="SpawnPattern5" type="Path2D" parent="Node/Spawn"]
+curve = SubResource("Curve2D_jqf82")
+script = ExtResource("4_ehlb4")
+id = "five"
+pattern = SubResource("NavigationPolygon_445k4")
+
 [node name="Bullet" type="Node" parent="Node"]
 
 [node name="BulletPattern1" type="Path2D" parent="Node/Bullet"]
@@ -480,7 +625,7 @@ props = SubResource("PackedDataContainer_p2jyy")
 curve = SubResource("Curve2D_qi17c")
 script = ExtResource("6_7xkk1")
 id = "2"
-props = SubResource("PackedDataContainer_p2jyy")
+props = SubResource("PackedDataContainer_a2n34")
 
 [node name="Lives" parent="." instance=ExtResource("14_jautl")]
 position = Vector2(-269, 24)

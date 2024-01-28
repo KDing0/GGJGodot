@@ -1,7 +1,7 @@
 extends Node
 
 @export var tex_enemy : Array[Texture2D]
-
+@onready var player = $"../player"
 @onready var waves = Waves.new()
 @onready var enemyPaths = self.get_node("../EnemyPaths")
 
@@ -14,6 +14,7 @@ var enemyScene = preload("res://Enemy/enemy.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	Spawning.reset(true)
 	betweenWavesTimer.one_shot = true
 	spawnTimer.one_shot = true
@@ -43,7 +44,7 @@ func prepare_new_batch(time):
 
 func spawnEnemy(enemyType, path: int, speed: float):
 	var enemy_instance = enemyScene.instantiate()
-	enemy_instance.set_parameters(tex_enemy[0], speed)
+	enemy_instance.set_parameters(tex_enemy[enemyType], speed)
 	get_node("../EnemyPaths/EnemyPath_0" + str(path)).add_child(enemy_instance)
 	setInstantiateBulletPattern(enemy_instance, enemyType)
 
@@ -65,12 +66,14 @@ func _on_spawnTimer_Timeout():
 	spawnTimer.start(0.5)
 	
 func setInstantiateBulletPattern(enemy_instance, enemyType):
+	enemy_instance.playerInstance = player
+	
 	if(enemyType == 0):
 		enemy_instance.BulletSpawnOffset = Vector2(0,0)
 		enemy_instance.BulletSpawnID = "three"
 		enemy_instance.BulletAnimationID = "first"
-		enemy_instance.BulletRotation = 1
-		
+		#TopLeft, TopRight, DownLeft, DownRight
+		enemy_instance.BulletRotation = [-2.2,1,-2.2,1,]
 		enemy_instance.BulletStartDelay = 1
 		enemy_instance.BulletShootDelay = 0
 		enemy_instance.BulletCycleAmount = 1
@@ -80,10 +83,37 @@ func setInstantiateBulletPattern(enemy_instance, enemyType):
 		enemy_instance.BulletSpawnOffset = Vector2(0,0)
 		enemy_instance.BulletSpawnID = "one"
 		enemy_instance.BulletAnimationID = "first"
-		enemy_instance.BulletRotation = 1
+		#TopLeft, TopRight, DownLeft, DownRight
+		enemy_instance.BulletRotation = [1,-1,1,-1]
 		
 		enemy_instance.BulletStartDelay = 2
-		enemy_instance.BulletShootDelay = 0.06
+		enemy_instance.BulletShootDelay = 0.09
 		enemy_instance.BulletCycleAmount = 8
 		enemy_instance.BulletCycleCooldown = 4
 		enemy_instance.BulletRotationShift = 1
+		
+	if(enemyType == 2):
+		enemy_instance.BulletSpawnOffset = Vector2(0,0)
+		enemy_instance.BulletSpawnID = "two"
+		enemy_instance.BulletAnimationID = "first"
+		#TopLeft, TopRight, DownLeft, DownRight
+		enemy_instance.BulletRotation = [-2.2,1,-2.2,1]
+		
+		enemy_instance.BulletStartDelay = 2
+		enemy_instance.BulletShootDelay = 0.09
+		enemy_instance.BulletCycleAmount = 3
+		enemy_instance.BulletCycleCooldown = 4
+		enemy_instance.BulletRotationShift = 0
+		
+	if(enemyType == 3):
+		enemy_instance.BulletSpawnOffset = Vector2(0,0)
+		enemy_instance.BulletSpawnID = "five"
+		enemy_instance.BulletAnimationID = "first"
+		#TopLeft, TopRight, DownLeft, DownRight
+		enemy_instance.BulletRotation = [-2.2,1,-2.2,1]
+		
+		enemy_instance.BulletStartDelay = 2
+		enemy_instance.BulletShootDelay = 0.1
+		enemy_instance.BulletCycleAmount = 20
+		enemy_instance.BulletCycleCooldown = 8
+		enemy_instance.BulletRotationShift = 0
