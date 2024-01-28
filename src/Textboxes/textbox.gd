@@ -41,7 +41,7 @@ func setAngry():
 func changeText(from_word, to_word):
 	var label: RichTextLabel = $Control/TextBoxContainer/BoxMargin/TextMargin/RichTextLabel
 	var image: TextureRect = $Control/ImageContainer/Image
-	label.text = label.text.replace("[b]" + from_word + "[/b]", to_word)
+	label.text = label.text.replace("[b][color=red]" + from_word + "[/color][/b]", to_word)
 	image.texture = preload("res://Assets/UI/UI_GF_Laugh720.png")
 
 func get_area_position(word, pos: bool) -> Vector2:
@@ -89,6 +89,6 @@ func add_area_on(from_word, to_word) -> Area2D:
 	area.from_word = from_word
 	area.to_word = to_word
 	
-	label.text = label.text.replace(from_word, "[b]" + from_word + "[/b]")
+	label.text = label.text.replace(from_word, "[b][color=red]" + from_word + "[/color][/b]")
 	
 	return area
