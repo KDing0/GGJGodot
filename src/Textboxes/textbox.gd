@@ -5,7 +5,7 @@ extends CanvasLayer
 var textbox_open = true
 
 func _ready():
-	close_textbox()
+	#open_textbox()
 	pass
 
 func open_textbox():
