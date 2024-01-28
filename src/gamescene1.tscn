@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dynw4l3vsa24b"]
+[gd_scene load_steps=27 format=3 uid="uid://d4ajf2330ej2i"]
 
 [ext_resource type="Script" path="res://gamescene.gd" id="1_ewbs4"]
 [ext_resource type="PackedScene" uid="uid://ipk1i003beqy" path="res://Player/player.tscn" id="2_uygfl"]
@@ -476,12 +476,11 @@ script = ExtResource("6_7xkk1")
 id = "1"
 props = SubResource("PackedDataContainer_p2jyy")
 
-
-[node name="Lives" parent="." instance=ExtResource("10_l5axw")]
-
 [node name="BulletPattern2" type="Path2D" parent="Node/Bullet"]
 curve = SubResource("Curve2D_qi17c")
 script = ExtResource("6_7xkk1")
 id = "2"
 props = SubResource("PackedDataContainer_p2jyy")
 
+[node name="Lives" parent="." instance=ExtResource("14_jautl")]
+position = Vector2(-269, 24)
