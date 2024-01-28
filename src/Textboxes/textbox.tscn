@@ -106,10 +106,11 @@ script = ExtResource("1_gfbi4")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 4480.0
-offset_bottom = 2520.0
+offset_right = 5120.0
+offset_bottom = 2880.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -156,6 +157,7 @@ theme_override_constants/margin_bottom = 0
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/TextBoxContainer/TextMargin"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
 text = "Hello world Bla bli blö
 Test"
 fit_content = true

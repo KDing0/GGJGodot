@@ -28,7 +28,7 @@ func setText(text):
 
 func changeText(from_word, to_word):
 	var label: RichTextLabel = $Control/TextBoxContainer/TextMargin/RichTextLabel
-	label.text = label.text.replace(from_word, to_word)
+	label.text = label.text.replace("[b]" + from_word + "[/b]", to_word)
 
 func add_area_on(word) -> Area2D:
 	
@@ -64,4 +64,7 @@ func add_area_on(word) -> Area2D:
 	area.set_script(area_script)
 	area.from_word = word
 	area.to_word = "hi hi"
+	
+	label.text = label.text.replace(word, "[b]" + word + "[/b]")
+	
 	return area
