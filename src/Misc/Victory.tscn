@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://nycqwta0o50u"]
+
+[ext_resource type="Script" path="res://Misc/GameOver.gd" id="1_brkuf"]
+[ext_resource type="Texture2D" uid="uid://e46uprwvhg22" path="res://Assets/UI/UI_victoryScreen.png" id="2_dvoyn"]
+[ext_resource type="Theme" uid="uid://d0u5mofsrkc7b" path="res://Assets/UI/theme.tres" id="3_n0iji"]
+
+[node name="UI_PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_brkuf")
+
+[node name="ColorRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dvoyn")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.6
+anchor_top = 0.25
+anchor_right = 0.95
+anchor_bottom = 0.83
+offset_top = -5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Btn_ToMenu" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_n0iji")
+text = "To Menu"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Btn_ToMenu" to="." method="_on_btn_to_menu_pressed"]
