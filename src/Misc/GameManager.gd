@@ -32,7 +32,10 @@ func loadMainMenu():
 	if currentState == States.MAIN_MENU:
 		return
 	
+	get_tree().paused = false
+	Spawning.reset_bullets()
 	freeAllChildren()
+
 	var scene_mainMenu = preload(sceneStr_mainMenu)
 	var instance_mainMenu = scene_mainMenu.instantiate()
 	currentState = States.MAIN_MENU

@@ -356,4 +356,3 @@ id = "1"
 props = SubResource("PackedDataContainer_p2jyy")
 
 [node name="Lives" parent="." instance=ExtResource("10_l5axw")]
-position = Vector2(-32, 160)
