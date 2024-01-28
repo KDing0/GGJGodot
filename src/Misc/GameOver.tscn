@@ -1,27 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://uphl4yhhg3o4"]
+[gd_scene load_steps=4 format=3 uid="uid://uphl4yhhg3o4"]
 
 [ext_resource type="Script" path="res://Misc/GameOver.gd" id="1_b8uap"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_sbbkr"]
-font_size = 48
+[ext_resource type="Theme" uid="uid://d0u5mofsrkc7b" path="res://Assets/UI/theme.tres" id="2_v5kiy"]
+[ext_resource type="Texture2D" uid="uid://chunh6fr0ep1y" path="res://Assets/UI/UI_gameOverScreen.png" id="3_rhppg"]
 
 [node name="UI_PauseMenu" type="CanvasLayer"]
 script = ExtResource("1_b8uap")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.635294)
+theme = ExtResource("2_v5kiy")
+texture = ExtResource("3_rhppg")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = -1
-anchor_left = 0.25
+anchor_left = 0.6
 anchor_top = 0.25
-anchor_right = 0.75
-anchor_bottom = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.83
 offset_top = -5.0
 offset_bottom = 5.0
 grow_horizontal = 2
@@ -29,30 +29,11 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Game Over"
-label_settings = SubResource("LabelSettings_sbbkr")
-horizontal_alignment = 1
-vertical_alignment = 1
+alignment = 2
 
 [node name="Btn_ToMenu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_v5kiy")
 text = "To Menu"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 1
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Btn_ToMenu" to="." method="_on_btn_to_menu_pressed"]

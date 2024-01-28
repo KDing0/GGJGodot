@@ -1,10 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://by7lohsb5qfwj"]
+[gd_scene load_steps=4 format=3 uid="uid://by7lohsb5qfwj"]
 
 [ext_resource type="Script" path="res://Misc/MainMenu.gd" id="1_av7h0"]
+[ext_resource type="Texture2D" uid="uid://bppm8uh53w1ux" path="res://Assets/UI/UI_titleScreen_logo.png" id="2_exgt4"]
 [ext_resource type="Theme" uid="uid://d0u5mofsrkc7b" path="res://Assets/UI/theme.tres" id="2_yt4kf"]
 
 [node name="UI_MainMenu" type="CanvasLayer"]
 script = ExtResource("1_av7h0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_exgt4")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = -1
