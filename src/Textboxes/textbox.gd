@@ -26,15 +26,23 @@ func close_textbox():
 
 func setText(text):
 	var label: RichTextLabel = $Control/TextBoxContainer/BoxMargin/TextMargin/RichTextLabel
+	var image: TextureRect = $Control/ImageContainer/Image
 	label.text = text
+	image.texture = preload("res://Assets/UI/UI_GF_Sad720.png")
 	anims.play("open_textbox")
 
 func closeTextBox():
 	anims.play("close_textbox")
 
+func setAngry():
+	var image: TextureRect = $Control/ImageContainer/Image
+	image.texture = preload("res://Assets/UI/UI_GF_Annoyed720.png")
+
 func changeText(from_word, to_word):
 	var label: RichTextLabel = $Control/TextBoxContainer/BoxMargin/TextMargin/RichTextLabel
+	var image: TextureRect = $Control/ImageContainer/Image
 	label.text = label.text.replace("[b]" + from_word + "[/b]", to_word)
+	image.texture = preload("res://Assets/UI/UI_GF_Laugh720.png")
 
 func get_area_position(word, pos: bool) -> Vector2:
 	var label: RichTextLabel = $Control/TextBoxContainer/BoxMargin/TextMargin/RichTextLabel
