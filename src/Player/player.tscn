@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://ipk1i003beqy"]
+[gd_scene load_steps=19 format=3 uid="uid://ipk1i003beqy"]
 
 [ext_resource type="Script" path="res://Player/Test.gd" id="1_h3uet"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_ou0hw"]
 [ext_resource type="Texture2D" uid="uid://dfwjjbrb0vlkd" path="res://Assets/Characters/Player/MC.png" id="3_wigxu"]
 [ext_resource type="Texture2D" uid="uid://nl4eeyr3jh1c" path="res://Assets/Characters/Player/MC Walk Animation Spritesheet.png" id="4_22afs"]
 [ext_resource type="AudioStream" uid="uid://cihtsogyesroo" path="res://Assets/Sound/AC_Bubbly_Hit.wav" id="5_gjs2v"]
+[ext_resource type="PackedScene" uid="uid://qpsm8lci3edn" path="res://Assets/Effects/hit_particles.tscn" id="6_v3rnv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_evgr3"]
 atlas = ExtResource("3_wigxu")
@@ -76,7 +77,6 @@ length = 0.001
 
 [sub_resource type="Animation" id="Animation_ttndx"]
 resource_name = "hit"
-length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -84,7 +84,7 @@ tracks/0/path = NodePath("AnimatedSprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-5, 0), Vector2(5, 0), Vector2(-5, 0), Vector2(5, 0), Vector2(-5, 0), Vector2(5, 0), Vector2(0, 0)]
@@ -96,10 +96,34 @@ tracks/1/path = NodePath("AnimatedSprite2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 3),
+"times": PackedFloat32Array(0, 0.2, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 0.92549, 0.909804, 1), Color(1, 0.109804, 0, 1), Color(1, 1, 1, 1)]
+"values": [Color(1, 0.92549, 0.909804, 1), Color(0.498039, 0.0313726, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.174533, 0.174533, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GPUParticles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kjh0r"]
@@ -115,7 +139,6 @@ collision_mask = 13
 script = ExtResource("1_ou0hw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(1, 0.92549, 0.909804, 1)
 sprite_frames = SubResource("SpriteFrames_ggxq5")
 autoplay = "default"
 
@@ -132,5 +155,11 @@ speed_scale = 4.0
 libraries = {
 "": SubResource("AnimationLibrary_kjh0r")
 }
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("6_v3rnv")]
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 1.0
 
 [connection signal="ready" from="." to="." method="_on_ready"]
