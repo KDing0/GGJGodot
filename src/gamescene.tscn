@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://d4ajf2330ej2i"]
+[gd_scene load_steps=30 format=3 uid="uid://d4ajf2330ej2i"]
 
 [ext_resource type="PackedScene" uid="uid://cf6o2n1w1lpv0" path="res://Enemy/enemy.tscn" id="1_80436"]
 [ext_resource type="Script" path="res://Misc/GameController.gd" id="1_prura"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://Addons/BulletUpHell/SpawnPatterns/PatternLine.gd" id="7_il8iq"]
 [ext_resource type="Script" path="res://Addons/BulletUpHell/BulletProps.gd" id="7_q0fvn"]
 [ext_resource type="PackedScene" uid="uid://dl3h2vjeq7i23" path="res://UI/lives.tscn" id="10_l5axw"]
+[ext_resource type="PackedScene" uid="uid://wndowv53go84" path="res://Textboxes/textbox.tscn" id="12_6ntlp"]
+[ext_resource type="Script" path="res://Textboxes/TextCollisions.gd" id="13_lqojh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cd6u2"]
 size = Vector2(40, 380)
@@ -356,3 +358,10 @@ props = SubResource("PackedDataContainer_p2jyy")
 
 [node name="Lives" parent="." instance=ExtResource("10_l5axw")]
 position = Vector2(-32, 160)
+
+[node name="TextCollisions" type="Node2D" parent="." node_paths=PackedStringArray("cam", "textbox")]
+script = ExtResource("13_lqojh")
+cam = NodePath("../Camera2D")
+textbox = NodePath("../Textbox")
+
+[node name="Textbox" parent="." instance=ExtResource("12_6ntlp")]
