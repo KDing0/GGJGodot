@@ -35,4 +35,5 @@ func _on_timer_timeout():
 			continue
 		c.queue_free()
 	textbox.closeTextBox()
+	textbox.setAngry()
 	textbox_gone.emit()
