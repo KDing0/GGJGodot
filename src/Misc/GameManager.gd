@@ -31,7 +31,7 @@ func freeAllChildren():
 func loadMainMenu():
 	if currentState == States.MAIN_MENU:
 		return
-		
+	
 	freeAllChildren()
 	var scene_mainMenu = preload(sceneStr_mainMenu)
 	var instance_mainMenu = scene_mainMenu.instantiate()
@@ -47,6 +47,7 @@ func loadPauseMenu():
 	if currentState != States.INGAME:
 		return
 	
+	get_tree().paused = true
 	var scene_pauseMenu = preload(sceneStr_pauseMenu)
 	var instance_pauseMenu = scene_pauseMenu.instantiate()
 	
@@ -63,6 +64,7 @@ func loadGameOverMenu():
 	if currentState != States.INGAME:
 		return
 	
+	get_tree().paused = true
 	var scene_gameOverMenu = preload(sceneStr_gameOver)
 	var instance_gameOverMenu = scene_gameOverMenu.instantiate()
 	
@@ -77,6 +79,8 @@ func startGame():
 	if currentState != States.MAIN_MENU:
 		return
 	
+	get_tree().paused = false
+	Livecounter.reset()
 	# create game instance
 	var scene_game = preload(sceneStr_game)
 	var instance_game = scene_game.instantiate()
@@ -93,6 +97,7 @@ func resume_game():
 	if currentState != States.PAUSE_MENU:
 		return
 	
+	get_tree().paused = false
 	currentState = States.INGAME
 	self.get_child(1).queue_free()
 
