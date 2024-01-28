@@ -1082,7 +1082,7 @@ texture = ExtResource("3_ojmud")
 offset = Vector2(0, 1.48148)
 texture_scale = 0.35
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Map"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Map" groups=["Tile"]]
 z_index = 6
 position = Vector2(656, 656)
 scale = Vector2(5.34766, 7.29)
@@ -1091,7 +1091,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/StaticBody2D"]
 shape = SubResource("RectangleShape2D_nu0r2")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Map"]
+[node name="StaticBody2D2" type="StaticBody2D" parent="Map" groups=["Tile"]]
 z_index = 6
 position = Vector2(656, 352)
 scale = Vector2(5.34766, 7.29)
