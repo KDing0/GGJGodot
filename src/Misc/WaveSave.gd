@@ -1,18 +1,17 @@
 extends Node
 class_name Waves
 
-# EnemyType, PathID, Speed, Amount of Enemies, Time to next batch
-# If there is no next batch, just leave the last element
+# EnemyType, PathID, Speed, Amount of Enemies, Time to next batch, Time between unit spawns, LastBatch
 const wave_1 = [
-	[Enemy.EnemyTypes.ENEMY_TYPE4, 1, 70.0, 1, 2],
-	[Enemy.EnemyTypes.ENEMY_TYPE2, 2, 90.0, 1, 2],
-	[Enemy.EnemyTypes.ENEMY_TYPE1, 3, 80.0, 1]
+	[Enemy.EnemyTypes.ENEMY_TYPE1, 4, 70.0, 5, 0, 0.5, 0],
+	[Enemy.EnemyTypes.ENEMY_TYPE2, 2, 90.0, 4, 2, 0.5, 0],
+	[Enemy.EnemyTypes.ENEMY_TYPE3, 3, 80.0, 7, 5, 0.5, 1]
 ]
 const wave_2 = [
-	[Enemy.EnemyTypes.ENEMY_TYPE2, 2, 80.0, 1, 0.5],
-	[Enemy.EnemyTypes.ENEMY_TYPE2, 1, 90.0, 1, 0.5],
-	[Enemy.EnemyTypes.ENEMY_TYPE1, 2, 60.0, 1, 0.5],
-	[Enemy.EnemyTypes.ENEMY_TYPE1, 1, 70.0, 1]
+	[Enemy.EnemyTypes.ENEMY_TYPE4, 2, 80.0, 1, 1, 0.5, 0],
+	[Enemy.EnemyTypes.ENEMY_TYPE5, 1, 90.0, 1, 2, 0.5, 0],
+	[Enemy.EnemyTypes.ENEMY_TYPE1, 2, 60.0, 1, 1, 0.5, 0],
+	[Enemy.EnemyTypes.ENEMY_TYPE2, 1, 70.0, 1, 1, 0.5, 1]
 ]
 
 const waveMap = {0: wave_1, 1: wave_2}

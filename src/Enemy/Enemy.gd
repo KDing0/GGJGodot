@@ -18,12 +18,14 @@ var savedAngle = 0
 @export var BulletCycleCooldown = 0.0
 @export var BulletRotationShift = 0.0
 
+@export var ShootingWalkSpeed = 1.0
+@export var PreShotSlowTime = 0.0
+
 var timer = 0
 var firstShot = true
 var nextShotCooldown = 0 
 var shotCycle = 0
 var rotationShift = 0
-
 
 enum EnemyTypes {ENEMY_TYPE1, ENEMY_TYPE2, ENEMY_TYPE3, ENEMY_TYPE4, ENEMY_TYPE5}
 
@@ -58,7 +60,10 @@ func _on_Bullet_entered(body):
 		
 
 func _process(delta):
-	progress += speed*delta
+	var timeTillShot = nextShotCooldown - timer
+	if(shotCycle > 0 || (timeTillShot <= PreShotSlowTime and PreShotSlowTime > 0)):
+		progress += speed*delta*ShootingWalkSpeed
+	else: progress += speed*delta
 	if progress_ratio >= 1.0:
 		self.queue_free()
 	shootCooldownCounting(delta)
@@ -95,29 +100,21 @@ func shootAngle()->int:
 	return angle
 	
 func shootCooldownCounting(delta):
-	timer = timer + delta
-	if(firstShot == true and timer >= BulletStartDelay):
+	timer += delta
+	if(firstShot == true):
+		nextShotCooldown = BulletStartDelay
 		firstShot = false
-		timer = 0
-		shotCycle = shotCycle + 1
-		if(BulletCycleAmount >= 1):
-			nextShotCooldown = BulletShootDelay
-			if(shotCycle >= BulletCycleAmount):
-				nextShotCooldown += BulletCycleCooldown
-		if(shotCycle == 0):
-			savedAngle = shootAngle()
-		shoot()
 	
 	if(BulletCycleCooldown > 0 and BulletCycleAmount >= 1 and firstShot == false and timer >= nextShotCooldown):
 		timer = 0
+		if(shotCycle == 0):
+			savedAngle = shootAngle()
+		shoot()
 		shotCycle = shotCycle + 1
 		if(BulletCycleAmount >= 1):
 			nextShotCooldown = BulletShootDelay
 			if(shotCycle >= BulletCycleAmount):
 				shotCycle = 0
 				nextShotCooldown += BulletCycleCooldown
-		if(shotCycle == 0):
-			savedAngle = shootAngle()
-		shoot()
 # if hit by a player bullet:
 # 	queue_free()
