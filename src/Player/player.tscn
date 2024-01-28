@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://ipk1i003beqy"]
+[gd_scene load_steps=15 format=3 uid="uid://ipk1i003beqy"]
 
 [ext_resource type="Script" path="res://Player/Test.gd" id="1_h3uet"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_ou0hw"]
 [ext_resource type="Texture2D" uid="uid://dfwjjbrb0vlkd" path="res://Assets/Characters/Player/MC.png" id="3_wigxu"]
 [ext_resource type="Texture2D" uid="uid://nl4eeyr3jh1c" path="res://Assets/Characters/Player/MC Walk Animation Spritesheet.png" id="4_22afs"]
+[ext_resource type="AudioStream" uid="uid://cihtsogyesroo" path="res://Assets/Sound/AC_Bubbly_Hit.wav" id="5_gjs2v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_evgr3"]
 atlas = ExtResource("3_wigxu")
@@ -85,5 +86,8 @@ autoplay = "default"
 shape = SubResource("CircleShape2D_8bjk8")
 debug_color = Color(0.878431, 0, 0.529412, 0.643137)
 script = ExtResource("1_h3uet")
+
+[node name="HitSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gjs2v")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
