@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://addons/BulletUpHell/BuHSpawner.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bjjyy4jqou22y" path="res://Addons/BulletUpHell/BulletScene/Sprites/Bullet_3.png" id="2_3slxn"]
 [ext_resource type="Texture2D" uid="uid://bfrd7glm7xt2l" path="res://Addons/BulletUpHell/BulletScene/Sprites/Bullet_06.png" id="3_6fafs"]
+[ext_resource type="Texture2D" uid="uid://cyl6mgq86fywe" path="res://Assets/Environment/Assets/Ammo/bullet_enemy2.png" id="3_hti5e"]
 [ext_resource type="Texture2D" uid="uid://jsf6t31tlfld" path="res://Addons/BulletUpHell/BulletScene/Sprites/Bullet_11.png" id="4_gntuv"]
-[ext_resource type="Texture2D" uid="uid://wsvtx4qk8n3w" path="res://Addons/BulletUpHell/BulletScene/Sprites/meme.png" id="5_jyxgs"]
 [ext_resource type="AudioStream" uid="uid://c6x5p1wu4yo3q" path="res://Addons/BulletUpHell/BulletScene/Hit Hurt.wav" id="5_rada6"]
 
 [sub_resource type="Curve" id="4"]
@@ -28,6 +28,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_hti5e")
+}],
+"loop": true,
+"name": &"Basic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_3slxn")
 }, {
 "duration": 1.0,
@@ -39,17 +47,10 @@ animations = [{
 "loop": true,
 "name": &"Example",
 "speed": 1.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_jyxgs")
-}],
-"loop": true,
-"name": &"test",
-"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="2"]
+radius = 1.0
 
 [sub_resource type="ConvexPolygonShape2D" id="3"]
 points = PackedVector2Array(0, 0)
@@ -73,10 +74,11 @@ collision_mask = 3
 [node name="ShapeManager" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = SubResource("1")
-animation = &"0"
+animation = &"Basic"
 
 [node name="0" type="CollisionShape2D" parent="ShapeManager"]
 shape = SubResource("2")
+debug_color = Color(0.952941, 0, 0.560784, 1)
 
 [node name="LaserBeam" type="CollisionShape2D" parent="ShapeManager"]
 shape = SubResource("3")

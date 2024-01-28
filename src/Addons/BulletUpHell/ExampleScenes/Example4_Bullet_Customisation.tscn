@@ -1030,14 +1030,7 @@ auto_start_on_cam = true
 auto_start_after_time = 0.0
 auto_start_at_distance = 5.0
 auto_distance_from = NodePath("")
-trigger_id = null
-r_randomisation_chances = 0.0
-r_active_chances = 0.0
-r_shared_area_choice = ""
-r_rotating_variation = Vector3(0, 0, 0)
-r_pattern_choice = ""
-r_start_time_choice = ""
-r_start_time_variation = Vector3(0, 0, 0)
+trigger_container = NodePath("")
 
 [node name="SpawnPoint2" type="Node2D" parent="SpawnPoints"]
 position = Vector2(86, 307)
@@ -1051,14 +1044,7 @@ auto_start_on_cam = true
 auto_start_after_time = 0.0
 auto_start_at_distance = 5.0
 auto_distance_from = NodePath("")
-trigger_id = null
-r_randomisation_chances = 0.0
-r_active_chances = 0.0
-r_shared_area_choice = ""
-r_rotating_variation = Vector3(0, 0, 0)
-r_pattern_choice = ""
-r_start_time_choice = ""
-r_start_time_variation = Vector3(0, 0, 0)
+trigger_container = NodePath("")
 
 [node name="SpawnPoint3" type="Node2D" parent="SpawnPoints"]
 position = Vector2(83, 510)
@@ -1072,14 +1058,7 @@ auto_start_on_cam = true
 auto_start_after_time = 0.0
 auto_start_at_distance = 5.0
 auto_distance_from = NodePath("")
-trigger_id = null
-r_randomisation_chances = 0.0
-r_active_chances = 0.0
-r_shared_area_choice = ""
-r_rotating_variation = Vector3(0, 0, 0)
-r_pattern_choice = ""
-r_start_time_choice = ""
-r_start_time_variation = Vector3(0, 0, 0)
+trigger_container = NodePath("")
 
 [node name="SpawnPoint4" type="Node2D" parent="SpawnPoints"]
 position = Vector2(746, 119)
@@ -1093,14 +1072,7 @@ auto_start_on_cam = true
 auto_start_after_time = 0.0
 auto_start_at_distance = 5.0
 auto_distance_from = NodePath("")
-trigger_id = null
-r_randomisation_chances = 0.0
-r_active_chances = 0.0
-r_shared_area_choice = ""
-r_rotating_variation = Vector3(0, 0, 0)
-r_pattern_choice = ""
-r_start_time_choice = ""
-r_start_time_variation = Vector3(0, 0, 0)
+trigger_container = NodePath("")
 
 [node name="SpawnPoint5" type="Node2D" parent="SpawnPoints"]
 position = Vector2(748, 271)
@@ -1114,14 +1086,7 @@ auto_start_on_cam = true
 auto_start_after_time = 0.0
 auto_start_at_distance = 5.0
 auto_distance_from = NodePath("")
-trigger_id = null
-r_randomisation_chances = 0.0
-r_active_chances = 0.0
-r_shared_area_choice = ""
-r_rotating_variation = Vector3(0, 0, 0)
-r_pattern_choice = ""
-r_start_time_choice = ""
-r_start_time_variation = Vector3(0, 0, 0)
+trigger_container = NodePath("")
 
 [node name="SpawnPoint6" type="Node2D" parent="SpawnPoints"]
 position = Vector2(744, 496)
@@ -1135,14 +1100,7 @@ auto_start_on_cam = true
 auto_start_after_time = 0.0
 auto_start_at_distance = 5.0
 auto_distance_from = NodePath("")
-trigger_id = null
-r_randomisation_chances = 0.0
-r_active_chances = 0.0
-r_shared_area_choice = ""
-r_rotating_variation = Vector3(0, 0, 0)
-r_pattern_choice = ""
-r_start_time_choice = ""
-r_start_time_variation = Vector3(0, 0, 0)
+trigger_container = NodePath("")
 
 [node name="SpawnPoint7" type="Node2D" parent="SpawnPoints"]
 position = Vector2(560, 336)
@@ -1156,14 +1114,7 @@ auto_start_on_cam = true
 auto_start_after_time = 0.0
 auto_start_at_distance = 5.0
 auto_distance_from = NodePath("")
-trigger_id = null
-r_randomisation_chances = 0.0
-r_active_chances = 0.0
-r_shared_area_choice = ""
-r_rotating_variation = Vector3(0, 0, 0)
-r_pattern_choice = ""
-r_start_time_choice = ""
-r_start_time_variation = Vector3(0, 0, 0)
+trigger_container = NodePath("")
 
 [node name="Walls" type="StaticBody2D" parent="."]
 collision_layer = 16

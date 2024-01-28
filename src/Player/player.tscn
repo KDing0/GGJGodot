@@ -3,11 +3,7 @@
 [ext_resource type="Script" path="res://Player/Test.gd" id="1_h3uet"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_ou0hw"]
 [ext_resource type="Texture2D" uid="uid://dfwjjbrb0vlkd" path="res://Assets/Characters/Player/MC.png" id="3_wigxu"]
-[ext_resource type="Texture2D" uid="uid://b5k7gnetctsak" path="res://Assets/Characters/Player/MC Walk Animation Spritesheet.png" id="4_22afs"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_161ag"]
-radius = 17.5
-height = 35.0
+[ext_resource type="Texture2D" uid="uid://nl4eeyr3jh1c" path="res://Assets/Characters/Player/MC Walk Animation Spritesheet.png" id="4_22afs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_evgr3"]
 atlas = ExtResource("3_wigxu")
@@ -71,19 +67,23 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8bjk8"]
+radius = 4.0
+
 [node name="player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(-1, -2)
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_ou0hw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_161ag")
-script = ExtResource("1_h3uet")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ggxq5")
 animation = &"running"
 autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8bjk8")
+debug_color = Color(0.878431, 0, 0.529412, 0.643137)
+script = ExtResource("1_h3uet")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
