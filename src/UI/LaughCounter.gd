@@ -1,3 +1,5 @@
 extends Node
 
-var laughs = 0
+var laughs = -1
+
+var maxlaughs = 5
