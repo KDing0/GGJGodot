@@ -45,27 +45,27 @@ size = Vector2(8.9759, 92.1811)
 
 [sub_resource type="Curve2D" id="Curve2D_sosch"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 218, 38, -11.2246, -20.2043, 11.2246, 20.2043, 364, 226, 2.24493, -44.8985, -2.24493, 44.8985, 663, 381, 15.7145, -24.6942, -15.7145, 24.6942, 659, 586, 0, 0, 0, 0, 342, 703)
+"points": PackedVector2Array(0, 0, 0, 0, 234, 294, 2.24493, -44.8985, -2.24493, 44.8985, 663, 381, 15.7145, -24.6942, -15.7145, 24.6942, 667, 563, 0, 0, 0, 0, 532, 576, 0, 0, 0, 0, 237, 572)
 }
 point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_ndshr"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 148, 199, 0, 0, 0, 0, 427, 197, 0, 0, 0, 0, 790, 397, 0, 0, 0, 0, 1163, 433)
+"points": PackedVector2Array(0, 0, 0, 0, 235, 444, 0, 0, 0, 0, 379, 566, 0, 0, 0, 0, 1234, 333, 0, 0, 0, 0, 1238, 566, 0, 0, 0, 0, 1543, 563)
 }
-point_count = 4
+point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_j28tn"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 759, -66, 0, 0, 0, 0, 768, 848)
+"points": PackedVector2Array(0, 0, 0, 0, 1539, 265, 0, 0, 0, 0, 1282, 317, 0, 0, 0, 0, 768, 848)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_vyeob"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 864, 772, 0, 0, 0, 0, 768, 393, 0, 0, 0, 0, 1031, 485, 0, 0, 0, 0, 882, 789, 0, 0, 0, 0, 864, 772)
+"points": PackedVector2Array(0, 0, 0, 0, 864, 772, 0, 0, 0, 0, 768, 393, 0, 0, 0, 0, 941, 356, 0, 0, 0, 0, 1031, 485, 0, 0, 0, 0, 882, 789, 0, 0, 0, 0, 864, 772)
 }
-point_count = 5
+point_count = 6
 
 [sub_resource type="Curve2D" id="Curve2D_jqf82"]
 

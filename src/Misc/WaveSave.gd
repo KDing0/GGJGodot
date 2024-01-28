@@ -1,11 +1,14 @@
 extends Node
 class_name Waves
 
-# EnemyType, PathID, Speed, Amount of Enemies, Time to next batch, Time between unit spawns, LastBatch
+# EnemyType, PathID, Speed, Amount of Enemies, Time to next batch, Portrait ID,  Time between unit spawns, LastBatch
 const wave_1 = [
-	[Enemy.EnemyTypes.ENEMY_TYPE1, 4, 70.0, 5, 0, 0, 0.5, 0],
-	[Enemy.EnemyTypes.ENEMY_TYPE2, 2, 90.0, 4, 2, 1, 0.5, 0],
-	[Enemy.EnemyTypes.ENEMY_TYPE3, 3, 80.0, 7, 5, -1, 0.5, 1]
+	[Enemy.EnemyTypes.ENEMY_TYPE1, 4, 70.0, 5, 0,  0, 0.5, 0],
+	[Enemy.EnemyTypes.ENEMY_TYPE1, 3, 90.0, 10, 1, -1, 1, 0],
+	[Enemy.EnemyTypes.ENEMY_TYPE2, 4, 90.0, 4, 2,  -1, 0.5, 0],
+	[Enemy.EnemyTypes.ENEMY_TYPE3, 3, 80.0, 7, 5, -1, 0.5, 1],
+	[Enemy.EnemyTypes.ENEMY_TYPE1, 1, 70.0, 5, 0, -1, 0.5, 0],
+	[Enemy.EnemyTypes.ENEMY_TYPE2, 3, 70.0, 8, 2,  -1, 2, 0],
 ]
 const wave_2 = [
 	[Enemy.EnemyTypes.ENEMY_TYPE4, 2, 80.0, 1, 1, -1, 0.5, 0],
